@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>From LOD to LOUD: making data usable</title>
+
+		<meta name="description" content="Workshop at SWIB18">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>From LOD to LOUD: making data usable</h1>
+					<h3>Workshop at SWIB18</h3>
+					<p>
+						<small>
+							<a href="http://fsteeg.com/">Fabian Steeg</a> / 
+							<a href="https://twitter.com/fsteeg">@fsteeg</a> &amp; 
+							<a href="http://www.uebertext.org/">Adrian Pohl</a> /
+							<a href="https://twitter.com/acka47">@acka47</a> <br/> 
+							<a href="http://lobid.org/team">Linked Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br/>
+						<img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
+						<small>Bonn, 2018-11-26</small>
+					</p>
+					<p>
+						This presentation: <br /> <a
+							href="http://hbz.github.io/swib18-workshop">http://hbz.github.io/swib18-workshop</a>
+						<br/>
+						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+					</p>
+				</section>
+
+				<section>
+
+					<section>
+						<h1>Header</h1>
+						<p><span class="fragment">Fragment</span></p>
+						<p><span class="fragment">Fragment</span></p>
+						<p><span class="fragment">Frgament</span></p>
+					</section>
+
+					<section>
+						<h2>Table<br/><small>(overview)</small></h2>
+						<table>
+							<tr><th width="50%"/><th width="40%"/><th width="10%"/></tr>
+							<tr><td><b>Setting up and working on local projects with Git</b></td><td>Git basics: init, add, commit, log</td><td>13:00-13:40</td></tr>
+							<tr><td><b>Sharing and working on projects on GitHub</b></td><td>Git remotes, GitHub web UI, Git push, pull</td><td>13:40-14:00</td></tr>
+							<tr><td><b>Documenting your project on GitHub</b></td><td>readme, Markdown, GitHub pages</td><td>14:00-15:00</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<h2>Exercise 1:<br/>set up a local project with Git</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="50%" />
+							<col width="50%" />
+							<tbody>
+								<tr>
+									<td>Create a location for all your Git repos</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cd ~
+$ mkdir git
+$ cd git
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Create an empty Git repo</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ mkdir lodworkshop-project
+$ cd lodworkshop-project
+$ git init
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Verify project setup</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ git status
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application or Git shell.</i>)</font></p>
+					</section>
+
+					<section data-background="img/remote.png"
+						data-background-size="contain">
+					</section>
+
+				<section>
+					<h1>Time for questions, discussions, feedback</h1>
+					<p><a href="https://hbz.github.io/swib18-workshop/">https://hbz.github.io/swib18-workshop/</a></p>
+					<p><a href="https://github.com/hbz/swib18-workshop/">https://github.com/hbz/swib18-workshop/</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none',
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
