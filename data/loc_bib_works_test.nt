@@ -1,0 +1,96 @@
+<http://id.loc.gov/resources/works/c000000018> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Work> .
+<http://id.loc.gov/resources/works/c000000018> <http://id.loc.gov/ontologies/bibframe/adminMetadata> _:bnode6793007797045152761 .
+_:bnode6793007797045152761 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/AdminMetadata> .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bibframe/generationProcess> _:bnode17924474223838741923 .
+_:bnode17924474223838741923 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/GenerationProcess> .
+_:bnode17924474223838741923 <http://www.w3.org/2000/01/rdf-schema#label> "DLC marc2bibframe2 v1.3.0-SNAPSHOT" .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bibframe/status> _:bnode757167636820467590 .
+_:bnode757167636820467590 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Status> .
+_:bnode757167636820467590 <http://id.loc.gov/ontologies/bibframe/code> "n" .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bflc/encodingLevel> _:bnode14034527611868196659 .
+_:bnode14034527611868196659 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bflc/EncodingLevel> .
+_:bnode14034527611868196659 <http://id.loc.gov/ontologies/bibframe/code> "7" .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bibframe/descriptionConventions> _:bnode12518409798772300573 .
+_:bnode12518409798772300573 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/DescriptionConventions> .
+_:bnode12518409798772300573 <http://id.loc.gov/ontologies/bibframe/code> "aacr" .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bibframe/identifiedBy> _:bnode899183859662668119 .
+_:bnode899183859662668119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Local> .
+_:bnode899183859662668119 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "18" .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bibframe/creationDate> "1993-07-13"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bibframe/source> _:bnode3740256011234232028 .
+_:bnode3740256011234232028 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Source> .
+_:bnode3740256011234232028 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Agent> .
+_:bnode3740256011234232028 <http://www.w3.org/2000/01/rdf-schema#label> "DLC" .
+_:bnode6793007797045152761 <http://id.loc.gov/ontologies/bibframe/source> _:bnode14876346703942647403 .
+_:bnode14876346703942647403 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Source> .
+_:bnode14876346703942647403 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Agent> .
+_:bnode14876346703942647403 <http://www.w3.org/2000/01/rdf-schema#label> "DLC" .
+<http://id.loc.gov/resources/works/c000000018> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Text> .
+<http://id.loc.gov/resources/works/c000000018> <http://id.loc.gov/ontologies/bibframe/language> <http://id.loc.gov/vocabulary/languages/eng> .
+<http://id.loc.gov/vocabulary/languages/eng> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Language> .
+<http://id.loc.gov/resources/works/c000000018> <http://www.w3.org/2000/01/rdf-schema#label> "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /" .
+<http://id.loc.gov/resources/works/c000000018> <http://id.loc.gov/ontologies/bibframe/title> _:bnode711016064613324596 .
+_:bnode711016064613324596 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Title> .
+_:bnode711016064613324596 <http://www.w3.org/2000/01/rdf-schema#label> "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /" .
+_:bnode711016064613324596 <http://id.loc.gov/ontologies/bflc/titleSortKey> "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /" .
+_:bnode711016064613324596 <http://id.loc.gov/ontologies/bibframe/mainTitle> "Bloom where you are planted" .
+_:bnode711016064613324596 <http://id.loc.gov/ontologies/bibframe/subtitle> "glimpses into the life of Fr. Charles H. Hollencamp" .
+<http://id.loc.gov/resources/works/c000000018> <http://id.loc.gov/ontologies/bibframe/contribution> _:bnode6115107744135409061 .
+_:bnode6115107744135409061 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Contribution> .
+_:bnode6115107744135409061 <http://id.loc.gov/ontologies/bibframe/agent> <http://id.loc.gov/resources/works/18#Agent700-15> .
+<http://id.loc.gov/resources/works/18#Agent700-15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Agent> .
+<http://id.loc.gov/resources/works/18#Agent700-15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Person> .
+<http://id.loc.gov/resources/works/18#Agent700-15> <http://id.loc.gov/ontologies/bflc/name00MatchKey> "Winship, Pat." .
+<http://id.loc.gov/resources/works/18#Agent700-15> <http://id.loc.gov/ontologies/bflc/name00MarcKey> "7001 $aWinship, Pat." .
+<http://id.loc.gov/resources/works/18#Agent700-15> <http://www.w3.org/2000/01/rdf-schema#label> "Winship, Pat." .
+_:bnode6115107744135409061 <http://id.loc.gov/ontologies/bibframe/role> <http://id.loc.gov/vocabulary/relators/ctb> .
+<http://id.loc.gov/vocabulary/relators/ctb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Role> .
+<http://id.loc.gov/resources/works/c000000007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Work> .
+<http://id.loc.gov/resources/works/c000000007> <http://id.loc.gov/ontologies/bibframe/adminMetadata> _:bnode14355032821069857114 .
+_:bnode14355032821069857114 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/AdminMetadata> .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bibframe/generationProcess> _:bnode10749332390791937524 .
+_:bnode10749332390791937524 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/GenerationProcess> .
+_:bnode10749332390791937524 <http://www.w3.org/2000/01/rdf-schema#label> "DLC marc2bibframe2 v1.3.0-SNAPSHOT" .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bibframe/status> _:bnode1227601789471884308 .
+_:bnode1227601789471884308 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Status> .
+_:bnode1227601789471884308 <http://id.loc.gov/ontologies/bibframe/code> "n" .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bflc/encodingLevel> _:bnode13446013874929094104 .
+_:bnode13446013874929094104 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bflc/EncodingLevel> .
+_:bnode13446013874929094104 <http://id.loc.gov/ontologies/bibframe/code> "5" .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bibframe/descriptionConventions> _:bnode5132051110360583993 .
+_:bnode5132051110360583993 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/DescriptionConventions> .
+_:bnode5132051110360583993 <http://id.loc.gov/ontologies/bibframe/code> "aacr" .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bibframe/identifiedBy> _:bnode8325081163668473701 .
+_:bnode8325081163668473701 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Local> .
+_:bnode8325081163668473701 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "7" .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bibframe/creationDate> "1994-02-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bibframe/source> _:bnode13969093776820131639 .
+_:bnode13969093776820131639 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Source> .
+_:bnode13969093776820131639 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Agent> .
+_:bnode13969093776820131639 <http://www.w3.org/2000/01/rdf-schema#label> "DLC" .
+_:bnode14355032821069857114 <http://id.loc.gov/ontologies/bibframe/source> _:bnode2655247352552027522 .
+_:bnode2655247352552027522 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Source> .
+_:bnode2655247352552027522 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Agent> .
+_:bnode2655247352552027522 <http://www.w3.org/2000/01/rdf-schema#label> "DLC" .
+<http://id.loc.gov/resources/works/c000000007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Text> .
+<http://id.loc.gov/resources/works/c000000007> <http://id.loc.gov/ontologies/bibframe/language> <http://id.loc.gov/vocabulary/languages/eng> .
+<http://id.loc.gov/vocabulary/languages/eng> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Language> .
+<http://id.loc.gov/resources/works/c000000007> <http://id.loc.gov/ontologies/bibframe/contribution> _:bnode16449007811236629945 .
+_:bnode16449007811236629945 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Contribution> .
+_:bnode16449007811236629945 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bflc/PrimaryContribution> .
+_:bnode16449007811236629945 <http://id.loc.gov/ontologies/bibframe/agent> <http://id.loc.gov/resources/works/7#Agent110-10> .
+<http://id.loc.gov/resources/works/7#Agent110-10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Agent> .
+<http://id.loc.gov/resources/works/7#Agent110-10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Jurisdiction> .
+<http://id.loc.gov/resources/works/7#Agent110-10> <http://id.loc.gov/ontologies/bflc/name10MatchKey> "Canada. Parliament. Senate. Special Committee on the ..." .
+<http://id.loc.gov/resources/works/7#Agent110-10> <http://id.loc.gov/ontologies/bflc/name10MarcKey> "1101 $aCanada.$bParliament.$bSenate.$bSpecial Committee on the ..." .
+<http://id.loc.gov/resources/works/7#Agent110-10> <http://id.loc.gov/ontologies/bflc/primaryContributorName10MatchKey> "Canada. Parliament. Senate. Special Committee on the ..." .
+<http://id.loc.gov/resources/works/7#Agent110-10> <http://www.w3.org/2000/01/rdf-schema#label> "Canada. Parliament. Senate. Special Committee on the ..." .
+_:bnode16449007811236629945 <http://id.loc.gov/ontologies/bibframe/role> <http://id.loc.gov/vocabulary/relators/ctb> .
+<http://id.loc.gov/vocabulary/relators/ctb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Role> .
+<http://id.loc.gov/resources/works/c000000007> <http://www.w3.org/2000/01/rdf-schema#label> "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ..." .
+<http://id.loc.gov/resources/works/c000000007> <http://id.loc.gov/ontologies/bibframe/title> _:bnode4006502985164884794 .
+_:bnode4006502985164884794 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://id.loc.gov/ontologies/bibframe/Title> .
+_:bnode4006502985164884794 <http://www.w3.org/2000/01/rdf-schema#label> "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ..." .
+_:bnode4006502985164884794 <http://id.loc.gov/ontologies/bflc/titleSortKey> "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ..." .
+_:bnode4006502985164884794 <http://id.loc.gov/ontologies/bibframe/mainTitle> "Proceedings of the Special Committee of the Senate on the Bill ...=" .
+_:bnode4006502985164884794 <http://id.loc.gov/ontologies/bibframe/subtitle> "Délibérations du Comité spécial du Sénat sur le loi" .
