@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>From LOD to LOUD: making data usable</title>
+		<script src="https://cdn.jsdelivr.net/npm/jsonld@1.0.0/dist/jsonld.min.js"></script>
+	</head>
+	<body>
+		<h1>Input triples</h1>
+		<pre><code id='input'></code></pre>
+		<h1>JSON-LD output</h1>
+		<pre><code id='output'></code></pre>
+		<script>
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var data = xhttp.responseText;
+					console.log("==============")
+					console.log("Input triples:")
+					console.log("==============")
+					console.log(data);
+					document.getElementById("input").textContent = data;
+					jsonld.fromRDF(data, {format: 'application/n-quads'}, (err, doc) => {
+						if (err) { throw err; }
+						console.log("===============")
+						console.log("JSON-LD output:")
+						console.log("===============")
+						var json = JSON.stringify(doc, null, 2);
+						console.log(json);
+						document.getElementById("output").textContent = json;
+					});
+				}
+			};
+			var url = 'https://raw.githubusercontent.com/hbz/swib18-workshop/2-convert/data/loc_bib_works_test.nt'
+			xhttp.open("GET", url, true);
+			xhttp.send();
+		</script>
+	</body>
+</html>

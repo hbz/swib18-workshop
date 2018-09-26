@@ -21,10 +21,6 @@ Requirements: Laptop with [Elasticsearch 6.x](https://www.elastic.co/guide/en/el
 
 ## Setup
 
-Install npm:
-
-`sudo apt install npm`
-
 Clone the repo:
 
 `git clone https://github.com/hbz/swib18-workshop.git`
@@ -32,6 +28,16 @@ Clone the repo:
 Go to the repo:
 
 `cd swib18-workshop`
+
+### Browser
+
+Open `data/index.html` in a web browser.
+
+### Node
+
+Install npm:
+
+`sudo apt install npm`
 
 Install dependencies:
 
