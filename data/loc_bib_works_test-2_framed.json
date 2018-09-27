@@ -1,0 +1,166 @@
+{
+  "@graph": [
+    {
+      "@id": "http://id.loc.gov/resources/works/c000000007",
+      "@type": [
+        "http://id.loc.gov/ontologies/bibframe/Work",
+        "http://id.loc.gov/ontologies/bibframe/Text"
+      ],
+      "http://id.loc.gov/ontologies/bibframe/adminMetadata": {
+        "@type": "http://id.loc.gov/ontologies/bibframe/AdminMetadata",
+        "http://id.loc.gov/ontologies/bflc/encodingLevel": {
+          "@type": "http://id.loc.gov/ontologies/bflc/EncodingLevel",
+          "http://id.loc.gov/ontologies/bibframe/code": "5"
+        },
+        "http://id.loc.gov/ontologies/bibframe/creationDate": {
+          "@type": "http://www.w3.org/2001/XMLSchema#date",
+          "@value": "1994-02-10"
+        },
+        "http://id.loc.gov/ontologies/bibframe/descriptionConventions": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/DescriptionConventions",
+          "http://id.loc.gov/ontologies/bibframe/code": "aacr"
+        },
+        "http://id.loc.gov/ontologies/bibframe/generationProcess": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/GenerationProcess",
+          "http://www.w3.org/2000/01/rdf-schema#label": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+        },
+        "http://id.loc.gov/ontologies/bibframe/identifiedBy": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/Local",
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": "7"
+        },
+        "http://id.loc.gov/ontologies/bibframe/source": [
+          {
+            "@type": [
+              "http://id.loc.gov/ontologies/bibframe/Source",
+              "http://id.loc.gov/ontologies/bibframe/Agent"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#label": "DLC"
+          },
+          {
+            "@type": [
+              "http://id.loc.gov/ontologies/bibframe/Source",
+              "http://id.loc.gov/ontologies/bibframe/Agent"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#label": "DLC"
+          }
+        ],
+        "http://id.loc.gov/ontologies/bibframe/status": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/Status",
+          "http://id.loc.gov/ontologies/bibframe/code": "n"
+        }
+      },
+      "http://id.loc.gov/ontologies/bibframe/contribution": {
+        "@type": [
+          "http://id.loc.gov/ontologies/bibframe/Contribution",
+          "http://id.loc.gov/ontologies/bflc/PrimaryContribution"
+        ],
+        "http://id.loc.gov/ontologies/bibframe/agent": {
+          "@id": "http://id.loc.gov/resources/works/7#Agent110-10",
+          "@type": [
+            "http://id.loc.gov/ontologies/bibframe/Agent",
+            "http://id.loc.gov/ontologies/bibframe/Jurisdiction"
+          ],
+          "http://id.loc.gov/ontologies/bflc/name10MarcKey": "1101 $aCanada.$bParliament.$bSenate.$bSpecial Committee on the ...",
+          "http://id.loc.gov/ontologies/bflc/name10MatchKey": "Canada. Parliament. Senate. Special Committee on the ...",
+          "http://id.loc.gov/ontologies/bflc/primaryContributorName10MatchKey": "Canada. Parliament. Senate. Special Committee on the ...",
+          "http://www.w3.org/2000/01/rdf-schema#label": "Canada. Parliament. Senate. Special Committee on the ..."
+        },
+        "http://id.loc.gov/ontologies/bibframe/role": {
+          "@id": "http://id.loc.gov/vocabulary/relators/ctb",
+          "@type": "http://id.loc.gov/ontologies/bibframe/Role"
+        }
+      },
+      "http://id.loc.gov/ontologies/bibframe/language": {
+        "@id": "http://id.loc.gov/vocabulary/languages/eng",
+        "@type": "http://id.loc.gov/ontologies/bibframe/Language"
+      },
+      "http://id.loc.gov/ontologies/bibframe/title": {
+        "@type": "http://id.loc.gov/ontologies/bibframe/Title",
+        "http://id.loc.gov/ontologies/bflc/titleSortKey": "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ...",
+        "http://id.loc.gov/ontologies/bibframe/mainTitle": "Proceedings of the Special Committee of the Senate on the Bill ...=",
+        "http://id.loc.gov/ontologies/bibframe/subtitle": "Délibérations du Comité spécial du Sénat sur le loi",
+        "http://www.w3.org/2000/01/rdf-schema#label": "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ..."
+      },
+      "http://www.w3.org/2000/01/rdf-schema#label": "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ..."
+    },
+    {
+      "@id": "http://id.loc.gov/resources/works/c000000018",
+      "@type": [
+        "http://id.loc.gov/ontologies/bibframe/Work",
+        "http://id.loc.gov/ontologies/bibframe/Text"
+      ],
+      "http://id.loc.gov/ontologies/bibframe/adminMetadata": {
+        "@type": "http://id.loc.gov/ontologies/bibframe/AdminMetadata",
+        "http://id.loc.gov/ontologies/bflc/encodingLevel": {
+          "@type": "http://id.loc.gov/ontologies/bflc/EncodingLevel",
+          "http://id.loc.gov/ontologies/bibframe/code": "7"
+        },
+        "http://id.loc.gov/ontologies/bibframe/creationDate": {
+          "@type": "http://www.w3.org/2001/XMLSchema#date",
+          "@value": "1993-07-13"
+        },
+        "http://id.loc.gov/ontologies/bibframe/descriptionConventions": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/DescriptionConventions",
+          "http://id.loc.gov/ontologies/bibframe/code": "aacr"
+        },
+        "http://id.loc.gov/ontologies/bibframe/generationProcess": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/GenerationProcess",
+          "http://www.w3.org/2000/01/rdf-schema#label": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+        },
+        "http://id.loc.gov/ontologies/bibframe/identifiedBy": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/Local",
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": "18"
+        },
+        "http://id.loc.gov/ontologies/bibframe/source": [
+          {
+            "@type": [
+              "http://id.loc.gov/ontologies/bibframe/Source",
+              "http://id.loc.gov/ontologies/bibframe/Agent"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#label": "DLC"
+          },
+          {
+            "@type": [
+              "http://id.loc.gov/ontologies/bibframe/Source",
+              "http://id.loc.gov/ontologies/bibframe/Agent"
+            ],
+            "http://www.w3.org/2000/01/rdf-schema#label": "DLC"
+          }
+        ],
+        "http://id.loc.gov/ontologies/bibframe/status": {
+          "@type": "http://id.loc.gov/ontologies/bibframe/Status",
+          "http://id.loc.gov/ontologies/bibframe/code": "n"
+        }
+      },
+      "http://id.loc.gov/ontologies/bibframe/contribution": {
+        "@type": "http://id.loc.gov/ontologies/bibframe/Contribution",
+        "http://id.loc.gov/ontologies/bibframe/agent": {
+          "@id": "http://id.loc.gov/resources/works/18#Agent700-15",
+          "@type": [
+            "http://id.loc.gov/ontologies/bibframe/Agent",
+            "http://id.loc.gov/ontologies/bibframe/Person"
+          ],
+          "http://id.loc.gov/ontologies/bflc/name00MarcKey": "7001 $aWinship, Pat.",
+          "http://id.loc.gov/ontologies/bflc/name00MatchKey": "Winship, Pat.",
+          "http://www.w3.org/2000/01/rdf-schema#label": "Winship, Pat."
+        },
+        "http://id.loc.gov/ontologies/bibframe/role": {
+          "@id": "http://id.loc.gov/vocabulary/relators/ctb",
+          "@type": "http://id.loc.gov/ontologies/bibframe/Role"
+        }
+      },
+      "http://id.loc.gov/ontologies/bibframe/language": {
+        "@id": "http://id.loc.gov/vocabulary/languages/eng",
+        "@type": "http://id.loc.gov/ontologies/bibframe/Language"
+      },
+      "http://id.loc.gov/ontologies/bibframe/title": {
+        "@type": "http://id.loc.gov/ontologies/bibframe/Title",
+        "http://id.loc.gov/ontologies/bflc/titleSortKey": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /",
+        "http://id.loc.gov/ontologies/bibframe/mainTitle": "Bloom where you are planted",
+        "http://id.loc.gov/ontologies/bibframe/subtitle": "glimpses into the life of Fr. Charles H. Hollencamp",
+        "http://www.w3.org/2000/01/rdf-schema#label": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /"
+      },
+      "http://www.w3.org/2000/01/rdf-schema#label": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /"
+    }
+  ]
+}

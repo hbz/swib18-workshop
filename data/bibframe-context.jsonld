@@ -374,5 +374,6 @@
   "temporalCoverage": {"@id": "http://id.loc.gov/ontologies/bibframe/temporalCoverage", "@language": null},
   "variantType": {"@id": "http://id.loc.gov/ontologies/bibframe/variantType", "@language": null},
   "version": {"@id": "http://id.loc.gov/ontologies/bibframe/version", "@language": null},
-  "voiceType": {"@id": "http://id.loc.gov/ontologies/bibframe/voiceType", "@language": null}
+  "voiceType": {"@id": "http://id.loc.gov/ontologies/bibframe/voiceType", "@language": null},
+  "label": {"@id": "http://www.w3.org/2000/01/rdf-schema#label", "@language": null}
 }

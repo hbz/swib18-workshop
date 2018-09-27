@@ -1,0 +1,206 @@
+[
+  {
+    "@context": "https://raw.githubusercontent.com/hbz/swib18-workshop/2-convert/data/bibframe-context.jsonld",
+    "@id": "http://id.loc.gov/resources/works/c000000007",
+    "@type": [
+      "Work",
+      "Text"
+    ],
+    "adminMetadata": [
+      {
+        "@type": "AdminMetadata",
+        "http://id.loc.gov/ontologies/bflc/encodingLevel": {
+          "@type": "http://id.loc.gov/ontologies/bflc/EncodingLevel",
+          "code": "5"
+        },
+        "http://id.loc.gov/ontologies/bibframe/creationDate": {
+          "@type": "http://www.w3.org/2001/XMLSchema#date",
+          "@value": "1994-02-10"
+        },
+        "descriptionConventions": [
+          {
+            "@type": "DescriptionConventions",
+            "code": "aacr"
+          }
+        ],
+        "generationProcess": [
+          {
+            "@type": "GenerationProcess",
+            "label": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+          }
+        ],
+        "identifiedBy": [
+          {
+            "@type": "Local",
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": "7"
+          }
+        ],
+        "source": [
+          {
+            "@type": [
+              "Source",
+              "Agent"
+            ],
+            "label": "DLC"
+          },
+          {
+            "@type": [
+              "Source",
+              "Agent"
+            ],
+            "label": "DLC"
+          }
+        ],
+        "status": [
+          {
+            "@type": "Status",
+            "code": "n"
+          }
+        ]
+      }
+    ],
+    "contribution": [
+      {
+        "@type": [
+          "Contribution",
+          "http://id.loc.gov/ontologies/bflc/PrimaryContribution"
+        ],
+        "agent": [
+          {
+            "@id": "http://id.loc.gov/resources/works/7#Agent110-10",
+            "@type": [
+              "Agent",
+              "Jurisdiction"
+            ],
+            "http://id.loc.gov/ontologies/bflc/name10MarcKey": "1101 $aCanada.$bParliament.$bSenate.$bSpecial Committee on the ...",
+            "http://id.loc.gov/ontologies/bflc/name10MatchKey": "Canada. Parliament. Senate. Special Committee on the ...",
+            "http://id.loc.gov/ontologies/bflc/primaryContributorName10MatchKey": "Canada. Parliament. Senate. Special Committee on the ...",
+            "label": "Canada. Parliament. Senate. Special Committee on the ..."
+          }
+        ],
+        "role": [
+          {
+            "@id": "http://id.loc.gov/vocabulary/relators/ctb",
+            "@type": "Role"
+          }
+        ]
+      }
+    ],
+    "language": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/languages/eng",
+        "@type": "Language"
+      }
+    ],
+    "title": [
+      {
+        "@type": "Title",
+        "http://id.loc.gov/ontologies/bflc/titleSortKey": "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ...",
+        "mainTitle": "Proceedings of the Special Committee of the Senate on the Bill ...=",
+        "subtitle": "Délibérations du Comité spécial du Sénat sur le loi",
+        "label": "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ..."
+      }
+    ],
+    "label": "Proceedings of the Special Committee of the Senate on the Bill ...= Délibérations du Comité spécial du Sénat sur le loi ..."
+  },
+  {
+    "@context": "https://raw.githubusercontent.com/hbz/swib18-workshop/2-convert/data/bibframe-context.jsonld",
+    "@id": "http://id.loc.gov/resources/works/c000000018",
+    "@type": [
+      "Work",
+      "Text"
+    ],
+    "adminMetadata": [
+      {
+        "@type": "AdminMetadata",
+        "http://id.loc.gov/ontologies/bflc/encodingLevel": {
+          "@type": "http://id.loc.gov/ontologies/bflc/EncodingLevel",
+          "code": "7"
+        },
+        "http://id.loc.gov/ontologies/bibframe/creationDate": {
+          "@type": "http://www.w3.org/2001/XMLSchema#date",
+          "@value": "1993-07-13"
+        },
+        "descriptionConventions": [
+          {
+            "@type": "DescriptionConventions",
+            "code": "aacr"
+          }
+        ],
+        "generationProcess": [
+          {
+            "@type": "GenerationProcess",
+            "label": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+          }
+        ],
+        "identifiedBy": [
+          {
+            "@type": "Local",
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": "18"
+          }
+        ],
+        "source": [
+          {
+            "@type": [
+              "Source",
+              "Agent"
+            ],
+            "label": "DLC"
+          },
+          {
+            "@type": [
+              "Source",
+              "Agent"
+            ],
+            "label": "DLC"
+          }
+        ],
+        "status": [
+          {
+            "@type": "Status",
+            "code": "n"
+          }
+        ]
+      }
+    ],
+    "contribution": [
+      {
+        "@type": "Contribution",
+        "agent": [
+          {
+            "@id": "http://id.loc.gov/resources/works/18#Agent700-15",
+            "@type": [
+              "Agent",
+              "Person"
+            ],
+            "http://id.loc.gov/ontologies/bflc/name00MarcKey": "7001 $aWinship, Pat.",
+            "http://id.loc.gov/ontologies/bflc/name00MatchKey": "Winship, Pat.",
+            "label": "Winship, Pat."
+          }
+        ],
+        "role": [
+          {
+            "@id": "http://id.loc.gov/vocabulary/relators/ctb",
+            "@type": "Role"
+          }
+        ]
+      }
+    ],
+    "language": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/languages/eng",
+        "@type": "Language"
+      }
+    ],
+    "title": [
+      {
+        "@type": "Title",
+        "http://id.loc.gov/ontologies/bflc/titleSortKey": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /",
+        "mainTitle": "Bloom where you are planted",
+        "subtitle": "glimpses into the life of Fr. Charles H. Hollencamp",
+        "label": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /"
+      }
+    ],
+    "label": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /"
+  }
+]
