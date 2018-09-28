@@ -41,8 +41,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>From LOD to LOUD: making data usable</h1>
-					<h3>Workshop at SWIB18</h3>
+					<h2>From LOD to LOUD: <br/>making data usable</h2>
+					<h4>Workshop at SWIB18</h4>
 					<p>
 						<small>
 							<a href="http://fsteeg.com/">Fabian Steeg</a> / 
@@ -53,6 +53,7 @@
 						<img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
 						<small>Bonn, 2018-11-26</small>
 					</p>
+					<p>**DRAFT**</p>
 					<p>
 						This presentation: <br /> <a
 							href="http://hbz.github.io/swib18-workshop">http://hbz.github.io/swib18-workshop</a>
@@ -62,61 +63,135 @@
 				</section>
 
 				<section>
+					<h2>Part I</h2>
+					<table>
+						<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
+						<tr><td><b>Usable data & APIs</b></td><td>API basics: why, how</td><td>13:00-13:15</td></tr>
+						<tr><td><b>JSON APIs</b></td><td>Using the GitHub API, processing JSON</td><td>13:15-14:00</td></tr>
+						<tr><td><b>From RDF to JSON</b></td><td>Basics of jsonld.js</td><td>14:00-15:00</td></tr>
+					</table>
+				</section>
 
+				<section>
+					<blockquote><h1>Using data</h1></blockquote>
+					<span class="fragment"><h1>= building software</h1></span>
+				</section>
+
+				<section>
+					<h1>
+						<blockquote>Libraries are Software</blockquote>
+					</h1>
+					<blockquote class="twitter-tweet" data-cards="hidden" lang="en"
+						width="550">
+						<p lang="en" dir="ltr">
+							&quot;Libraries are Software&quot; by <a
+								href="https://twitter.com/codyh">@codyh</a> — Good short essay
+							for dev and non-dev librarians <a href="http://t.co/Y9YLmTaZj0">http://t.co/Y9YLmTaZj0</a>
+							<a href="http://t.co/iVGKFaBql8">pic.twitter.com/iVGKFaBql8</a>
+						</p>
+						&mdash; Tim Spalding (@librarythingtim) <a
+							href="https://twitter.com/librarythingtim/status/644509561076981760">September
+							17, 2015</a>
+					</blockquote>
+				</section>
+
+				<section>
+					<h1>Application Programming Interfaces</h1>
+					<span class="fragment"><h4>Why API?</h4></span>
+				</section>
+
+				<section>
+					<h2>APIs make software development manageable</h2>
+					<span class="fragment"><h4>modular software</h4></span>
+					<span class="fragment"><h4>stable applications</h4></span>
+					<span class="fragment"><h4>flexible data sources</h4></span>
+				</section>
+
+				<section>
+					<h3>e.g. Lobid API data sources and formats</h3>
+					<img src="img/data.png" style="border: none; box-shadow: none;" /> <span
+						class="fragment"><h4>APIs decouple applications from
+							specific data sources, formats, and systems. They enable modular, sustainable applications.</h4></span>
+				</section>
+
+				<section>
+					<blockquote><h1>Usable data</h1></blockquote>
+					<span class="fragment"><h1>= data with APIs</h1></span>
+				</section>
+
+				<section>
+					<blockquote><h1>JSON</h1></blockquote>
+					<span class="fragment"><h3>standard web API format since ~10 years</h3></span>
+					<span class="fragment"><h4>e.g.
+						<a href='https://api.github.com/'>
+						https://api.github.com/</a>
+					</h4></span>
+				</section>
+
+				<section>
+						<h1>cURL</h1>
+						<p><span class="fragment">Command line tool for transferring data with URLs</span></p>
+						<p><span class="fragment"><a href="https://curl.haxx.se/download.html" target="_blank">https://curl.haxx.se/download.html</a></span></p>
+					</section>
 					<section>
-						<h1>Header</h1>
-						<p><span class="fragment">Fragment</span></p>
-						<p><span class="fragment">Fragment</span></p>
-						<p><span class="fragment">Frgament</span></p>
+						<h2>Exercise 1: <br/>cURL</h2>
+						<pre><code class="bash">
+# Get your own profile
+$ curl https://api.github.com/users/&lt;user&gt;
+
+# Get data for a repo
+$ curl https://api.github.com/repos/hbz/swib18-workshop
+					</code></pre>
+					<p><span class="fragment">Last cURL output was long, we often want specific values</span></p>
+					</section>
+					<section>
+						<h1>jq</h1>
+						<p><span class="fragment">A lightweight and flexible command-line JSON processor</span></p>
+						<p><span class="fragment"><a href="https://stedolan.github.io/jq/" target="_blank">https://stedolan.github.io/jq/</a></span></p>
+						<p><span class="fragment"><a href="https://jqplay.org/">https://jqplay.org/</a></span></p>
 					</section>
 
 					<section>
-						<h2>Table<br/><small>(overview)</small></h2>
-						<table>
-							<tr><th width="50%"/><th width="40%"/><th width="10%"/></tr>
-							<tr><td><b>Setting up and working on local projects with Git</b></td><td>Git basics: init, add, commit, log</td><td>13:00-13:40</td></tr>
-							<tr><td><b>Sharing and working on projects on GitHub</b></td><td>Git remotes, GitHub web UI, Git push, pull</td><td>13:40-14:00</td></tr>
-							<tr><td><b>Documenting your project on GitHub</b></td><td>readme, Markdown, GitHub pages</td><td>14:00-15:00</td></tr>
-						</table>
-					</section>
-
-					<section>
-						<h2>Exercise 1:<br/>set up a local project with Git</h2>
+						<h2>Exercise 2:<br/>Using the GitHub API</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="50%" />
-							<col width="50%" />
+							<col width="10%" />
+							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>Create a location for all your Git repos</td>
+									<td>GET</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$ cd ~
-$ mkdir git
-$ cd git
+$ curl https://api.github.com/repos/hbz/swib18-workshop
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Create an empty Git repo</td>
+									<td>Name</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$ mkdir lodworkshop-project
-$ cd lodworkshop-project
-$ git init
+$ curl ... | jq '.name'
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Verify project setup</td>
+									<td>License</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$ git status
+$ curl ... | jq '???' # get the repo's license name
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Issues</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... | jq '???' # get the number of open issues
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<p><font size="5">('$' <i>means you should type this in your terminal application or Git shell.</i>)</font></p>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
 					<section data-background="img/remote.png"
