@@ -14,7 +14,7 @@ loadTriples()
 async function use(data) {
   console.log('=== Works: ===')
   for(i in data) {
-    console.log(data[i].contribution[0].agent[0].label + ': ' + data[i].label);
+    console.log(data[i].contribution[0].agent.label + ': ' + data[i].label);
   }
   console.log('==============')
 }
@@ -39,7 +39,7 @@ async function frame(input) {
 
 async function compact(input) {
   const context = await readFile('data/bibframe-context.jsonld');
-  const compact = await jsonld.compact(input, JSON.parse(context));
+  const compact = await jsonld.compact(input, JSON.parse(context), {'compactArrays': true});
   await writeFile('data/loc_bib_works_test-3_compact.json', JSON.stringify(compact, null, 2));
   return compact;
 }
