@@ -4,6 +4,19 @@ const util = require('util');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
+var request = require('request');
+var options = {
+  url: 'https://api.github.com/repos/hbz/swib18-workshop',
+  headers: { 'User-Agent': 'fsteeg' }
+};
+request(options, (error, response, body) => {
+  var doc = JSON.parse(body);
+  console.log('license.name:', doc.license.name)
+  //console.log('statusCode:', response && response.statusCode);
+  //console.log('error:', error);
+  //console.log('body:', body);
+});
+
 loadTriples()
   .then(toJsonLd)
   .then(frame)

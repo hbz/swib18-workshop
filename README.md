@@ -21,6 +21,30 @@ Requirements: Laptop with [Elasticsearch 6.x](https://www.elastic.co/guide/en/el
 
 ## Setup
 
+### Prerequisites
+
+With sample commands for Debian-based Linux systems, follow links for others.
+
+Install [git](https://git-scm.com/):
+
+`apt install git`
+
+Install [cURL](https://curl.haxx.se/download.html):
+
+`apt install curl`
+
+Install [jq](https://stedolan.github.io/jq/download/):
+
+`apt install jq`
+
+Install [node](https://nodejs.org/en/download/):
+
+`curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -`
+
+`apt install -y nodejs`
+
+### Repository
+
 Clone the repo:
 
 `git clone https://github.com/hbz/swib18-workshop.git`
@@ -29,15 +53,13 @@ Go to the repo:
 
 `cd swib18-workshop`
 
+## Usage
+
 ### Browser
 
 Open `data/index.html` in a web browser.
 
 ### Node
-
-Install npm:
-
-`sudo apt install npm`
 
 Install dependencies:
 
