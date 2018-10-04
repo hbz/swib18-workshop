@@ -13,7 +13,7 @@
           "@type": "http://id.loc.gov/ontologies/bflc/EncodingLevel",
           "code": "5"
         },
-        "http://id.loc.gov/ontologies/bibframe/creationDate": {
+        "creationDate": {
           "@type": "http://www.w3.org/2001/XMLSchema#date",
           "@value": "1994-02-10"
         },
@@ -113,7 +113,7 @@
           "@type": "http://id.loc.gov/ontologies/bflc/EncodingLevel",
           "code": "7"
         },
-        "http://id.loc.gov/ontologies/bibframe/creationDate": {
+        "creationDate": {
           "@type": "http://www.w3.org/2001/XMLSchema#date",
           "@value": "1993-07-13"
         },
