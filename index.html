@@ -214,6 +214,7 @@ $ curl https://api.github.com/users/&lt;user&gt;
 # Get data for a repo
 $ curl https://api.github.com/repos/hbz/swib18-workshop
 					</code></pre>
+					<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					<p><span class="fragment">Last cURL output was long, we often want specific values</span></p>
 					</section>
 
@@ -301,8 +302,8 @@ $ curl ... | jq '???' # get the number of open issues
 
 					<section>
 						<h2>Example work</h2>
-						<a href="http://rdf-translator.appspot.com/convert/nt/nt/html/https%3A%2F%2Fraw.githubusercontent.com%2Fhbz%2Fswib18-workshop%2Fmaster%2Fdata%2Floc_bib_works_test.nt"><img src="img/loc-example.png" style="border: none; box-shadow: none;" /></a>
-						<p><small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc_bib_works_test.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc_bib_works_test.nt</a></small></p>
+						<a href="http://rdf-translator.appspot.com/convert/nt/nt/html/https%3A%2F%2Fraw.githubusercontent.com%2Fhbz%2Fswib18-workshop%2Fmaster%2Fdata%2Floc.nt"><img src="img/loc-example.png" style="border: none; box-shadow: none;" /></a>
+						<p><small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc_bib_works_test.nt</a></small></p>
 					</section>
 
 					<section>
@@ -327,7 +328,7 @@ $ curl ... | jq '???' # get the number of open issues
 									<td>Read</td>
 									<td>
 										<pre><code class="javascript" data-trim contenteditable>
-readFile('data/loc_bib_works_test.nt');
+readFile('data/loc.nt');
 										</code></pre>
 									</td>
 								</tr>
@@ -343,12 +344,13 @@ jsonld.fromRDF(input, {format: 'application/n-quads'});
 									<td>Write</td>
 									<td>
 										<pre><code class="javascript" data-trim contenteditable>
-writeFile('out.json', JSON.stringify(output, null, 2));
+writeFile('loc.json', JSON.stringify(output, null, 2));
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
+						<p>(You can skip this step and use <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.json"><code>data/loc.json</code></a>)</p>
 					</section>
 
 					<section>
@@ -392,26 +394,35 @@ writeFile('out.json', JSON.stringify(output, null, 2));
 							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>Frame</td>
+									<td>data/ frame .json</td>
 									<td>
 										<pre><code class="javascript" data-trim contenteditable>
-jsonld.frame(json, {
+{
  "@type": "http://id.loc.gov/ontologies/bibframe/Work",
  "@embed": "@always"
-})
+}
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Frame</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cd data ; jsonld frame -f frame.json loc.json
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
 									<td>Write</td>
 									<td>
-										<pre><code class="javascript" data-trim contenteditable>
-writeFile('framed.json', JSON.stringify(f, null, 2));
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld frame -f frame.json loc.json > loc-framed.json
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
 					<section>
@@ -447,10 +458,11 @@ writeFile('framed.json', JSON.stringify(f, null, 2));
 
 					<section>
 						<blockquote><h2>Context can do more than simple name-URI mapping</h2></blockquote>
-						<span class="fragment"><pre><code>
+						<span class="fragment"><p>Field 'contribution' should be an array</p></span>
+						<span class="fragment"><pre><code class="javascript" data-trim contenteditable>
 "contribution": {
   "@id": "http://id.loc.gov/ontologies/bibframe/contribution",
-  "@container": "@set"
+  "@container": "@set" // <-- array
 }
 						</pre></code></span>
 					</section>
@@ -458,82 +470,28 @@ writeFile('framed.json', JSON.stringify(f, null, 2));
 					<section>
 						<h2>Exercise 5:<br/>Compact</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
 							<tbody>
 								<tr>
+									<td>Compact</td>
 									<td>
-										<pre><code>jsonld.compact(input, context, {'compactArrays': true});</code></pre>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld compact -c context.json loc-framed.json
+										</code></pre>
 									</td>
 								</tr>
 								<tr>
+									<td>Write</td>
 									<td>
-										<pre><code class="javascript" data-trim contenteditable>
-writeFile('compact.json', JSON.stringify(c, null, 2));
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld compact ... > loc-compact.json
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-					</section>
-
-					<section>
-					<blockquote><h2>Result</h2></blockquote>
-					<pre><code class="json" data-trim contenteditable>
-"@graph": [
- "contribution": [{
-  "@type": "Contribution",
-   "agent": {
-    "@id": "http://id.loc.gov/resources/works/18#Agent700-15",
-    "@type": [
-      "Agent",
-      "Person"
-    ],
-    "label": "Winship, Pat."
-   }
- }], ...
-]
-					</code></pre>
-					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact</a></p>
-					</section>
-
-					<section>
-						<blockquote><h2>Remember `license.name`?</h2></blockquote>
-						<span class="fragment"><p>Let's try that here, for author labels</p></span>
-						<span class="fragment"><small>`<code>@graph[0]</code>` . `<code>contribution[0]</code>` . `<code>agent</code>` . `<code>label</code>`</small></span>
-						<span class="fragment"><p>Almost there, but `@graph[0]`? Also: bulky embedded context? Self-contained documents?</p></span>
-					</section>
-
-					<section>
-						<blockquote><h1>Postprocess</h1></blockquote>
-						<span class="fragment"><p>Tweak the final JSON object for our purpose <br/>(needs some JS code for object manipulation)<br/></p></span>
-						<span class="fragment"><p>Remove `@graph`, link to context <br/>(needs to be served with proper content type)</p></span>
-					</section>
-
-					<section>
-						<h2>Exercise 6:<br/>Postprocess</h2>
-						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<tbody>
-								<tr>
-									<td>
-										<pre><code class="javascript" data-trim contenteditable>
-input['@graph'].map(oldDoc => {
-  const newDoc = {
-    '@context': 'http://lobid.org/bibframe-context.jsonld'
-  };
-  for(x in oldDoc) { newDoc[x] = oldDoc[x]; }
-  return newDoc;
-});
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<pre><code class="javascript" data-trim contenteditable>
-writeFile('final.json', JSON.stringify(d, null, 2));
-										</code></pre>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
 					<section>
@@ -551,20 +509,34 @@ writeFile('final.json', JSON.stringify(d, null, 2));
   }
 }], ...
 					</code></pre>
-					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-final'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-final</a></p>
+					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact</a></p>
 					</section>
 
 					<section>
-						<h2>Exercise 7:<br/>Use final JSON</h2>
+						<blockquote><h2>Remember `license.name`?</h2></blockquote>
+						<span class="fragment"><p>Let's try that here, for author labels</p></span>
+						<span class="fragment"><p><code>contribution[0].agent.label</code></p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 7: Use final JSON</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="10%" />
-							<col width="90%" />
+							<col width="20%" />
+							<col width="88%" />
 							<tbody>
 								<tr>
 									<td>All</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$ cat data/loc_bib_works_test-4_final.json
+$ cat data/loc-compact.json
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Full Title</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cat data/loc-compact.json | jq '.label'
 										</code></pre>
 									</td>
 								</tr>
@@ -572,12 +544,12 @@ $ cat data/loc_bib_works_test-4_final.json
 									<td>Author</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$ cat ... | jq '.[0].contribution[0].agent.label'
+$ cat ... | jq '???' # get the author label
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Title</td>
+									<td>Main title</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
 $ cat ... | jq '???' # get the main title

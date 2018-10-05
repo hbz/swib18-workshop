@@ -4,6 +4,10 @@ const util = require('util');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
+// ===============================
+// 1. Use JSON from the GitHub API
+// ===============================
+
 var request = require('request');
 var options = {
   url: 'https://api.github.com/repos/hbz/swib18-workshop',
@@ -11,32 +15,39 @@ var options = {
 };
 request(options, (error, response, body) => {
   var doc = JSON.parse(body);
+  console.log();
+  console.log('=== Repo: ====');
+  console.log('statusCode:', response && response.statusCode);
   console.log('license.name:', doc.license.name)
-  //console.log('statusCode:', response && response.statusCode);
-  //console.log('error:', error);
-  //console.log('body:', body);
+  console.log('==============');
 });
+
+// =====================================
+// 2. Use JSON-LD created from N-Triples
+// =====================================
 
 loadTriples()
   .then(toJsonLd)
   .then(frame)
   .then(compact)
-  .then(postprocess)
   .then(use);
 
 async function use(data) {
-  console.log('=== Works: ===')
-  for(i in data) {
-    console.log(data[i].contribution[0].agent.label + ': ' + data[i].label);
-  }
-  console.log('==============')
+  console.log('=== Work: ===');
+  console.log('title:', data.label);
+  console.log('author:', data.contribution[0].agent.label);
+  console.log('==============');
 }
 
-async function loadTriples() { return await readFile('data/loc_bib_works_test.nt'); }
+// ======================
+// Functions called above
+// ======================
+
+async function loadTriples() { return await readFile('data/loc.nt'); }
 
 async function toJsonLd(input) {
   const output = await jsonld.fromRDF(input.toString(), {format: 'application/n-quads'});
-  await writeFile('data/loc_bib_works_test-1_output.json', JSON.stringify(output, null, 2));
+  await writeFile('data/loc.json', JSON.stringify(output, null, 2));
   return output;
 }
 
@@ -46,24 +57,13 @@ async function frame(input) {
     "@embed": "@always"
   };
   const framed = await jsonld.frame(input, frame);
-  await writeFile('data/loc_bib_works_test-2_framed.json', JSON.stringify(framed, null, 2));
+  await writeFile('data/loc-framed.json', JSON.stringify(framed, null, 2));
   return framed;
 }
 
 async function compact(input) {
-  const context = await readFile('data/bibframe-context.jsonld');
+  const context = await readFile('data/context.json');
   const compact = await jsonld.compact(input, JSON.parse(context), {'compactArrays': true});
-  await writeFile('data/loc_bib_works_test-3_compact.json', JSON.stringify(compact, null, 2));
+  await writeFile('data/loc-compact.json', JSON.stringify(compact, null, 2));
   return compact;
-}
-
-async function postprocess(input) {
-  const final = input['@graph'].map(oldDoc => {
-	const contextUrl = 'https://raw.githubusercontent.com/hbz/swib18-workshop/2-convert/data/bibframe-context.jsonld';
-    const newDoc = { '@context': contextUrl };
-    for(x in oldDoc) { newDoc[x] = oldDoc[x]; }
-    return newDoc;
-  });
-  await writeFile('data/loc_bib_works_test-4_final.json', JSON.stringify(final, null, 2));
-  return final;
 }

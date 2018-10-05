@@ -43,6 +43,10 @@ Install [node](https://nodejs.org/en/download/):
 
 `apt install -y nodejs`
 
+Install [jsonld-cli](https://github.com/digitalbazaar/jsonld-cli)
+
+`sudo npm install -g jsonld-cli --unsafe-perm`
+
 ### Repository
 
 Clone the repo:

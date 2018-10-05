@@ -1,0 +1,234 @@
+[
+  {
+    "@id": "_:bnode12518409798772300573",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/DescriptionConventions"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/code": [
+      {
+        "@value": "aacr"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode14034527611868196659",
+    "@type": [
+      "http://id.loc.gov/ontologies/bflc/EncodingLevel"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/code": [
+      {
+        "@value": "7"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode14876346703942647403",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Source",
+      "http://id.loc.gov/ontologies/bibframe/Agent"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DLC"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode17924474223838741923",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/GenerationProcess"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode3740256011234232028",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Source",
+      "http://id.loc.gov/ontologies/bibframe/Agent"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DLC"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode6115107744135409061",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Contribution"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/agent": [
+      {
+        "@id": "http://id.loc.gov/resources/works/18#Agent700-15"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/role": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/relators/ctb"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode6793007797045152761",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/AdminMetadata"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/generationProcess": [
+      {
+        "@id": "_:bnode17924474223838741923"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/status": [
+      {
+        "@id": "_:bnode757167636820467590"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bflc/encodingLevel": [
+      {
+        "@id": "_:bnode14034527611868196659"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/descriptionConventions": [
+      {
+        "@id": "_:bnode12518409798772300573"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/identifiedBy": [
+      {
+        "@id": "_:bnode899183859662668119"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/creationDate": [
+      {
+        "@value": "1993-07-13",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/source": [
+      {
+        "@id": "_:bnode3740256011234232028"
+      },
+      {
+        "@id": "_:bnode14876346703942647403"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode711016064613324596",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Title"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bflc/titleSortKey": [
+      {
+        "@value": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/mainTitle": [
+      {
+        "@value": "Bloom where you are planted"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/subtitle": [
+      {
+        "@value": "glimpses into the life of Fr. Charles H. Hollencamp"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode757167636820467590",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Status"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/code": [
+      {
+        "@value": "n"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode899183859662668119",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Local"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": [
+      {
+        "@value": "18"
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/resources/works/18#Agent700-15",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Agent",
+      "http://id.loc.gov/ontologies/bibframe/Person"
+    ],
+    "http://id.loc.gov/ontologies/bflc/name00MatchKey": [
+      {
+        "@value": "Winship, Pat."
+      }
+    ],
+    "http://id.loc.gov/ontologies/bflc/name00MarcKey": [
+      {
+        "@value": "7001 $aWinship, Pat."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Winship, Pat."
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/resources/works/c000000018",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Work",
+      "http://id.loc.gov/ontologies/bibframe/Text"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/adminMetadata": [
+      {
+        "@id": "_:bnode6793007797045152761"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/language": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/languages/eng"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Bloom where you are planted : glimpses into the life of Fr. Charles H. Hollencamp /"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/title": [
+      {
+        "@id": "_:bnode711016064613324596"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/contribution": [
+      {
+        "@id": "_:bnode6115107744135409061"
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/vocabulary/languages/eng",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Language"
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/vocabulary/relators/ctb",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Role"
+    ]
+  }
+]
