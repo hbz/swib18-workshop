@@ -316,41 +316,34 @@ $ curl ... | jq '???' # get the number of open issues
 					<section>
 						<blockquote><h1>Cool, so let's make JSON-LD</h1></blockquote>
 						<span class="fragment"><p>jsonld.js</p></span>
+						<span class="fragment"><p>jsonld-cli</p></span>
 					</section>
 
-					<section>
-						<h2>Exercise 3:<br/>NT to JSON-LD</h2>
+<section>
+						<h2>Exercise 3:<br/>N-Triples to JSON-LD</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>Read</td>
+									<td>Import</td>
 									<td>
-										<pre><code class="javascript" data-trim contenteditable>
-readFile('data/loc.nt');
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>JSON-LD</td>
-									<td>
-										<pre><code class="javascript" data-trim contenteditable>
-jsonld.fromRDF(input, {format: 'application/n-quads'});
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cd data ; jsonld import -f application/n-quads loc.nt
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
 									<td>Write</td>
 									<td>
-										<pre><code class="javascript" data-trim contenteditable>
-writeFile('loc.json', JSON.stringify(output, null, 2));
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld import loc.nt > loc.json
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<p>(You can skip this step and use <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.json"><code>data/loc.json</code></a>)</p>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
 					<section>
