@@ -1,4 +1,6 @@
 {
+  "id": "@id",
+  "type": "@type",
   "AbbreviatedTitle":"http://id.loc.gov/ontologies/bibframe/AbbreviatedTitle",
   "AccessPolicy":"http://id.loc.gov/ontologies/bibframe/AccessPolicy",
   "AcquisitionSource":"http://id.loc.gov/ontologies/bibframe/AcquisitionSource",
