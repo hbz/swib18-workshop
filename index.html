@@ -303,7 +303,7 @@ $ curl ... | jq '???' # get the number of open issues
 					<section>
 						<h2>Example work</h2>
 						<a href="http://rdf-translator.appspot.com/convert/nt/nt/html/https%3A%2F%2Fraw.githubusercontent.com%2Fhbz%2Fswib18-workshop%2Fmaster%2Fdata%2Floc.nt"><img src="img/loc-example.png" style="border: none; box-shadow: none;" /></a>
-						<p><small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc_bib_works_test.nt</a></small></p>
+						<p><small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt</a></small></p>
 					</section>
 
 					<section>
@@ -350,7 +350,7 @@ $ jsonld import loc.nt > loc.json
 					<blockquote><h2>Result</h2></blockquote>
 					<pre><code class="json" data-trim contenteditable>
 {
-  "@id": "http://id.loc.gov/resources/works/18#Agent700-15",
+  "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
   "@type": [
     "http://id.loc.gov/ontologies/bibframe/Agent",
     "http://id.loc.gov/ontologies/bibframe/Person"
@@ -358,7 +358,7 @@ $ jsonld import loc.nt > loc.json
   ...,
   "http://www.w3.org/2000/01/rdf-schema#label": [
     {
-      "@value": "Winship, Pat."
+      "@value": "Brown, Neville."
     }
   ]
 }, ...
@@ -424,12 +424,12 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 "http://id.loc.gov/ontologies/bibframe/contribution": {
  "@type": "http://id.loc.gov/ontologies/bibframe/Contribution",
  "http://id.loc.gov/ontologies/bibframe/agent": {
-   "@id": "http://id.loc.gov/resources/works/18#Agent700-15",
-   "@type": [
-     "http://id.loc.gov/ontologies/bibframe/Agent",
-     "http://id.loc.gov/ontologies/bibframe/Person"
-   ],
-   "http://www.w3.org/2000/01/rdf-schema#label": "Winship, Pat."
+  "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
+  "@type": [
+    "http://id.loc.gov/ontologies/bibframe/Agent",
+    "http://id.loc.gov/ontologies/bibframe/Person"
+  ],
+  "http://www.w3.org/2000/01/rdf-schema#label":"Brown, Neville."
  }
 },
 					</code></pre>
@@ -491,14 +491,17 @@ $ jsonld compact ... > loc-compact.json
 					<blockquote><h2>Result</h2></blockquote>
 					<pre><code class="json" data-trim contenteditable>
 "contribution": [{
- "@type": "Contribution",
+  "type": [
+    "Contribution",
+    "PrimaryContribution"
+  ],
   "agent": {
-   "@id": "http://id.loc.gov/resources/works/18#Agent700-15",
-   "@type": [
+   "id": "http://id.loc.gov/resources/works/101650#Agent100-13",
+   "type": [
      "Agent",
      "Person"
    ],
-   "label": "Winship, Pat."
+   "label": "Brown, Neville."
   }
 }], ...
 					</code></pre>
