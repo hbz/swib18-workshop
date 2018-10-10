@@ -43,6 +43,16 @@ Install [node](https://nodejs.org/en/download/):
 
 `apt install -y nodejs`
 
+Install the hbz [jsonld-cli](https://github.com/hbz/jsonld-cli) fork:
+
+`git clone https://github.com/hbz/jsonld-cli.git`
+
+`cd jsonld-cli`
+
+`sudo npm install -g`
+
+For details, see [the setup instructions](https://github.com/hbz/jsonld-cli#installation).
+
 ### Repository
 
 Clone the repo:

@@ -6,7 +6,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/jsonld@1.0.0/dist/jsonld.min.js"></script>
 	</head>
 	<body>
-		<a href='#triples'>triples</a> | <a href='#jsonld-output'>jsonld</a> | <a href='#jsonld-framed'>framed</a> | <a href='#jsonld-compact'>compact</a> | <a href='#jsonld-final'>final</a>
+		<a href='#triples'>triples</a> | <a href='#jsonld-output'>jsonld</a> | <a href='#jsonld-framed'>framed</a> | <a href='#jsonld-compact'>compact</a>
 		<h1 id='triples'>Input triples</h1>
 		<pre><code id='input'></code></pre>
 		<h1 id='jsonld-output'>JSON-LD output</h1>
@@ -15,11 +15,9 @@
 		<pre><code id='framed'></code></pre>
 		<h1 id='jsonld-compact'>JSON-LD compact</h1>
 		<pre><code id='compact'></code></pre>
-		<h1 id='jsonld-final'>JSON-LD final</h1>
-		<pre><code id='final'></code></pre>
 		<script>
-			var inputUrl = 'https://raw.githubusercontent.com/hbz/swib18-workshop/2-convert/data/loc_bib_works_test.nt'
-			var contextUrl = 'https://raw.githubusercontent.com/hbz/swib18-workshop/2-convert/data/bibframe-context.jsonld';
+			var inputUrl = 'https://raw.githubusercontent.com/hbz/swib18-workshop/master/data/loc.nt'
+			var contextUrl = 'https://raw.githubusercontent.com/hbz/swib18-workshop/master/data/context.json';
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -64,13 +62,6 @@
 										console.log("================");
 										console.log(compact);
 										document.getElementById("compact").textContent = compact;
-
-										var final = JSON.stringify(postprocess(compacted), null, 2);
-										console.log("==============");
-										console.log("JSON-LD final:");
-										console.log("==============");
-										console.log(final);
-										document.getElementById("final").textContent = final;
 									});
 
 								}
@@ -83,20 +74,6 @@
 			};
 			xhttp.open("GET", inputUrl, true);
 			xhttp.send();
-			function postprocess(content) {
-				var docs = content['@graph'];
-				var clean = [];
-				for(i in docs){
-					var cleanDoc = {
-						'@context': 'https://raw.githubusercontent.com/hbz/swib18-workshop/2-convert/data/bibframe-context.jsonld'
-					};
-					for(x in docs[i]){
-						cleanDoc[x] = docs[i][x];
-					}
-					clean.push(cleanDoc);
-				}
-				return clean;
-			}
 		</script>
 	</body>
 </html>

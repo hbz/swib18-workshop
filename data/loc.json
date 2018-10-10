@@ -1,0 +1,449 @@
+[
+  {
+    "@id": "_:bnode10064880404974662856",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/GenerationProcess"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode10218458908618035530",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Source",
+      "http://id.loc.gov/ontologies/bibframe/Agent"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DLC"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode10805434902250216652",
+    "@type": [
+      "http://www.loc.gov/mads/rdf/v1#Topic"
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Climatic changes"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode13959906535325022399",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/ClassificationLcc"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/source": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/organizations/dlc"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/classificationPortion": [
+      {
+        "@value": "QC989.A1"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/itemPortion": [
+      {
+        "@value": "B78 1995"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode14070958164805317785",
+    "@type": [
+      "http://www.loc.gov/mads/rdf/v1#Topic"
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Social aspects"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode1511791198443371493",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/AdminMetadata"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/generationProcess": [
+      {
+        "@id": "_:bnode10064880404974662856"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/status": [
+      {
+        "@id": "_:bnode2675138108872525110"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bflc/encodingLevel": [
+      {
+        "@id": "_:bnode4613679230527661292"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/descriptionConventions": [
+      {
+        "@id": "_:bnode9822107520093656187"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/identifiedBy": [
+      {
+        "@id": "_:bnode16795732803393060234"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/changeDate": [
+      {
+        "@value": "2015-05-15T14:10:02",
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/creationDate": [
+      {
+        "@value": "1996-05-02",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/source": [
+      {
+        "@id": "_:bnode3960971967697613396"
+      },
+      {
+        "@id": "_:bnode10218458908618035530"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/descriptionModifier": [
+      {
+        "@id": "_:bnode16711465472959347702"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode16711465472959347702",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Agent"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DLC"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode16795732803393060234",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Local"
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": [
+      {
+        "@value": "101650"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode2675138108872525110",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Status"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/code": [
+      {
+        "@value": "c"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode3960971967697613396",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Source",
+      "http://id.loc.gov/ontologies/bibframe/Agent"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "DLC"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode4613679230527661292",
+    "@type": [
+      "http://id.loc.gov/ontologies/bflc/EncodingLevel"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/code": [
+      {
+        "@value": "f"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode4769462985805200491",
+    "@type": [
+      "http://www.loc.gov/mads/rdf/v1#Topic"
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Climatic changes"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode4815993689972743382",
+    "@type": [
+      "http://www.loc.gov/mads/rdf/v1#Geographic"
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Europe"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode6774980429406142178",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Contribution",
+      "http://id.loc.gov/ontologies/bflc/PrimaryContribution"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/agent": [
+      {
+        "@id": "http://id.loc.gov/resources/works/101650#Agent100-13"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/role": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/relators/ctb"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode8604397735405399681",
+    "@type": [
+      "http://www.loc.gov/mads/rdf/v1#Geographic"
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Europe"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode9758269255922320675",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Title"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "The impact of climate change : some indications from history, AD 250-1250 /"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bflc/titleSortKey": [
+      {
+        "@value": "impact of climate change : some indications from history, AD 250-1250 /"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/mainTitle": [
+      {
+        "@value": "The impact of climate change"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/subtitle": [
+      {
+        "@value": "some indications from history, AD 250-1250"
+      }
+    ]
+  },
+  {
+    "@id": "_:bnode9822107520093656187",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/DescriptionConventions"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/code": [
+      {
+        "@value": "aacr"
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Agent",
+      "http://id.loc.gov/ontologies/bibframe/Person"
+    ],
+    "http://id.loc.gov/ontologies/bflc/name00MatchKey": [
+      {
+        "@value": "Brown, Neville."
+      }
+    ],
+    "http://id.loc.gov/ontologies/bflc/primaryContributorName00MatchKey": [
+      {
+        "@value": "Brown, Neville."
+      }
+    ],
+    "http://id.loc.gov/ontologies/bflc/name00MarcKey": [
+      {
+        "@value": "1001 $aBrown, Neville."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Brown, Neville."
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/resources/works/101650#Topic650-20",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Topic",
+      "http://www.loc.gov/mads/rdf/v1#ComplexSubject"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Climatic changes--Europe."
+      }
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Climatic changes--Europe."
+      }
+    ],
+    "http://www.loc.gov/mads/rdf/v1#componentList": [
+      {
+        "@list": [
+          {
+            "@id": "_:bnode10805434902250216652"
+          },
+          {
+            "@id": "_:bnode4815993689972743382"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/resources/works/101650#Topic650-21",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Topic",
+      "http://www.loc.gov/mads/rdf/v1#ComplexSubject"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Climatic changes--Social aspects--Europe."
+      }
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Climatic changes--Social aspects--Europe."
+      }
+    ],
+    "http://www.loc.gov/mads/rdf/v1#componentList": [
+      {
+        "@list": [
+          {
+            "@id": "_:bnode4769462985805200491"
+          },
+          {
+            "@id": "_:bnode14070958164805317785"
+          },
+          {
+            "@id": "_:bnode8604397735405399681"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/resources/works/101650#Topic650-22",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Topic",
+      "http://www.loc.gov/mads/rdf/v1#Topic"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Civilization, Medieval."
+      }
+    ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+      {
+        "@value": "Civilization, Medieval."
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/resources/works/c000101650",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Work",
+      "http://id.loc.gov/ontologies/bibframe/Text"
+    ],
+    "http://id.loc.gov/ontologies/bibframe/adminMetadata": [
+      {
+        "@id": "_:bnode1511791198443371493"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/language": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/languages/eng"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/geographicCoverage": [
+      {
+        "@id": "http://id.loc.gov/vocabulary/geographicAreas/e"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/classification": [
+      {
+        "@id": "_:bnode13959906535325022399"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/contribution": [
+      {
+        "@id": "_:bnode6774980429406142178"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "The impact of climate change : some indications from history, AD 250-1250 /"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/title": [
+      {
+        "@id": "_:bnode9758269255922320675"
+      }
+    ],
+    "http://id.loc.gov/ontologies/bibframe/subject": [
+      {
+        "@id": "http://id.loc.gov/resources/works/101650#Topic650-20"
+      },
+      {
+        "@id": "http://id.loc.gov/resources/works/101650#Topic650-21"
+      },
+      {
+        "@id": "http://id.loc.gov/resources/works/101650#Topic650-22"
+      }
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/vocabulary/geographicAreas/e",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/GeographicCoverage"
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/vocabulary/languages/eng",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Language"
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/vocabulary/organizations/dlc",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Source"
+    ]
+  },
+  {
+    "@id": "http://id.loc.gov/vocabulary/relators/ctb",
+    "@type": [
+      "http://id.loc.gov/ontologies/bibframe/Role"
+    ]
+  }
+]
