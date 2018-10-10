@@ -783,8 +783,7 @@
   },
   "title":{
     "@id":"http://id.loc.gov/ontologies/bibframe/title",
-    "@type": "@id",
-    "@container":"@set"
+    "@type": "@id"
   },
   "translation":{
     "@id":"http://id.loc.gov/ontologies/bibframe/translation",
