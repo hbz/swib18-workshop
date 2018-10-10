@@ -188,7 +188,7 @@
 
 				<section>
 					<blockquote><h1>JSON</h1></blockquote>
-					<span class="fragment"><h3>standard web API format since ~10 years</h3></span>
+					<span class="fragment"><h3>standard web API format <a href="">since several years</a></h3></span>
 					<span class="fragment"><h4>e.g.
 						<a href='https://api.github.com/'>
 						https://api.github.com/</a>
@@ -302,7 +302,7 @@ $ curl ... | jq '???' # get the number of open issues
 
 					<section>
 						<h2>Example work</h2>
-						<a href="http://rdf-translator.appspot.com/convert/nt/nt/html/https%3A%2F%2Fraw.githubusercontent.com%2Fhbz%2Fswib18-workshop%2Fmaster%2Fdata%2Floc.nt"><img src="img/loc-example.png" style="border: none; box-shadow: none;" /></a>
+						<a href="http://rdf-translator.appspot.com/convert/nt/nt/html/https%3A%2F%2Fraw.githubusercontent.com%2Fhbz%2Fswib18-workshop%2Fmaster%2Fdata%2Floc.nt"><img src="img/nt.png" style="border: none; box-shadow: none;" /></a>
 						<p><small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt</a></small></p>
 					</section>
 
@@ -371,13 +371,13 @@ $ jsonld import loc.nt > loc.json
 						<span class="fragment"><p>Let's try that here, for author labels</p></span>
 						<span class="fragment"><small>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>` . `<code>@value</code>`</small></span>
 						<span class="fragment"><p>Can't work: we have just a flat array of objects, which label?</p></span>
-						<span class="fragment"><p>Problem: not <i>actually</i> JSON, only <i>technically</i></p></span>
+						<span class="fragment"><p>Problem: only <i>technically</i> JSON, but not <i>usable</i></p></span>
 					</section>
 
 					<section>
 						<blockquote><h1>Framing</h1></blockquote>
 						<span class="fragment"><p>Frame the way we look at our graph from the perspective of one entity type (to make it a tree, or a document)</p></span>
-						<span class="fragment"><p>Look at my data from a `Works` perspective, and embed other entities under their works</p></span>
+						<span class="fragment"><p>Look at my data from a "Work" perspective, and embed other entities under their works</p></span>
 					</section>
 
 					<section>
@@ -440,13 +440,13 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 						<blockquote><h2>Remember `license.name`?</h2></blockquote>
 						<span class="fragment"><p>Let's try that here, for author labels</p></span>
 						<span class="fragment"><small>`<code>http://id.loc.gov/ontologies/bibframe/contribution</code>` .<br/>`<code>http://id.loc.gov/ontologies/bibframe/agent</code>` .<br/>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>`</small></span>
-						<span class="fragment"><p>Works conceptually, but not actually usable</p></span>
+						<span class="fragment"><p>Works conceptually, but not very handy</p></span>
 					</section>
 
 					<section>
-						<blockquote><h1>Context</h1></blockquote>
-						<span class="fragment"><p>Maps JSON keys to URIs<br/><small><code>"name": "http://schema.org/name"</code></small></p></span>
-						<span class="fragment"><p>Here: generated from ontology<br/></p></span>
+						<blockquote><h1>Compacting</h1></blockquote>
+						<span class="fragment"><p>Mapping JSON keys to URIs with a <code>@context</code><br/><small><code>"name": "http://schema.org/name"</code></small></p></span>
+						<span class="fragment"><p>Here: <a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">context generated from ontologies</a><br/></p></span>
 					</section>
 
 					<section>
