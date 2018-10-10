@@ -1,4 +1,5 @@
 {
+"@context": {
   "id": "@id",
   "type": "@type",
   "AbbreviatedTitle":"http://id.loc.gov/ontologies/bibframe/AbbreviatedTitle",
@@ -1095,4 +1096,5 @@
   "useFor": "http://www.loc.gov/mads/rdf/v1#useFor",
   "useInstead": "http://www.loc.gov/mads/rdf/v1#useInstead",
   "workOrigin": "http://www.loc.gov/mads/rdf/v1#workOrigin"
+ }
 }
