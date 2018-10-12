@@ -25,6 +25,8 @@ Requirements: Laptop with [Elasticsearch 6.x](https://www.elastic.co/guide/en/el
 
 With sample commands for Debian-based Linux systems, follow links for others.
 
+#### Basic tools
+
 Install [git](https://git-scm.com/):
 
 `apt install git`
@@ -37,11 +39,19 @@ Install [jq](https://stedolan.github.io/jq/download/):
 
 `apt install jq`
 
-Install [node](https://nodejs.org/en/download/):
+Install [bzip2](https://stedolan.github.io/jq/download/):
+
+`apt install bzip2`
+
+#### Node.js
+
+Install [node](https://nodejs.org/en/download/) (8.x or higher):
 
 `curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -`
 
 `apt install -y nodejs`
+
+#### jsonld-cli
 
 Install the hbz [jsonld-cli](https://github.com/hbz/jsonld-cli) fork:
 
@@ -52,6 +62,20 @@ Install the hbz [jsonld-cli](https://github.com/hbz/jsonld-cli) fork:
 `sudo npm install -g`
 
 For details, see [the setup instructions](https://github.com/hbz/jsonld-cli#installation).
+
+#### Elasticsearch
+
+Install [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) 6.x:
+
+`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`
+
+`apt install apt-transport-https`
+
+`echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list`
+
+`apt update && apt install elasticsearch`
+
+Open [http://localhost:9200/](http://localhost:9200/) to verify Elasticsearch is running.
 
 ### Repository
 
@@ -65,6 +89,14 @@ Go to the repo:
 
 ## Usage
 
+### Command line
+
+Run all (convert, index, and query sample data):
+
+`cd data` ; `./process.sh`
+
+Open `process.sh` in an editor for individual commands.
+
 ### Browser
 
 Open `data/index.html` in a web browser.
@@ -75,6 +107,6 @@ Install dependencies:
 
 `npm install`
 
-Run the code:
+Run the code (in `js/app.js`):
 
 `npm start`

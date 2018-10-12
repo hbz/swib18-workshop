@@ -3,6 +3,7 @@ const fs = require('fs');
 const util = require('util');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
+const deleteFile = util.promisify(fs.unlink);
 
 // ===============================
 // 1. Use JSON from the GitHub API
@@ -29,6 +30,7 @@ request(options, (error, response, body) => {
 loadTriples()
   .then(toJsonLd)
   .then(frame)
+  .then(bulk)
   .then(compact)
   .then(use);
 
@@ -66,4 +68,27 @@ async function compact(input) {
   const compact = await jsonld.compact(input, JSON.parse(context), {'compactArrays': true});
   await writeFile('data/loc-compact.json', JSON.stringify(compact, null, 2));
   return compact;
+}
+
+// ===============================
+// Write Elasticsearch bulk format
+// ===============================
+
+async function bulk(input) {
+  await deleteFile('data/bulk.jsonl');
+  const context = await readFile('data/context.json');
+  const writer = fs.createWriteStream('data/bulk.jsonl', { flags: 'a' })
+  const docs = input["@graph"];
+  await writeDocs(docs, context, writer);
+  return docs[docs.length == 1 ? 0 : 1];
+}
+
+async function writeDocs(docs, context, writer) {
+  for(i in docs) {
+    const compact = await jsonld.compact(docs[i], JSON.parse(context), {'compactArrays': true});
+    compact['@context'] = "context.json"; // TODO: use http, serve from localhost
+    const meta = {index: {_index: 'loc', _type: 'work', _id: compact.id.split('/').pop()}};
+    writer.write(JSON.stringify(meta) + '\n');
+    writer.write(JSON.stringify(compact) + '\n');
+  }
 }
