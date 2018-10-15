@@ -734,7 +734,7 @@ $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 									<td>Check data</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$ tail -n 2 bulk.jsonl
+$ tail -n 2 bulk.ndjson
 										</code></pre>
 									</td>
 								</tr>
@@ -750,7 +750,8 @@ $ curl -XDELETE localhost:9200/loc ; echo
 									<td>Index data</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$ curl -XPOST .../_bulk --data-binary "@bulk.jsonl" ...
+$ curl -H "Content-Type: application/x-ndjson" \
+  -XPOST .../_bulk --data-binary "@bulk.ndjson" ; echo
 										</code></pre>
 									</td>
 								</tr>
@@ -785,7 +786,7 @@ $ curl localhost:9200/_search ; echo
 									<td>Reindex with usable ID</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$... jq... _id:(.id/"/")|last... > bulk.jsonl
+$... jq... _id:(.id/"/")|last... > bulk.ndjson
 										</code></pre>
 									</td>
 								</tr>

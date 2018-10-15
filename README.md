@@ -73,9 +73,11 @@ Install [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/
 
 `echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list`
 
-`apt update && apt install elasticsearch`
+`sudo apt update && sudo apt install elasticsearch`
 
-Open [http://localhost:9200/](http://localhost:9200/) to verify Elasticsearch is running.
+`sudo -i service elasticsearch start`
+
+Wait a few seconds for Elasticsearch to start up, then open [http://localhost:9200/](http://localhost:9200/) to verify Elasticsearch is running.
 
 ### Repository
 

@@ -2,6 +2,12 @@
 set -euo pipefail # See http://redsymbol.net/articles/unofficial-bash-strict-mode/
 IFS=$'\n\t'
 
+err_report() {
+    echo "Error on line $1"
+}
+
+trap 'err_report $LINENO' ERR
+
 # Convert single document
 jsonld import loc.nt > loc.json
 jsonld frame -f frame.json loc.json > loc-framed.json
@@ -19,14 +25,14 @@ jsonld compact -c context.json loc-100-framed.json > loc-100-compact.json
 
 # Create bulk index format
 FILTER='.["@graph"][] | "\({index:{_index:"loc",_type:"work",_id:(.id/"/")|last}})\n\({"@context":"context.json"}+.)"'
-cat loc-100-compact.json | jq -c -r "$FILTER" > loc-100-bulk.jsonl
-head -n 2 loc-100-bulk.jsonl
+cat loc-100-compact.json | jq -c -r "$FILTER" > loc-100-bulk.ndjson
+head -n 2 loc-100-bulk.ndjson
 
 # Index in Elasticsearch
 curl -XDELETE localhost:9200/loc ; echo
-curl -s -H -XPOST localhost:9200/_bulk --data-binary "@loc-100-bulk.jsonl" | jq '.items | length'
+curl -s -H "Content-Type: application/x-ndjson" -XPOST localhost:9200/_bulk --data-binary "@loc-100-bulk.ndjson" | jq '.items | length'
 sleep 1
- 
+
 # Use index
 curl -s "localhost:9200/loc/work/_search" | jq '.hits.total'
 curl -s "localhost:9200/loc/work/_search?q=contribution.agent.label:Parliament" | jq '.hits.total'

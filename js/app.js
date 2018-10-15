@@ -75,9 +75,9 @@ async function compact(input) {
 // ===============================
 
 async function bulk(input) {
-  await deleteFile('data/bulk.jsonl');
+  await deleteFile('data/bulk.ndjson');
   const context = await readFile('data/context.json');
-  const writer = fs.createWriteStream('data/bulk.jsonl', { flags: 'a' })
+  const writer = fs.createWriteStream('data/bulk.ndjson', { flags: 'a' })
   const docs = input["@graph"];
   await writeDocs(docs, context, writer);
   return docs[docs.length == 1 ? 0 : 1];
