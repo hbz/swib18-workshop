@@ -378,6 +378,12 @@ $ jsonld import loc.nt > loc.json
 					</section>
 
 					<section>
+						<blockquote><h1>Worst of both worlds</h1></blockquote>
+						<span class="fragment"><p>Unwieldy URIs</p></span>
+						<span class="fragment"><p>Syntactic overhead</p></span>
+					</section>
+
+					<section>
 						<blockquote><h2>Remember `license.name`?</h2></blockquote>
 						<span class="fragment"><p>Let's try that here, for author labels</p></span>
 						<span class="fragment"><small>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>` . `<code>@value</code>`</small></span>
@@ -526,6 +532,17 @@ $ jsonld compact ... > loc-compact.json
 					</section>
 
 					<section>
+						<blockquote><h1>Best of both worlds</h1></blockquote>
+						<span class="fragment"><p>RDF-compatible linked data</p></span>
+						<span class="fragment"><p>Useful, practical JSON</p></span>
+					</section>
+
+					<section>
+						<blockquote><h2>Context maps stable API to implementation details</h2></blockquote>
+						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately do change)</p></span>
+					</section>
+
+					<section>
 						<h2>Exercise 7: Use final JSON</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
@@ -556,18 +573,18 @@ $ cat ... | jq '???' # get the author label
 									</td>
 								</tr>
 								<tr>
-									<td>Main title</td>
-									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
-$ cat ... | jq '???' # get the main title
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
 									<td>Subtitle</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
 $ cat ... | jq '???' # get the subtitle
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>To N-Quads</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld format -q data/loc-compact.json
 										</code></pre>
 									</td>
 								</tr>
@@ -783,7 +800,7 @@ $ curl localhost:9200/_search ; echo
 							<col width="75%" />
 							<tbody>
 								<tr>
-									<td>Reindex with usable ID</td>
+									<td>Reindex (usable ID)</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
 $... jq... _id:(.id/"/")|last... > bulk.ndjson
@@ -817,6 +834,63 @@ $ curl ... /_search?q=&lt;term&gt;
 							</tbody>
 						</table>
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Remote JSON to N-Quads</h2></blockquote>
+						<span class="fragment"><p><code>jsonld format -q http://localhost:9200.../_source</code></p></span>
+						<span class="fragment"><p>Context was included once, at top level, with @graph</p></span>
+						<span class="fragment"><p>Need to include for each document</p></span>
+						<span class="fragment"><p>Not embedded, but remote: application/ld+json, CORS</p></span>
+					</section>
+
+<section>
+						<h2>Exercise 12: Remote context</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
+							<tbody>
+								<tr>
+									<td>jq: add JSON</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cat ... | jq -c '.["@graph"][] | {"1": "one"} + .'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Reindex (remote context)</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$...jq... _id:(.id/"/")|last}})\n\( \
+{"@context":"http://localhost:3000/context.json"} \
++.)" > bulk.ndjson
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Run server</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ npm start
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>To N-Quads</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld format -q http://localhost:9200.../_source
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Serving single documents as JSON over HTTP, serializable as RDF</h2></blockquote>
 					</section>
 
 					<section>

@@ -24,7 +24,7 @@ jsonld frame -f frame.json loc-100.json > loc-100-framed.json
 jsonld compact -c context.json loc-100-framed.json > loc-100-compact.json
 
 # Create bulk index format
-FILTER='.["@graph"][] | "\({index:{_index:"loc",_type:"work",_id:(.id/"/")|last}})\n\({"@context":"context.json"}+.)"'
+FILTER='.["@graph"][] | "\({index:{_index:"loc",_type:"work",_id:(.id/"/")|last}})\n\({"@context":"http://localhost:3000/context.json"}+.)"'
 cat loc-100-compact.json | jq -c -r "$FILTER" > loc-100-bulk.ndjson
 head -n 2 loc-100-bulk.ndjson
 
@@ -37,3 +37,6 @@ sleep 1
 curl -s "localhost:9200/loc/work/_search" | jq '.hits.total'
 curl -s "localhost:9200/loc/work/_search?q=contribution.agent.label:Parliament" | jq '.hits.total'
 curl -s "localhost:9200/loc/work/11%23Work240-15/_source" | jq '.'
+
+# Remote JSON-LD to N-Quads
+jsonld format -q http://localhost:9200/loc/work/11%23Work240-15/_source
