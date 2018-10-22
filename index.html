@@ -89,6 +89,17 @@
 				</section>
 
 				<section>
+					<h2>Overview</h2>
+					<table>
+						<tr><th width="30%"/><th width="45%"/><th width="25%"/></tr>
+						<tr><td><b>Part I</b></td><td>Convert RDF data into usable JSON-LD</td><td>13:00-15:00</td></tr>
+						<tr><td><b>Part II</b></td><td>Index and query the data with Elasticsearch</td><td>15:00-16:00</td></tr>
+						<tr><td><b>Part III</b></td><td>Use the data in a web app</td><td>16:00-17:00</td></tr>
+						<tr><td><b>Part IV</b></td><td>Tools: Kibana, Hypothes.is, OpenRefine</td><td>17:00-19:00</td></tr>
+					</table>
+				</section>
+
+				<section>
 					<h1>Our Background & Experience</h1>
 				</section>
 
@@ -130,7 +141,7 @@
 
 
 				<section>
-					<h2>Part I</h2>
+					<h2>Part I<br><small>(Convert RDF data into usable JSON-LD)</small></h2>
 					<table>
 						<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
 						<tr><td><b>Usable data & APIs</b></td><td>API basics: why, how</td><td>13:00-13:15</td></tr>
@@ -573,6 +584,297 @@ $ cat ... | jq '???' # get the subtitle
 					<section>
 						<blockquote><h2>JSON view</h2></blockquote>
 						<span class="fragment"><p>Add context to JSON to make RDF</p></span>
+					</section>
+
+					<section>
+						<h2>Part II<br><small>(Index and query the data with Elasticsearch)</small></h2>
+						<table>
+							<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
+							<tr><td><b>Elasticsearch bulk indexing</b></td><td>Create bulk format with jq, index with curl</td><td>15:00-15:30</td></tr>
+							<tr><td><b>Query the Elasticsearch index</b></td><td>Elasticsearch URI search, query string syntax</td><td>15:30-16:00</td></tr>
+						</table>
+					</section>
+
+					<section>
+						<h2>Exercise 8: Convert larger data (100 documents)</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Extract</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cd data ; bunzip2 loc-100.nt.bz2
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Import</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld import ...
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Frame</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld frame ...
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Compact</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld compact ...
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Elasticsearch bulk format</h2></blockquote>
+						<span class="fragment"><code><pre>{"index":{"_index":"loc","_type":"work","_id":"c000101650"}}</pre></code></span>
+						<span class="fragment"><code><pre>{@context: ...,"id":"http://...","type":["Work","Text"],...}</pre></code></span>
+						<span class="fragment"><p>bulk.jsonl</p></span>
+						<span class="fragment">
+							<code><pre>$ curl -H -XPOST localhost:9200/_bulk --data-binary "@bulk.jsonl"</pre></code>
+							<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						</span>
+					</section>
+
+					<section>
+						<blockquote><h2>Input data format</h2></blockquote>
+						<span class="fragment">
+							<pre><code class="nohighlight" data-trim contenteditable>
+{
+  "@context": { ... },
+  "@graph": [
+    { "id": "http://.../1", "type": ["Work", "Text"], ... },
+    { "id": "http://.../2", "type": ["Work", "Text"], ... },
+    ...
+  ]
+}
+							</code></pre>
+						</span>
+						<span class="fragment"><p>We want to process each element of the @graph array</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 9: Advanced jq</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="10%" />
+							<col width="90%" />
+							<tbody>
+								<tr>
+									<td>All</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cat loc-100-compact.json | jq -c '.'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Each</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cat ... | jq -c '.["@graph"][] | .'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>JSON</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ ... '.["@graph"][] | { _index:"loc", _id:.id }'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Raw</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>bulk .jsonl</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+{ "index":{"_index":"loc", "_type":"work", "_id":"1"} }
+{ "id": "http://.../1", "type": ["Work", "Text"], ... }
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Elasticsearch bulk API</h2></blockquote>
+						<span class="fragment"><p>Send the bulk.jsonl file to the Elasticsearch bulk API</p></span>
+						<span class="fragment"><p>HTTP POST to /_bulk</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 10: Bulk indexing</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="10%" />
+							<col width="90%" />
+							<tbody>
+								<tr>
+									<td>Check data</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ tail -n 2 bulk.ndjson
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>(Delete index)</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl -XDELETE localhost:9200/loc ; echo
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Index data</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl -H "Content-Type: application/x-ndjson" \
+  -XPOST .../_bulk --data-binary "@bulk.ndjson" ; echo
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Check index</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl localhost:9200/_search ; echo
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Elasticsearch URI search</h2></blockquote>
+						<span class="fragment"><p>Search query as part of the URI (very versatile: full text, fields, boolean operators, wildcards)</p></span>
+						<span class="fragment"><p>(Won't cover here: body search, even more advanced)</p></span>
+						<span class="fragment"><p>Search: /&lt;index&gt;/&lt;type&gt;/_search</p></span>
+						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 11: Query index</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Reindex with usable ID</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$... jq... _id:(.id/"/")|last... > bulk.ndjson
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>GET by ID</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl "localhost:9200/&lt;index&gt;/&lt;type&gt;/&lt;id&gt;"
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Source only</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... /_source
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Full text search</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... /_search?q=&lt;term&gt;
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Elasticsearch query string syntax</h2></blockquote>
+						<span class="fragment"><p>Very versatile: full text, fields, boolean operators, wildcards</p></span>
+						<span class="fragment"><p>HTTP GET .../_search?q=&lt;query-string&gt;</p></span>
+						<span class="fragment"><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch documentation</a></p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 12: Query syntax</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Field search</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... /_search?q=&lt;field&gt;:&lt;term&gt;
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Boolean</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... /_search?q=&lt;???&gt; # AND, OR
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Wildcards</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... /_search?q=&lt;???&gt; # alt spellings
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Ranges</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... /_search?q=&lt;???&gt; # creation date
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Exists</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ curl ... /_search?q=&lt;???&gt; # classification
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
 					<section>

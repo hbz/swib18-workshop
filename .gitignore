@@ -1,2 +1,4 @@
 *.log
 node_modules
+loc-100*
+!loc-100.nt.bz2
