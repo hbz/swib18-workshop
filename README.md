@@ -79,6 +79,16 @@ Install [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/
 
 Wait a few seconds for Elasticsearch to start up, then open [http://localhost:9200/](http://localhost:9200/) to verify Elasticsearch is running.
 
+#### Kibana
+
+Install [Kibana](https://www.elastic.co/downloads/kibana):
+
+`sudo apt-get install kibana`
+
+`sudo -i service kibana start`
+
+Wait a few seconds for Kibana to start up, then open [http://localhost:5601](http://localhost:5601) to verify Kibana is running.
+
 ### Repository
 
 Clone the repo:
