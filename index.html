@@ -186,7 +186,7 @@
 				</section>
 
 				<section>
-					<h3>e.g. Lobid API data sources and formats</h3>
+					<h3>e.g. lobid API data sources and formats</h3>
 					<img src="img/data.png" style="border: none; box-shadow: none;" /> <span
 						class="fragment"><h4>APIs decouple applications from
 							specific data sources, formats, and systems. They enable modular, sustainable applications.</h4></span>
@@ -303,8 +303,8 @@ $ curl ... | jq '???' # get the number of open issues
 					</section>
 
 					<section>
-						<h2>Bibframe datasets</h2>
-						<img src="img/loc-downloads.png" style="border: none; box-shadow: none;" />
+						<h2>Bibframe datasets (N-Triples)</h2>
+						<a href="http://id.loc.gov/download"><img src="img/loc-downloads.png" style="border: none; box-shadow: none;" /></a>
 					</section>
 
 					<section>
@@ -379,8 +379,9 @@ $ jsonld import loc.nt > loc.json
 
 					<section>
 						<blockquote><h1>Worst of both worlds</h1></blockquote>
-						<span class="fragment"><p>Unwieldy URIs</p></span>
+						<span class="fragment"><p>Unwieldy URIs as keys</p></span>
 						<span class="fragment"><p>Syntactic overhead</p></span>
+						<span class="fragment"><p>Flat data = less structure, less readability</p></span>
 					</section>
 
 					<section>
@@ -601,6 +602,7 @@ $ jsonld format -q data/loc-compact.json
 					<section>
 						<blockquote><h2>JSON view</h2></blockquote>
 						<span class="fragment"><p>Add context to JSON to make RDF</p></span>
+						<span class="fragment"><p>Add <code>@id</code>s where needed</p></span>
 					</section>
 
 					<section>
@@ -1038,7 +1040,7 @@ $.ajax({
 "http": {
     "cors.enabled": true,
     "cors.allow-origin": "*"
-}	
+}
 						</code></pre>
 						<p><font size="5">(in /etc/elasticsearch/elasticsearch.yml, then: sudo service elasticsearch restart)</font></p>
 					</section>
