@@ -661,9 +661,11 @@ $ jsonld compact ...
 						<blockquote><h2>Elasticsearch bulk format</h2></blockquote>
 						<span class="fragment"><code><pre>{"index":{"_index":"loc","_type":"work","_id":"c000101650"}}</pre></code></span>
 						<span class="fragment"><code><pre>{@context: ...,"id":"http://...","type":["Work","Text"],...}</pre></code></span>
-						<span class="fragment"><p>bulk.jsonl</p></span>
+						<span class="fragment"><p>bulk.ndjson</p></span>
 						<span class="fragment">
-							<code><pre>$ curl -H -XPOST localhost:9200/_bulk --data-binary "@bulk.jsonl"</pre></code>
+							<code><pre>
+$ curl -H "Content-Type: application/x-ndjson" \
+-XPOST localhost:9200/_bulk --data-binary "@bulk.ndjson"</pre></code>
 							<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 						</span>
 					</section>
@@ -724,7 +726,7 @@ $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 									</td>
 								</tr>
 								<tr>
-									<td>bulk .jsonl</td>
+									<td>bulk .ndjson</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
 { "index":{"_index":"loc", "_type":"work", "_id":"1"} }
@@ -739,7 +741,7 @@ $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 
 					<section>
 						<blockquote><h2>Elasticsearch bulk API</h2></blockquote>
-						<span class="fragment"><p>Send the bulk.jsonl file to the Elasticsearch bulk API</p></span>
+						<span class="fragment"><p>Send the bulk.ndjson file to the Elasticsearch bulk API</p></span>
 						<span class="fragment"><p>HTTP POST to /_bulk</p></span>
 					</section>
 
