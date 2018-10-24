@@ -186,7 +186,7 @@
 				</section>
 
 				<section>
-					<h3>e.g. Lobid API data sources and formats</h3>
+					<h3>e.g. lobid API data sources and formats</h3>
 					<img src="img/data.png" style="border: none; box-shadow: none;" /> <span
 						class="fragment"><h4>APIs decouple applications from
 							specific data sources, formats, and systems. They enable modular, sustainable applications.</h4></span>
@@ -303,8 +303,8 @@ $ curl ... | jq '???' # get the number of open issues
 					</section>
 
 					<section>
-						<h2>Bibframe datasets</h2>
-						<img src="img/loc-downloads.png" style="border: none; box-shadow: none;" />
+						<h2>Bibframe datasets (N-Triples)</h2>
+						<a href="http://id.loc.gov/download"><img src="img/loc-downloads.png" style="border: none; box-shadow: none;" /></a>
 					</section>
 
 					<section>
@@ -375,6 +375,13 @@ $ jsonld import loc.nt > loc.json
 }, ...
 					</code></pre>
 					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output</a></p>
+					</section>
+
+					<section>
+						<blockquote><h1>Worst of both worlds</h1></blockquote>
+						<span class="fragment"><p>Unwieldy URIs as keys</p></span>
+						<span class="fragment"><p>Syntactic overhead</p></span>
+						<span class="fragment"><p>Flat data = less structure, less readability</p></span>
 					</section>
 
 					<section>
@@ -526,6 +533,17 @@ $ jsonld compact ... > loc-compact.json
 					</section>
 
 					<section>
+						<blockquote><h1>Best of both worlds</h1></blockquote>
+						<span class="fragment"><p>RDF-compatible linked data</p></span>
+						<span class="fragment"><p>Useful, practical JSON</p></span>
+					</section>
+
+					<section>
+						<blockquote><h2>Context maps stable API to implementation details</h2></blockquote>
+						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately do change)</p></span>
+					</section>
+
+					<section>
 						<h2>Exercise 7: Use final JSON</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
@@ -556,18 +574,18 @@ $ cat ... | jq '???' # get the author label
 									</td>
 								</tr>
 								<tr>
-									<td>Main title</td>
-									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
-$ cat ... | jq '???' # get the main title
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
 									<td>Subtitle</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
 $ cat ... | jq '???' # get the subtitle
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>To N-Quads</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld format -q data/loc-compact.json
 										</code></pre>
 									</td>
 								</tr>
@@ -584,6 +602,7 @@ $ cat ... | jq '???' # get the subtitle
 					<section>
 						<blockquote><h2>JSON view</h2></blockquote>
 						<span class="fragment"><p>Add context to JSON to make RDF</p></span>
+						<span class="fragment"><p>Add <code>@id</code>s where needed</p></span>
 					</section>
 
 					<section>
@@ -783,10 +802,10 @@ $ curl localhost:9200/_search ; echo
 							<col width="75%" />
 							<tbody>
 								<tr>
-									<td>Reindex with usable ID</td>
+									<td>Reindex (usable ID)</td>
 									<td>
 										<pre><code class="nohighlight" data-trim contenteditable>
-$... jq... _id:(.id/"/")|last... > bulk.ndjson
+$...jq... _id:(.id/"/")|last... > bulk.ndjson
 										</code></pre>
 									</td>
 								</tr>
@@ -820,6 +839,63 @@ $ curl ... /_search?q=&lt;term&gt;
 					</section>
 
 					<section>
+						<blockquote><h2>Remote JSON to N-Quads</h2></blockquote>
+						<span class="fragment"><p><code>jsonld format -q http://localhost:9200.../_source</code></p></span>
+						<span class="fragment"><p>Context was included once, at top level, with @graph</p></span>
+						<span class="fragment"><p>Need to include for each document</p></span>
+						<span class="fragment"><p>Not embedded, but remote: application/ld+json, CORS</p></span>
+					</section>
+
+<section>
+						<h2>Exercise 12: Remote context</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
+							<tbody>
+								<tr>
+									<td>jq: add JSON</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ cat ... | jq -c '.["@graph"][] | {"1": "one"} + .'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Reindex (remote context)</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$...jq... _id:(.id/"/")|last}})\n\( \
+{"@context":"http://localhost:3000/context.json"} \
++.)" > bulk.ndjson
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Run server</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ npm start
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>To N-Quads</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+$ jsonld format -q http://localhost:9200.../_source
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Serving single documents as JSON over HTTP, serializable as RDF</h2></blockquote>
+					</section>
+
+					<section>
 						<blockquote><h2>Elasticsearch query string syntax</h2></blockquote>
 						<span class="fragment"><p>Very versatile: full text, fields, boolean operators, wildcards</p></span>
 						<span class="fragment"><p>HTTP GET .../_search?q=&lt;query-string&gt;</p></span>
@@ -827,7 +903,7 @@ $ curl ... /_search?q=&lt;term&gt;
 					</section>
 
 					<section>
-						<h2>Exercise 12: Query syntax</h2>
+						<h2>Exercise 12a: Query syntax</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
 							<col width="75%" />
@@ -878,19 +954,237 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 					</section>
 
 					<section>
-						<blockquote><h2>Context maps stable API to implementation details</h2></blockquote>
-						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately do change)</p></span>
+						<h2>Part III<br><small>(Use the data in a web app)</small></h2>
+						<table>
+							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
+							<tr><td><b>Search page</b></td><td>HTML page for index search</td><td>16:00-16:45</td></tr>
+							<tr><td><b>Sample searches</b></td><td>Use the page to query the data</td><td>16:45-17:00</td></tr>
+						</table>
 					</section>
 
-					<section data-background="img/remote.png"
+					<section>
+						<h2>Exercise 13: HTML</h2>
+						<pre><code class="html" data-trim contenteditable>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+		&lt;title&gt;Title&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		Hello HTML
+	&lt;/body&gt;
+&lt;/html&gt;
+						</code></pre>
+					</section>
+
+					<section>
+						<blockquote><h2>JQuery</h2></blockquote>
+						<span class="fragment"><p>Simplify interaction with the DOM</p></span>
+						<span class="fragment"><pre><code class="html" data-trim contenteditable>
+&lt;head&gt;
+  &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot;/&gt;
+&lt;/head&gt;
+						</code></pre></span>
+					</section>
+
+					<section>
+						<h2>Exercise 14: Text Input</h2>
+						<pre><code class="html" data-trim contenteditable>
+&lt;input id='search' type='text'/&gt;
+&lt;script&gt;
+	$('#search').keyup(function() {
+		var q = $('#search').val();
+		console.log(query);
+	});
+&lt;/script&gt;
+						</code></pre>
+						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>AJAX</h2></blockquote>
+						<span class="fragment"><p>"Asynchronous JavaScript And XML"</p></span>
+						<span class="fragment"><p>Asynchronous JavaScript And <strike>XML</strike> JSON</p></span>
+						<span class="fragment"><p>Part of the browser: XMLHttpRequest</p></span>
+						<span class="fragment"><p>Also available in JQuery: $.ajax(options)</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 15a: AJAX request</h2>
+						<pre><code class="javascript" data-trim contenteditable>
+$.ajax({
+	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
+	success: function(result) {
+		console.log(JSON.stringify(result));
+	},
+	error: function(jqXHR, textStatus, errorThrown) {
+		console.log('error: ', textStatus);
+	}
+});
+						</code></pre>
+						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>CORS</h2></blockquote>
+						<span class="fragment"><p>Error: not allowed by Access-Control-Allow-Origin</p></span>
+						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the API (Elasticsearch server)</p></span>
+						<span class="fragment"><p>API server needs to set header: Access-Control-Allow-Origin</p></span>
+						<span class="fragment"><p>In production: specify which domain can make requests</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 16: Configure CORS in Elasticsearch</h2>
+						<pre><code class="nohighlight" data-trim contenteditable>
+"http": {
+    "cors.enabled": true,
+    "cors.allow-origin": "*"
+}
+						</code></pre>
+						<p><font size="5">(in /etc/elasticsearch/elasticsearch.yml, then: sudo service elasticsearch restart)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 15b: AJAX request</h2>
+						<pre><code class="javascript" data-trim contenteditable>
+$.ajax({
+	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
+	success: function(result) {
+		console.log(JSON.stringify(result));
+	},
+	error: function(jqXHR, textStatus, errorThrown) {
+		console.log('error: ', textStatus);
+	}
+});
+						</code></pre>
+						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
+					</section>
+
+					<section>
+						<blockquote><h2>Response format</h2></blockquote>
+						<pre><code class="json" data-trim contenteditable>
+{
+  "took": 1,
+  "timed_out": false,
+  "hits": {
+    "total": 100,
+    "max_score": 1,
+    "hits": [
+      {
+        "_index": "loc",
+        "_type": "work",
+        "_id": "c000000007",
+        "_score": 1,
+        "_source": {
+          "@context": "context.json",
+          "id": "http://id.loc.gov/resources/works/c000000007",
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Exercise 17: Process hits</h2>
+						<pre><code class="javascript" data-trim contenteditable>
+success: function(result) {
+	console.log(JSON.stringify(result));
+
+	var hits = result.hits.hits;
+	for (i in hits) {
+		var hit = hits[i];
+		var label = hit._source.label;
+		$("#result").append(label + '&lt;hr/&gt;');
+	}
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Exercise 18: Improve UI</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="10%" />
+							<col width="90%" />
+							<tbody>
+								<tr>
+									<td>Hits</td>
+									<td>
+										<pre><code class="javascript" data-trim contenteditable>
+$("#result").html(`<p>Hits: ${result.hits.total}</p>`);
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Links</td>
+									<td>
+										<pre><code class="javascript" data-trim contenteditable>
+`http://localhost:9200/loc/work/${hit._id}/_source`
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</code></pre>
+					</section>
+
+					<section data-background="img/search.png"
 						data-background-size="contain">
 					</section>
 
-				<section>
-					<h1>Time for questions, discussions, feedback</h1>
-					<p><a href="https://hbz.github.io/swib18-workshop/">https://hbz.github.io/swib18-workshop/</a></p>
-					<p><a href="https://github.com/hbz/swib18-workshop/">https://github.com/hbz/swib18-workshop/</a></p>
-				</section>
+					<section>
+						<h2>Exercise 12b: Query syntax</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Field search</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+field:term
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Boolean</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+??? # AND, OR
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Wildcards</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+??? # alt spellings
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Ranges</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+??? # creation date
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Exists</td>
+									<td>
+										<pre><code class="nohighlight" data-trim contenteditable>
+??? # classification
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string documentation</a></font></p>
+					</section>
+
+					<section>
+						<h1>Time for questions, discussions, feedback</h1>
+						<p><a href="https://hbz.github.io/swib18-workshop/">https://hbz.github.io/swib18-workshop/</a></p>
+						<p><a href="https://github.com/hbz/swib18-workshop/">https://github.com/hbz/swib18-workshop/</a></p>
+					</section>
 
 			</div>
 

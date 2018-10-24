@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Search</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<input id='search' type='text' style='width: 99%' placeholder='Search query... (e.g. label:letters, wildcards with *)' autofocus/>
+	<div id='result'></div>
+	<script>
+		$('#search').keyup(
+				function() {
+					var query = $('#search').val();
+					$.ajax({
+						url: `http://localhost:9200/loc/work/_search?size=100&q=${query}`,
+						success: function(result) {
+							console.log(JSON.stringify(result));
+							$("#result").html(`<br/>Hits: ${result.hits.total} <hr/>`);
+							var hits = result.hits.hits;
+							for (i in hits) {
+								var hit = hits[i];
+								var link = `<a href='http://localhost:9200/loc/work/${hit._id}/_source'>${hit._source.label}</a>`;
+								$("#result").append(link + '<hr/>');
+							}
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							console.log('error: ', textStatus);
+						}
+					});
+				});
+	</script>
+</body>
+</html>

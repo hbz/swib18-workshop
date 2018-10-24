@@ -1,6 +1,7 @@
 const jsonld = require('jsonld');
 const fs = require('fs');
 const util = require('util');
+const http = require('http');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 const deleteFile = util.promisify(fs.unlink);
@@ -40,6 +41,24 @@ async function use(data) {
   console.log('author:', data.contribution[0].agent.label);
   console.log('==============');
 }
+
+// =========================
+// Serve the context locally
+// =========================
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'application/ld+json');
+  var fileStream = fs.createReadStream('data/context.json');
+  fileStream.pipe(res);
+});
+
+const hostname = '127.0.0.1';
+const port = 3000;
+server.listen(port, hostname, () => {
+  console.log(`Serving context at http://${hostname}:${port}/\n`);
+});
 
 // ======================
 // Functions called above
@@ -86,7 +105,7 @@ async function bulk(input) {
 async function writeDocs(docs, context, writer) {
   for(i in docs) {
     const compact = await jsonld.compact(docs[i], JSON.parse(context), {'compactArrays': true});
-    compact['@context'] = "context.json"; // TODO: use http, serve from localhost
+    compact['@context'] = `http://${hostname}:${port}/context.json`;
     const meta = {index: {_index: 'loc', _type: 'work', _id: compact.id.split('/').pop()}};
     writer.write(JSON.stringify(meta) + '\n');
     writer.write(JSON.stringify(compact) + '\n');

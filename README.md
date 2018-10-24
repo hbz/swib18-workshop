@@ -91,6 +91,18 @@ Go to the repo:
 
 ## Usage
 
+### Node
+
+Install dependencies:
+
+`npm install`
+
+Run the code (in `js/app.js`):
+
+`npm start`
+
+This will serve the local context at [http://localhost:3000/context.json](http://localhost:3000/context.json).
+
 ### Command line
 
 Run all (convert, index, and query sample data):
@@ -102,13 +114,3 @@ Open `process.sh` in an editor for individual commands.
 ### Browser
 
 Open `data/index.html` in a web browser.
-
-### Node
-
-Install dependencies:
-
-`npm install`
-
-Run the code (in `js/app.js`):
-
-`npm start`
