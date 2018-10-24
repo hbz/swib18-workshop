@@ -606,6 +606,51 @@ $ jsonld format -q data/loc-compact.json
 					</section>
 
 					<section>
+					<blockquote><h2>JSON with context</h2></blockquote>
+					<p>(based on part of <a href='https://api.github.com/users/hb'>https://api.github.com/users/hbz</a>)</p>
+					<pre><code class="nohighlight" data-trim>
+{
+  "@id": "https://www.hbz-nrw.de/",
+  "type": "Organization",
+  "name": "hbz",
+  "blog": "http://hbz.github.com",
+
+  "@context": {
+    "type": "@type",
+    "name": "https://schema.org/name",
+    "blog": {
+      "@id": "https://schema.org/url", "@type": "@id"
+    },
+    "Organization": "https://schema.org/Organization"
+  }
+}
+					</code></pre>
+					<p>You can test this in the <a href='https://json-ld.org/playground/'>JSON-LD Playground</a></p>
+					</section>
+
+					<section>
+					<blockquote><h2>JSON as RDF</h2></blockquote>
+					<pre><code class="nohighlight" data-trim>
+{
+  "@context": "...",
+  "@id": "https://www.hbz-nrw.de/",
+  "type": "Organization",
+  "name": "hbz",
+  "blog": "http://hbz.github.com"
+}
+					</code></pre>
+					<pre><code class="nohighlight" data-trim>
+&lt;https://www.hbz-nrw.de/&gt; \
+&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; \
+&lt;https://schema.org/Organization&gt; .
+&lt;https://www.hbz-nrw.de/&gt; &lt;https://schema.org/name&gt; "hbz" .
+&lt;https://www.hbz-nrw.de/&gt; &lt;https://schema.org/url&gt; \
+&lt;http://hbz.github.com"&gt; .
+					</code></pre>
+					<p>Output of N-Quads tab in the <a href='https://json-ld.org/playground/'>JSON-LD Playground</a></p>
+					</section>
+
+					<section>
 						<h2>Part II<br><small>(Index and query the data with Elasticsearch)</small></h2>
 						<table>
 							<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
