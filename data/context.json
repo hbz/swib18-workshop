@@ -1061,7 +1061,10 @@
     "citationNote":"http://www.loc.gov/mads/rdf/v1#citationNote",
     "citationSource":"http://www.loc.gov/mads/rdf/v1#citationSource",
     "city":"http://www.loc.gov/mads/rdf/v1#city",
-    "componentList":"http://www.loc.gov/mads/rdf/v1#componentList",
+    "componentList": {
+        "@id": "http://www.loc.gov/mads/rdf/v1#componentList",
+        "@container": "@list"
+    },
     "country":"http://www.loc.gov/mads/rdf/v1#country",
     "deathPlace":"http://www.loc.gov/mads/rdf/v1#deathPlace",
     "definitionNote":"http://www.loc.gov/mads/rdf/v1#definitionNote",
