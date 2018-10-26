@@ -1402,6 +1402,98 @@ field:term
 					</section>
 
 					<section>
+						<h1>OpenRefine</h1>
+						<p><span class="fragment">"A powerful tool for working with messy data"</span></p>
+						<p><span class="fragment">"cleaning it; transforming it from one format into another; and extending it with web services and external data"</span></p>
+						<p><span class="fragment">Spreadsheet-like user interface, in the browser, locally</span></p>
+						<p><span class="fragment">Run with <code>./refine</code>, then open <a href='http://localhost:3333/'>http://localhost:3333/</a></span></p>
+					</section>
+
+					<section>
+						<h2>Exercise 28: <br/>Getting labels for IDs</h2>
+						<pre><code class="nohighlight" data-trim>
+http://id.loc.gov/resources/works/c000000011
+http://id.loc.gov/resources/works/c000000020
+http://id.loc.gov/resources/works/c000000026
+http://id.loc.gov/resources/works/c000000028
+http://id.loc.gov/resources/works/c000000100
+						</code></pre>
+						<p>Copy the lines above to the clipboard
+					</section>
+
+					<section data-background="img/openrefine-1-import.png"
+						data-background-size="contain">
+					</section>
+
+					<section data-background="img/openrefine-2-import.png"
+						data-background-size="contain">
+					</section>
+
+					<section data-background="img/openrefine-3-add-from-url.png"
+						data-background-size="contain">
+					</section>
+
+					<section>
+						<h2>Create URL to get JSON</h2>
+						<pre><code class="nohighlight" data-trim>
+http://id.loc.gov/resources/works/c000000011
+						</code></pre>
+						<pre><code class="nohighlight" data-trim>
+http://localhost:9200/loc/work/c000000011/_source
+						</code></pre>
+						<code class="nohighlight" data-trim>
+"http://localhost:9200/loc/work/" + split(value, '/')[-1] + "/_source"
+						</code>
+						<p><small>(Copy this to the clipboard)</small></p>
+					</section>
+
+					<section data-background="img/openrefine-4-add-from-url.png"
+						data-background-size="contain">
+					</section>
+
+					<section data-background="img/openrefine-5-add-from-json.png"
+						data-background-size="contain">
+					</section>
+
+					<section data-background="img/openrefine-6-add-from-json.png"
+						data-background-size="contain">
+					</section>
+
+					<section>
+						<h2>Exercise 29: <br/>Add first contributing agent</h2>
+						<p><span class="fragment"><code>contribution[0].agent.label</code></span></p>
+					</section>
+
+					<section data-background="img/openrefine-7-export.png"
+						data-background-size="contain">
+					</section>
+
+					<section>
+						<h2>Exercise 30: <br/>Getting IDs for labels</h2>
+						<pre><code class="nohighlight" data-trim>
+Letters from an American farmer
+Italian journeys
+Report of the trial of George Ryan
+The devil upon crutches in England
+Educational interests of Colorado
+						</code></pre>
+						<p><code>"http://localhost:9200/loc/work/_search?q=\"" + replace(value, " ", "+") + "\""</code></p>
+						<p><code>value.parseJson().hits.hits[0]._source.id</code></p>
+					</section>
+
+					<section data-background="img/openrefine-8-uris.png"
+						data-background-size="contain">
+					</section>
+
+					<section>
+						<h1>Reconciliation API</h1>
+						<p><span class="fragment">All of the above: nothing specific built for OpenRefine, just JSON over HTTP, and lots to explore in OpenRefine</span></p>
+						<p><span class="fragment">Implement OpenRefine Reconciliation API (serve some specific JSON) for better integration in OpenRefine UI</span></p>
+						<p><span class="fragment">Select best matches using scores and small inline previews, filter by type, suggest fields for data extension, etc.</span></p>
+						<p><span class="fragment"><a href="http://blog.lobid.org/2018/08/27/openrefine.html">http://blog.lobid.org/2018/08/27/openrefine.html</a></span></p>
+					</section>
+
+					<section>
 						<h1>Time for questions, discussions, feedback</h1>
 						<p><a href="https://hbz.github.io/swib18-workshop/">https://hbz.github.io/swib18-workshop/</a></p>
 						<p><a href="https://github.com/hbz/swib18-workshop/">https://github.com/hbz/swib18-workshop/</a></p>
