@@ -91,11 +91,11 @@
 				<section>
 					<h2>Overview</h2>
 					<table>
-						<tr><th width="30%"/><th width="45%"/><th width="25%"/></tr>
+						<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
 						<tr><td><b>Part I</b></td><td>Convert RDF data into usable JSON-LD</td><td>13:00-15:00</td></tr>
 						<tr><td><b>Part II</b></td><td>Index and query the data with Elasticsearch</td><td>15:00-16:00</td></tr>
-						<tr><td><b>Part III</b></td><td>Use the data in a web app</td><td>16:00-17:00</td></tr>
-						<tr><td><b>Part IV</b></td><td>Tools: Kibana, Hypothes.is, OpenRefine</td><td>17:00-19:00</td></tr>
+						<tr><td><b>Part III</b></td><td>Use the data to build a web app</td><td>16:00-17:30</td></tr>
+						<tr><td><b>Part IV</b></td><td>Use the data in existing tools: Kibana, OpenRefine</td><td>17:30-18:45</td></tr>
 					</table>
 				</section>
 
@@ -146,7 +146,7 @@
 						<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
 						<tr><td><b>Usable data & APIs</b></td><td>API basics: why, how</td><td>13:00-13:15</td></tr>
 						<tr><td><b>JSON APIs</b></td><td>Using the GitHub API, processing JSON</td><td>13:15-14:00</td></tr>
-						<tr><td><b>From RDF to JSON</b></td><td>Basics of jsonld.js</td><td>14:00-15:00</td></tr>
+						<tr><td><b>From RDF to JSON</b></td><td>Basics of jsonld.js via jsonld-cli</td><td>14:00-15:00</td></tr>
 					</table>
 				</section>
 
@@ -544,7 +544,7 @@ $ jsonld compact ... > loc-compact.json
 					</section>
 
 					<section>
-						<h2>Exercise 7: Use final JSON</h2>
+						<h2>Exercise 6: Use final JSON</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
 							<col width="88%" />
@@ -660,7 +660,7 @@ $ jsonld format -q data/loc-compact.json
 					</section>
 
 					<section>
-						<h2>Exercise 8: Convert larger data (100 documents)</h2>
+						<h2>Exercise 7: Convert larger data (100 documents)</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
 							<col width="75%" />
@@ -733,7 +733,7 @@ $ curl -H "Content-Type: application/x-ndjson" \
 					</section>
 
 					<section>
-						<h2>Exercise 9: Advanced jq</h2>
+						<h2>Exercise 8: Advanced jq</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
@@ -791,7 +791,7 @@ $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 					</section>
 
 					<section>
-						<h2>Exercise 10: Bulk indexing</h2>
+						<h2>Exercise 9: Bulk indexing</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
@@ -843,7 +843,7 @@ $ curl localhost:9200/_search ; echo
 					</section>
 
 					<section>
-						<h2>Exercise 11: Query index</h2>
+						<h2>Exercise 10: Query index</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
 							<col width="75%" />
@@ -894,7 +894,7 @@ $ curl ... /_search?q=&lt;term&gt;
 					</section>
 
 <section>
-						<h2>Exercise 12: Remote context</h2>
+						<h2>Exercise 11: Remote context</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
 							<col width="85%" />
@@ -950,7 +950,7 @@ $ jsonld format -q http://localhost:9200.../_source
 					</section>
 
 					<section>
-						<h2>Exercise 12a: Query syntax</h2>
+						<h2>Exercise 12: Query syntax</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
 							<col width="75%" />
@@ -1001,11 +1001,12 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 					</section>
 
 					<section>
-						<h2>Part III<br><small>(Use the data in a web app)</small></h2>
+						<h2>Part III<br><small>(Use the data to build a web app)</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
-							<tr><td><b>Search page</b></td><td>HTML page for index search</td><td>16:00-16:45</td></tr>
-							<tr><td><b>Sample searches</b></td><td>Use the page to query the data</td><td>16:45-17:00</td></tr>
+							<tr><td><b>Search page</b></td><td>HTML page for index search</td><td>16:00-16:30</td></tr>
+							<tr><td><b>Sample searches</b></td><td>Use the page to query the data</td><td>16:30-17:00</td></tr>
+							<tr><td><b>Hypothes.is</b></td><td>Embed Hypothes.is in HTML, add annotations to document the data</td><td>17:00-17:30</td></tr>
 						</table>
 					</section>
 
@@ -1058,7 +1059,7 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 					</section>
 
 					<section>
-						<h2>Exercise 15a: AJAX request</h2>
+						<h2>Exercise 15: AJAX request</h2>
 						<pre><code class="javascript" data-trim contenteditable>
 $.ajax({
 	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
@@ -1093,7 +1094,7 @@ $.ajax({
 					</section>
 
 					<section>
-						<h2>Exercise 15b: AJAX request</h2>
+						<h2>Exercise 17: AJAX request</h2>
 						<pre><code class="javascript" data-trim contenteditable>
 $.ajax({
 	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
@@ -1101,7 +1102,7 @@ $.ajax({
 		console.log(JSON.stringify(result));
 	},
 	error: function(jqXHR, textStatus, errorThrown) {
-		console.log('error: ', textStatus);
+		console.log(textStatus, ': ', errorThrown);
 	}
 });
 						</code></pre>
@@ -1130,7 +1131,7 @@ $.ajax({
 					</section>
 
 					<section>
-						<h2>Exercise 17: Process hits</h2>
+						<h2>Exercise 18: Process hits</h2>
 						<pre><code class="javascript" data-trim contenteditable>
 success: function(result) {
 	console.log(JSON.stringify(result));
@@ -1146,7 +1147,7 @@ success: function(result) {
 					</section>
 
 					<section>
-						<h2>Exercise 18: Improve UI</h2>
+						<h2>Exercise 19: Improve UI</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
@@ -1172,12 +1173,64 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 						</code></pre>
 					</section>
 
-					<section data-background="img/search.png"
+					<section data-background="img/search-1-html.png"
 						data-background-size="contain">
 					</section>
 
 					<section>
-						<h2>Exercise 12b: Query syntax</h2>
+						<h1>Documentation</h1>
+						<p><span class="fragment">Which field? How is it nested?</span></p>
+						<p><span class="fragment">Samples very useful as documentation</span></p>
+						<p><span class="fragment">Embed a live sample from the index in the search UI</span></p>
+					</section>
+
+					<section>
+						<h2>Exercise 20:<br/> Two-column layout</h2>
+						<pre><code class="html" data-trim contenteditable>
+&lt;div class='row'&gt;
+  &lt;div class='col'&gt;
+    &lt;code&gt;&lt;pre id='sample'&gt;&lt;/pre&gt;&lt;/code&gt;
+  &lt;/div&gt;
+  &lt;div class='col'&gt;
+    <!-- previous content -->
+  &lt;/div&gt;
+&lt;/div&gt;
+						</code></pre>
+						<pre><code class="html" data-trim contenteditable>
+&lt;head&gt;
+  &lt;!-- ... --&gt;
+  &lt;style&gt;
+    .row { display: flex; }
+    .col { flex: 50%; margin: 5px; }
+    #sample { white-space: pre-wrap; }
+  &lt;/style&gt;
+&lt;/head&gt;
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Exercise 21:<br/> Embed sample</h2>
+						<pre><code class="javascript" data-trim contenteditable>
+$.ajax({
+  url: 'http://localhost:9200/loc/work/c000000026/_source',
+  success: function(result) {
+    console.log(JSON.stringify(result));
+    $("#sample").html(JSON.stringify(result, null, 2));
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.log(textStatus, ': ', errorThrown);
+  }
+});
+						</code></pre>
+						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
+					</section>
+
+					<section data-background="img/search-2-sample.png"
+						data-background-size="contain">
+					</section>
+
+					<section>
+						<h2>Exercise 22: Query syntax</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
 							<col width="75%" />
@@ -1228,12 +1281,46 @@ field:term
 					</section>
 
 					<section>
-						<h2>Part IV<br><small>(Tools)</small></h2>
+						<h1>Hypothes.is</h1>
+						<p><span class="fragment">"Annotate the web, with anyone, anywhere"</span></p>
+						<p><span class="fragment">"Use Hypothesis right now to hold discussions, read socially, organize your research, and take personal notes"</span></p>
+						<p><span class="fragment">or: to create sample-based, collaborative documentation</span></p>
+						<p><span class="fragment">Based on browser plugin, proxy server, or embedded JS</span></p>
+					</section>
+
+					<section>
+						<h2>Exercise 23:<br/>Embedding Hypothes.is</h2>
+						<pre><code class="html" data-trim contenteditable>
+&lt;head&gt;
+  &lt;!-- ... --&gt;
+  &lt;script type="application/json" class="js-hypothesis-config"&gt;
+    { "openSidebar": true }
+  &lt;/script&gt;
+
+  &lt;script src="https://hypothes.is/embed.js" async&gt;&lt;/script&gt;
+
+  &lt;link rel="canonical" 
+    href="https://hbz.github.io/swib18-workshop/search.html"/&gt;
+&lt;/head&gt;
+						</code></pre>
+					</section>
+
+					<section data-background="img/search-3-annotation.png"
+						data-background-size="contain">
+					</section>
+
+					<section>
+						<h2>Exercise 24:<br/>Add annotations</h2>
+						<p>Based on your experience in the query exercise, pick a field and document it like in the sample annotation</p>
+						<p><a href="https://hypothes.is/search?q=tag:%22swib18-workshop%22">https://hypothes.is/search?q=tag:%22swib18-workshop%22</a></p>
+					</section>
+
+					<section>
+						<h2>Part IV<br><small>(Use the data with existing tools)</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
-							<tr><td><b>Kibana</b></td><td>Create visualizations for local index data; look at full data visualizations</td><td>17:00-17:45</td></tr>
-							<tr><td><b>Hypothes.is</b></td><td>Embed Hypothes.is in HTML, add annotations in the browser</td><td>17:45-18:00</td></tr>
-							<tr><td><b>OpenRefine</b></td><td>Use index data in OpenRefine; brief intro to the reconciliation API</td><td>18:00-18:30</td></tr>
+							<tr><td><b>Kibana</b></td><td>Create visualizations for local index data; look at full data visualizations</td><td>17:30-18:15</td></tr>
+							<tr><td><b>OpenRefine</b></td><td>Use index data in OpenRefine; brief intro to the reconciliation API</td><td>18:15-18:45</td></tr>
 						</table>
 					</section>
 
@@ -1265,7 +1352,7 @@ field:term
 					</section>
 
 					<section>
-						<h2>Exercise 19: Bar chart</h2>
+						<h2>Exercise 25: Bar chart</h2>
 						<p>Create a bar chart visualization for the <code>'contribution.agent.type'</code> field</p>
 						<p><small>(Kibana will display an additional <code>'keyword'</code> suffix)</small></p>
 					</section>
@@ -1275,7 +1362,7 @@ field:term
 					</section>
 
 					<section>
-						<h2>Exercise 20: Pie chart</h2>
+						<h2>Exercise 26: Pie chart</h2>
 						<p>Create a pie chart visualization for the <code>'adminMetadata.source.label'</code> field</p>
 						<p><small>(Kibana will display an additional <code>'keyword'</code> suffix)</small></p>
 					</section>
@@ -1285,7 +1372,7 @@ field:term
 					</section>
 
 					<section>
-						<h2>Exercise 21: Tag cloud</h2>
+						<h2>Exercise 27: Tag cloud</h2>
 						<p>Create a tag cloud visualization for the <code>'subject.componentList.authoritativeLabel'</code> field</p>
 						<p><small>(Kibana will display an additional <code>'keyword'</code> suffix)</small></p>
 					</section>

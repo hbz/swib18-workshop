@@ -4,11 +4,40 @@
 <meta charset="UTF-8">
 <title>Search</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+	.row { display: flex; }
+	.col { flex: 50%; margin: 5px; }
+	#sample { white-space: pre-wrap; }
+</style>
+<script type="application/json" class="js-hypothesis-config">
+	{ "openSidebar": true }
+</script>
+<script src="https://hypothes.is/embed.js" async></script>
+<link rel="canonical" href="https://hbz.github.io/swib18-workshop/search.html"/>
 </head>
 <body>
-	<input id='search' type='text' style='width: 99%' placeholder='Search query... (e.g. label:letters, wildcards with *)' autofocus/>
-	<div id='result'></div>
+	 <div class='row'>
+		<div class='col'>
+			<h3 style='margin-top:0px'>Document structure:</h3>
+			<div ><code><pre id='sample'>c000000026</pre></code></div>
+		</div>
+		<div class='col'>
+			<input id='search' type='text' style='width: 99%' placeholder='Search query... (e.g. label:letters, wildcards with *)' autofocus/>
+			<div id='result'></div>
+		</div>
+	</div>
+
 	<script>
+		$.ajax({
+			url: 'http://localhost:9200/loc/work/c000000026/_source',
+			success: function(result) {
+				console.log(JSON.stringify(result));
+				$("#sample").html(JSON.stringify(result, null, 2));
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.log(textStatus, ': ', errorThrown);
+			}
+		});
 		$('#search').keyup(
 				function() {
 					var query = $('#search').val();
@@ -25,7 +54,7 @@
 							}
 						},
 						error: function(jqXHR, textStatus, errorThrown) {
-							console.log('error: ', textStatus);
+							console.log(textStatus, ': ', errorThrown);
 						}
 					});
 				});
