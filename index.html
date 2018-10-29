@@ -83,7 +83,7 @@
 							<a href="http://www.dr0i.de/">Pascal Christoph</a> /
 							<a href="https://twitter.com/dr0ide">@dr0ide</a> <br/>
 							<a href="http://lobid.org/team">Linked Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br/>
-						<img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
+						<a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
 						<small>Bonn, 2018-11-26</small>
 					</p>
 					<p>**DRAFT**</p>
@@ -206,7 +206,7 @@
 
 				<section>
 					<blockquote><h1>JSON</h1></blockquote>
-					<span class="fragment"><h3>standard web API format <a href="">since several years</a></h3></span>
+					<span class="fragment"><h3>standard web API format <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">for several years</a></h3></span>
 					<span class="fragment"><h4>e.g.
 						<a href='https://api.github.com/'>
 						https://api.github.com/</a>
@@ -365,7 +365,7 @@ $ jsonld import loc.nt > loc.json
 					</section>
 
 					<section>
-					<blockquote><h2>Result</h2></blockquote>
+					<h2>Result: <a href="https://www.w3.org/TR/json-ld11/#expanded-document-form">Expanded JSON-LD</a></h2>
 					<pre><code class="json" data-trim contenteditable>
 {
   "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
@@ -444,7 +444,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 					</section>
 
 					<section>
-					<blockquote><h2>Result</h2></blockquote>
+					<h2>Result: <a href="https://www.w3.org/TR/json-ld11/#framed-document-form">Framed JSON-LD</a></h2>
 					<pre><code class="json" data-trim contenteditable>
 "http://id.loc.gov/ontologies/bibframe/contribution": {
  "@type": "http://id.loc.gov/ontologies/bibframe/Contribution",
@@ -466,6 +466,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 						<span class="fragment"><p>Let's try that here, for author labels</p></span>
 						<span class="fragment"><small>`<code>http://id.loc.gov/ontologies/bibframe/contribution</code>` .<br/>`<code>http://id.loc.gov/ontologies/bibframe/agent</code>` .<br/>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>`</small></span>
 						<span class="fragment"><p>Works conceptually, but not very handy</p></span>
+						<span class="fragment"><p>Can you get it to work with jq?</p></span>
 					</section>
 
 					<section>
@@ -483,6 +484,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
   "@container": "@set" // <-- array
 }
 						</pre></code></span>
+						<span class="fragment"><p>See <a href="https://www.w3.org/TR/json-ld11/#the-context">the spec</a> for more about contexts</p></span>
 					</section>
 
 					<section>
@@ -513,7 +515,7 @@ $ jsonld compact ... > loc-compact.json
 					</section>
 
 					<section>
-					<blockquote><h2>Result</h2></blockquote>
+					<h2>Result: <a href="https://www.w3.org/TR/json-ld11/#compacted-document-form">Compacted JSON-LD</a></h2>
 					<pre><code class="json" data-trim contenteditable>
 "contribution": [{
   "type": [
@@ -536,7 +538,7 @@ $ jsonld compact ... > loc-compact.json
 					<section>
 						<blockquote><h2>Remember `license.name`?</h2></blockquote>
 						<span class="fragment"><p>Let's try that here, for author labels</p></span>
-						<span class="fragment"><p><code>contribution[0].agent.label</code></p></span>
+						<span class="fragment"><p><code>.contribution[].agent.label</code></p></span>
 					</section>
 
 					<section>
@@ -547,7 +549,7 @@ $ jsonld compact ... > loc-compact.json
 
 					<section>
 						<blockquote><h2>Context maps stable API to implementation details</h2></blockquote>
-						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately do change)</p></span>
+						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately may change)</p></span>
 					</section>
 
 					<section>
@@ -614,20 +616,20 @@ $ jsonld format -q data/loc-compact.json
 
 					<section>
 					<blockquote><h2>JSON with context</h2></blockquote>
-					<p>(based on part of <a href='https://api.github.com/users/hb'>https://api.github.com/users/hbz</a>)</p>
+					<p>(based on part of <a href='https://api.github.com/users/hbz'>https://api.github.com/users/hbz</a>)</p>
 					<pre><code class="nohighlight" data-trim>
 {
-  "@id": "https://www.hbz-nrw.de/",
+  "@id": "https://github.com/users/hbz",
   "type": "Organization",
   "name": "hbz",
-  "blog": "http://hbz.github.com",
+	"blog": "https://www.hbz-nrw.de",
+  "location": "Cologne, Germany",
 
   "@context": {
     "type": "@type",
     "name": "https://schema.org/name",
-    "blog": {
-      "@id": "https://schema.org/url", "@type": "@id"
-    },
+    "blog": { "@id": "https://schema.org/url", "@type": "@id" },
+    "location": "https://schema.org/location",
     "Organization": "https://schema.org/Organization"
   }
 }
@@ -640,19 +642,21 @@ $ jsonld format -q data/loc-compact.json
 					<pre><code class="nohighlight" data-trim>
 {
   "@context": "...",
-  "@id": "https://www.hbz-nrw.de/",
-  "type": "Organization",
+	"type": "Organization",
   "name": "hbz",
-  "blog": "http://hbz.github.com"
+	"blog": "https://www.hbz-nrw.de",
+  "location": "Cologne, Germany"
 }
 					</code></pre>
 					<pre><code class="nohighlight" data-trim>
-&lt;https://www.hbz-nrw.de/&gt; \
+&lt;https://github.com/users/hbz&gt; \
 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; \
 &lt;https://schema.org/Organization&gt; .
-&lt;https://www.hbz-nrw.de/&gt; &lt;https://schema.org/name&gt; "hbz" .
-&lt;https://www.hbz-nrw.de/&gt; &lt;https://schema.org/url&gt; \
-&lt;http://hbz.github.com"&gt; .
+&lt;https://github.com/users/hbz&gt; &lt;https://schema.org/location&gt; \
+"Cologne, Germany" .
+&lt;https://github.com/users/hbz&gt; &lt;https://schema.org/name&gt; "hbz" .
+&lt;https://github.com/users/hbz&gt; &lt;https://schema.org/url&gt; \
+&lt;https://www.hbz-nrw.de&gt; .
 					</code></pre>
 					<p>Output of N-Quads tab in the <a href='https://json-ld.org/playground/'>JSON-LD Playground</a></p>
 					</section>
