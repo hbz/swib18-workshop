@@ -40,9 +40,10 @@
 		});
 		$('#search').keyup(
 				function() {
-					var query = $('#search').val();
+					var query = encodeURIComponent($('#search').val());
+					var url = `http://localhost:9200/loc/work/_search?size=100&q=${query}`;
 					$.ajax({
-						url: `http://localhost:9200/loc/work/_search?size=100&q=${query}`,
+						url: url,
 						success: function(result) {
 							console.log(JSON.stringify(result));
 							$("#result").html(`<br/>Hits: ${result.hits.total} <hr/>`);
@@ -54,7 +55,7 @@
 							}
 						},
 						error: function(jqXHR, textStatus, errorThrown) {
-							console.log(textStatus, ': ', errorThrown);
+							console.log(textStatus, ': ', errorThrown, ': ', url);
 						}
 					});
 				});

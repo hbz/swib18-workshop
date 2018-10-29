@@ -1068,6 +1068,7 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 					<section>
 						<h2>Exercise 15: AJAX request</h2>
 						<pre><code class="javascript" data-trim contenteditable>
+var q = encodeURIComponent($('#search').val()); // User input
 $.ajax({
 	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
 	success: function(result) {
@@ -1101,8 +1102,9 @@ $.ajax({
 					</section>
 
 					<section>
-						<h2>Exercise 17: AJAX request</h2>
+						<h2>Exercise 17: AJAX request, second try</h2>
 						<pre><code class="javascript" data-trim contenteditable>
+var q = encodeURIComponent($('#search').val()); // User input
 $.ajax({
 	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
 	success: function(result) {
