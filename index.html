@@ -63,6 +63,9 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+		</style>
 	</head>
 
 	<body>
@@ -385,18 +388,35 @@ $ jsonld import loc.nt > loc.json
 					</section>
 
 					<section>
-						<blockquote><h1>Worst of both worlds</h1></blockquote>
-						<span class="fragment"><p>Unwieldy URIs as keys</p></span>
-						<span class="fragment"><p>Syntactic overhead</p></span>
-						<span class="fragment"><p>Flat data = less structure, less readability</p></span>
+						<h2>Exercise 3a:<br/><small>Use serialized RDF to access author label</small></h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
+							<tbody>
+								<tr>
+									<td>Identify field</td>
+									<td><pre><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output</a></pre></td>
+								</tr>
+								<tr>
+									<td>Access field</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc.json | jq '???' # like '.license.name'?
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<span class="fragment"><p>`http://www.w3.org/2000/01/rdf-schema#label`.`@value`?</p></span>
+						<span class="fragment"><p>Can't work: we have just a flat array of objects, which label?</p></span>
+						<span class="fragment"><p>Problem: only <i>technically</i> JSON, but not <i>usable</i></p></span>
 					</section>
 
 					<section>
-						<blockquote><h2>Remember `license.name`?</h2></blockquote>
-						<span class="fragment"><p>Let's try that here, for author label, maybe:</p></span>
-						<span class="fragment"><small>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>` . `<code>@value</code>`</small></span>
-						<span class="fragment"><p>Can't work: we have just a flat array of objects, which label?</p></span>
-						<span class="fragment"><p>Problem: only <i>technically</i> JSON, but not <i>usable</i></p></span>
+						<blockquote><h1>Worst of both worlds</h1></blockquote>
+						<span class="fragment"><p>Unwieldy URIs as keys from RDF</p></span>
+						<span class="fragment"><p>Syntactic overhead from JSON</p></span>
+						<span class="fragment"><p>Flat data, bad readability</p></span>
 					</section>
 
 					<section>
@@ -462,11 +482,27 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 					</section>
 
 					<section>
-						<blockquote><h2>Remember `license.name`?</h2></blockquote>
-						<span class="fragment"><p>Let's try that here, for author label, maybe:</p></span>
-						<span class="fragment"><small>`<code>http://id.loc.gov/ontologies/bibframe/contribution</code>` .<br/>`<code>http://id.loc.gov/ontologies/bibframe/agent</code>` .<br/>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>`</small></span>
-						<span class="fragment"><p>Can you get it to work with jq?</p></span>
-						<span class="fragment"><p>Works conceptually, but not very handy</p></span>
+						<h2>Exercise 4a:<br/><small>Use framed JSON-LD to access author label</small></h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="13%" />
+							<col width="87%" />
+							<tbody>
+								<tr>
+									<td>Identify field</td>
+									<td><pre><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed</a></pre></td>
+								</tr>
+								<tr>
+									<td>Access field</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-framed.json | jq '???' # like .license.name
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<span class="fragment"><p>`http://id.loc.gov/ontologies/bibframe/contribution`<br/>.`http://id.loc.gov/ontologies/bibframe/agent`<br/>.`http://www.w3.org/2000/01/rdf-schema#label`?</p></span>
+						<span class="fragment"><p>Could work conceptually, but not very handy</p></span>
 					</section>
 
 					<section>
@@ -536,20 +572,26 @@ $ jsonld compact ... > loc-compact.json
 					</section>
 
 					<section>
-						<blockquote><h2>Remember `license.name`?</h2></blockquote>
-						<span class="fragment"><p>Let's try that here, for author label:</p></span>
-						<span class="fragment"><p><code>.contribution[0].agent.label</code></p></span>
-					</section>
-
-					<section>
-						<blockquote><h1>Best of both worlds</h1></blockquote>
-						<span class="fragment"><p>RDF-compatible linked data</p></span>
-						<span class="fragment"><p>Useful, practical JSON</p></span>
-					</section>
-
-					<section>
-						<blockquote><h2>Context maps stable API to implementation details</h2></blockquote>
-						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately may change)</p></span>
+						<h2>Exercise 5a:<br/><small>Use compact JSON-LD to access author label</small></h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="13%" />
+							<col width="87%" />
+							<tbody>
+								<tr>
+									<td>Identify field</td>
+									<td><pre><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact</a></pre></td>
+								</tr>
+								<tr>
+									<td>Access field</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-compact.json | jq '???' # .license.name'
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<span class="fragment"><p><p><code>.contribution[0].agent.label</code></p></span>
 					</section>
 
 					<section>
@@ -604,6 +646,12 @@ $ jsonld format -q data/loc-compact.json
 					</section>
 
 					<section>
+						<blockquote><h1>Best of both worlds</h1></blockquote>
+						<span class="fragment"><p>RDF-compatible linked data</p></span>
+						<span class="fragment"><p>Useful, practical JSON</p></span>
+					</section>
+
+					<section>
 						<blockquote><h2>RDF view</h2></blockquote>
 						<span class="fragment"><p>Steps to make usable JSON-LD from RDF: frame, compact, postprocess</p></span>
 					</section>
@@ -611,7 +659,12 @@ $ jsonld format -q data/loc-compact.json
 					<section>
 						<blockquote><h2>JSON view</h2></blockquote>
 						<span class="fragment"><p>Add context to JSON to make RDF</p></span>
-						<span class="fragment"><p>Add <code>@id</code>s where needed</p></span>
+						<span class="fragment"><p>(Add <code>@id</code>s where needed)</p></span>
+					</section>
+
+					<section>
+						<blockquote><h2>Context maps stable API to implementation details</h2></blockquote>
+						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately may change)</p></span>
 					</section>
 
 					<section>
