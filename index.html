@@ -206,7 +206,7 @@
 
 				<section>
 					<blockquote><h1>JSON</h1></blockquote>
-					<span class="fragment"><h3>standard web API format <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">for several years</a></h3></span>
+					<span class="fragment"><h3>standard web API format <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">since years</a></h3></span>
 					<span class="fragment"><h4>e.g.
 						<a href='https://api.github.com/'>
 						https://api.github.com/</a>
@@ -365,7 +365,7 @@ $ jsonld import loc.nt > loc.json
 					</section>
 
 					<section>
-					<h2>Result: <a href="https://www.w3.org/TR/json-ld11/#expanded-document-form">Expanded JSON-LD</a></h2>
+					<h2>Result</h2>
 					<pre><code class="json" data-trim contenteditable>
 {
   "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
@@ -381,7 +381,7 @@ $ jsonld import loc.nt > loc.json
   ]
 }, ...
 					</code></pre>
-					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output</a></p>
+					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>Serialized RDF as JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11-api/#serialize-rdf-as-json-ld-algorithm'>Specification</a></p>
 					</section>
 
 					<section>
@@ -393,7 +393,7 @@ $ jsonld import loc.nt > loc.json
 
 					<section>
 						<blockquote><h2>Remember `license.name`?</h2></blockquote>
-						<span class="fragment"><p>Let's try that here, for author labels</p></span>
+						<span class="fragment"><p>Let's try that here, for author label, maybe:</p></span>
 						<span class="fragment"><small>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>` . `<code>@value</code>`</small></span>
 						<span class="fragment"><p>Can't work: we have just a flat array of objects, which label?</p></span>
 						<span class="fragment"><p>Problem: only <i>technically</i> JSON, but not <i>usable</i></p></span>
@@ -444,7 +444,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 					</section>
 
 					<section>
-					<h2>Result: <a href="https://www.w3.org/TR/json-ld11/#framed-document-form">Framed JSON-LD</a></h2>
+					<h2>Result</h2>
 					<pre><code class="json" data-trim contenteditable>
 "http://id.loc.gov/ontologies/bibframe/contribution": {
  "@type": "http://id.loc.gov/ontologies/bibframe/Contribution",
@@ -458,15 +458,15 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
  }
 },
 					</code></pre>
-					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed</a></p>
+					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed'>Framed JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11/#framed-document-form'>Specification</a></p>
 					</section>
 
 					<section>
 						<blockquote><h2>Remember `license.name`?</h2></blockquote>
-						<span class="fragment"><p>Let's try that here, for author labels</p></span>
+						<span class="fragment"><p>Let's try that here, for author label, maybe:</p></span>
 						<span class="fragment"><small>`<code>http://id.loc.gov/ontologies/bibframe/contribution</code>` .<br/>`<code>http://id.loc.gov/ontologies/bibframe/agent</code>` .<br/>`<code>http://www.w3.org/2000/01/rdf-schema#label</code>`</small></span>
-						<span class="fragment"><p>Works conceptually, but not very handy</p></span>
 						<span class="fragment"><p>Can you get it to work with jq?</p></span>
+						<span class="fragment"><p>Works conceptually, but not very handy</p></span>
 					</section>
 
 					<section>
@@ -515,7 +515,7 @@ $ jsonld compact ... > loc-compact.json
 					</section>
 
 					<section>
-					<h2>Result: <a href="https://www.w3.org/TR/json-ld11/#compacted-document-form">Compacted JSON-LD</a></h2>
+					<h2>Result</h2>
 					<pre><code class="json" data-trim contenteditable>
 "contribution": [{
   "type": [
@@ -532,13 +532,13 @@ $ jsonld compact ... > loc-compact.json
   }
 }], ...
 					</code></pre>
-					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact</a></p>
+					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>Compacted JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11/#compacted-document-form'>Specification</a></p>
 					</section>
 
 					<section>
 						<blockquote><h2>Remember `license.name`?</h2></blockquote>
-						<span class="fragment"><p>Let's try that here, for author labels</p></span>
-						<span class="fragment"><p><code>.contribution[].agent.label</code></p></span>
+						<span class="fragment"><p>Let's try that here, for author label:</p></span>
+						<span class="fragment"><p><code>.contribution[0].agent.label</code></p></span>
 					</section>
 
 					<section>
@@ -622,14 +622,12 @@ $ jsonld format -q data/loc-compact.json
   "@id": "https://github.com/users/hbz",
   "type": "Organization",
   "name": "hbz",
-	"blog": "https://www.hbz-nrw.de",
-  "location": "Cologne, Germany",
+  "blog": "https://www.hbz-nrw.de",
 
   "@context": {
     "type": "@type",
     "name": "https://schema.org/name",
     "blog": { "@id": "https://schema.org/url", "@type": "@id" },
-    "location": "https://schema.org/location",
     "Organization": "https://schema.org/Organization"
   }
 }
@@ -642,18 +640,15 @@ $ jsonld format -q data/loc-compact.json
 					<pre><code class="nohighlight" data-trim>
 {
   "@context": "...",
-	"type": "Organization",
+  "type": "Organization",
   "name": "hbz",
-	"blog": "https://www.hbz-nrw.de",
-  "location": "Cologne, Germany"
+  "blog": "https://www.hbz-nrw.de",
 }
 					</code></pre>
 					<pre><code class="nohighlight" data-trim>
 &lt;https://github.com/users/hbz&gt; \
 &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; \
 &lt;https://schema.org/Organization&gt; .
-&lt;https://github.com/users/hbz&gt; &lt;https://schema.org/location&gt; \
-"Cologne, Germany" .
 &lt;https://github.com/users/hbz&gt; &lt;https://schema.org/name&gt; "hbz" .
 &lt;https://github.com/users/hbz&gt; &lt;https://schema.org/url&gt; \
 &lt;https://www.hbz-nrw.de&gt; .
