@@ -238,7 +238,7 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop
 
 					<section>
 						<blockquote><h2>JavaScript Object Notation</h2></blockquote>
-						<span class="fragment"><pre><code class="javascript" data-trim contenteditable>
+						<span class="fragment"><pre><code class="javascript" data-trim>
 var options = {
   url: 'https://api.github.com/repos/hbz/swib18-workshop',
   headers: { 'User-Agent': 'hbz' }
@@ -249,7 +249,7 @@ request(options, function (error, response, body) {
   console.log('repo license:', doc.license.name) // <-- use JSON
 });
 						</code></pre></span>
-						<span class="fragment"><pre><code class="nohighlight" data-trim contenteditable>
+						<span class="fragment"><pre><code class="nohighlight" data-trim>
 > license.name: Creative Commons Attribution 4.0 International
 						</code></pre></span>
 					</section>
@@ -270,7 +270,7 @@ request(options, function (error, response, body) {
 								<tr>
 									<td>GET</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl https://api.github.com/repos/hbz/swib18-workshop
 										</code></pre>
 									</td>
@@ -278,7 +278,7 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop
 								<tr>
 									<td>Name</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... | jq '.name'
 										</code></pre>
 									</td>
@@ -286,7 +286,7 @@ $ curl ... | jq '.name'
 								<tr>
 									<td>License</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... | jq '???' # get the repo's license name
 										</code></pre>
 									</td>
@@ -294,7 +294,7 @@ $ curl ... | jq '???' # get the repo's license name
 								<tr>
 									<td>Issues</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... | jq '???' # get the number of open issues
 										</code></pre>
 									</td>
@@ -346,7 +346,7 @@ $ curl ... | jq '???' # get the number of open issues
 								<tr>
 									<td>Import</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cd data ; jsonld import -f application/n-quads loc.nt
 										</code></pre>
 									</td>
@@ -354,7 +354,7 @@ $ cd data ; jsonld import -f application/n-quads loc.nt
 								<tr>
 									<td>Write</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld import loc.nt > loc.json
 										</code></pre>
 									</td>
@@ -366,7 +366,7 @@ $ jsonld import loc.nt > loc.json
 
 					<section>
 					<h2>Result</h2>
-					<pre><code class="json" data-trim contenteditable>
+					<pre><code class="json" data-trim>
 {
   "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
   "@type": [
@@ -414,7 +414,7 @@ $ jsonld import loc.nt > loc.json
 								<tr>
 									<td>data/ frame .json</td>
 									<td>
-										<pre><code class="javascript" data-trim contenteditable>
+										<pre><code class="javascript" data-trim>
 {
  "@type": "http://id.loc.gov/ontologies/bibframe/Work",
  "@embed": "@always"
@@ -425,7 +425,7 @@ $ jsonld import loc.nt > loc.json
 								<tr>
 									<td>Frame</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cd data ; jsonld frame -f frame.json loc.json
 										</code></pre>
 									</td>
@@ -433,7 +433,7 @@ $ cd data ; jsonld frame -f frame.json loc.json
 								<tr>
 									<td>Write</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld frame -f frame.json loc.json > loc-framed.json
 										</code></pre>
 									</td>
@@ -445,7 +445,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 
 					<section>
 					<h2>Result</h2>
-					<pre><code class="json" data-trim contenteditable>
+					<pre><code class="json" data-trim>
 "http://id.loc.gov/ontologies/bibframe/contribution": {
  "@type": "http://id.loc.gov/ontologies/bibframe/Contribution",
  "http://id.loc.gov/ontologies/bibframe/agent": {
@@ -478,7 +478,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 					<section>
 						<blockquote><h2>Context can do more than simple name-URI mapping</h2></blockquote>
 						<span class="fragment"><p>Field 'contribution' should be an array</p></span>
-						<span class="fragment"><pre><code class="javascript" data-trim contenteditable>
+						<span class="fragment"><pre><code class="javascript" data-trim>
 "contribution": {
   "@id": "http://id.loc.gov/ontologies/bibframe/contribution",
   "@container": "@set" // <-- array
@@ -496,7 +496,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 								<tr>
 									<td>Compact</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld compact -c context.json loc-framed.json
 										</code></pre>
 									</td>
@@ -504,7 +504,7 @@ $ jsonld compact -c context.json loc-framed.json
 								<tr>
 									<td>Write</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld compact ... > loc-compact.json
 										</code></pre>
 									</td>
@@ -516,7 +516,7 @@ $ jsonld compact ... > loc-compact.json
 
 					<section>
 					<h2>Result</h2>
-					<pre><code class="json" data-trim contenteditable>
+					<pre><code class="json" data-trim>
 "contribution": [{
   "type": [
     "Contribution",
@@ -561,7 +561,7 @@ $ jsonld compact ... > loc-compact.json
 								<tr>
 									<td>All</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cat data/loc-compact.json
 										</code></pre>
 									</td>
@@ -569,7 +569,7 @@ $ cat data/loc-compact.json
 								<tr>
 									<td>Full Title</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cat data/loc-compact.json | jq '.label'
 										</code></pre>
 									</td>
@@ -577,7 +577,7 @@ $ cat data/loc-compact.json | jq '.label'
 								<tr>
 									<td>Author</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cat ... | jq '???' # get the author label
 										</code></pre>
 									</td>
@@ -585,7 +585,7 @@ $ cat ... | jq '???' # get the author label
 								<tr>
 									<td>Subtitle</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cat ... | jq '???' # get the subtitle
 										</code></pre>
 									</td>
@@ -593,7 +593,7 @@ $ cat ... | jq '???' # get the subtitle
 								<tr>
 									<td>To N-Quads</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld format -q data/loc-compact.json
 										</code></pre>
 									</td>
@@ -617,7 +617,7 @@ $ jsonld format -q data/loc-compact.json
 					<section>
 					<blockquote><h2>JSON with context</h2></blockquote>
 					<p>(based on part of <a href='https://api.github.com/users/hbz'>https://api.github.com/users/hbz</a>)</p>
-					<pre><code class="nohighlight" data-trim>
+					<pre><code class="json" data-trim>
 {
   "@id": "https://github.com/users/hbz",
   "type": "Organization",
@@ -637,7 +637,7 @@ $ jsonld format -q data/loc-compact.json
 
 					<section>
 					<blockquote><h2>JSON as RDF</h2></blockquote>
-					<pre><code class="nohighlight" data-trim>
+					<pre><code class="json" data-trim>
 {
   "@context": "...",
   "type": "Organization",
@@ -674,7 +674,7 @@ $ jsonld format -q data/loc-compact.json
 								<tr>
 									<td>Extract</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cd data ; bunzip2 loc-100.nt.bz2
 										</code></pre>
 									</td>
@@ -682,7 +682,7 @@ $ cd data ; bunzip2 loc-100.nt.bz2
 								<tr>
 									<td>Import</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld import ...
 										</code></pre>
 									</td>
@@ -690,7 +690,7 @@ $ jsonld import ...
 								<tr>
 									<td>Frame</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld frame ...
 										</code></pre>
 									</td>
@@ -698,7 +698,7 @@ $ jsonld frame ...
 								<tr>
 									<td>Compact</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld compact ...
 										</code></pre>
 									</td>
@@ -724,7 +724,7 @@ $ curl -H "Content-Type: application/x-ndjson" \
 					<section>
 						<blockquote><h2>Input data format</h2></blockquote>
 						<span class="fragment">
-							<pre><code class="nohighlight" data-trim contenteditable>
+							<pre><code class="json" data-trim>
 {
   "@context": { ... },
   "@graph": [
@@ -747,7 +747,7 @@ $ curl -H "Content-Type: application/x-ndjson" \
 								<tr>
 									<td>All</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cat loc-100-compact.json | jq -c '.'
 										</code></pre>
 									</td>
@@ -755,7 +755,7 @@ $ cat loc-100-compact.json | jq -c '.'
 								<tr>
 									<td>Each</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cat ... | jq -c '.["@graph"][] | .'
 										</code></pre>
 									</td>
@@ -763,7 +763,7 @@ $ cat ... | jq -c '.["@graph"][] | .'
 								<tr>
 									<td>JSON</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ ... '.["@graph"][] | { _index:"loc", _id:.id }'
 										</code></pre>
 									</td>
@@ -771,7 +771,7 @@ $ ... '.["@graph"][] | { _index:"loc", _id:.id }'
 								<tr>
 									<td>Raw</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 										</code></pre>
 									</td>
@@ -779,7 +779,7 @@ $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 								<tr>
 									<td>bulk .ndjson</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="plaintext" data-trim>
 { "index":{"_index":"loc", "_type":"work", "_id":"1"} }
 { "id": "http://.../1", "type": ["Work", "Text"], ... }
 										</code></pre>
@@ -805,7 +805,7 @@ $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 								<tr>
 									<td>Check data</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ tail -n 2 bulk.ndjson
 										</code></pre>
 									</td>
@@ -813,7 +813,7 @@ $ tail -n 2 bulk.ndjson
 								<tr>
 									<td>(Delete index)</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl -XDELETE localhost:9200/loc ; echo
 										</code></pre>
 									</td>
@@ -821,7 +821,7 @@ $ curl -XDELETE localhost:9200/loc ; echo
 								<tr>
 									<td>Index data</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl -H "Content-Type: application/x-ndjson" \
   -XPOST .../_bulk --data-binary "@bulk.ndjson" ; echo
 										</code></pre>
@@ -830,7 +830,7 @@ $ curl -H "Content-Type: application/x-ndjson" \
 								<tr>
 									<td>Check index</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl localhost:9200/_search ; echo
 										</code></pre>
 									</td>
@@ -857,7 +857,7 @@ $ curl localhost:9200/_search ; echo
 								<tr>
 									<td>Reindex (usable ID)</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $...jq... _id:(.id/"/")|last... > bulk.ndjson
 										</code></pre>
 									</td>
@@ -865,7 +865,7 @@ $...jq... _id:(.id/"/")|last... > bulk.ndjson
 								<tr>
 									<td>GET by ID</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl "localhost:9200/&lt;index&gt;/&lt;type&gt;/&lt;id&gt;"
 										</code></pre>
 									</td>
@@ -873,7 +873,7 @@ $ curl "localhost:9200/&lt;index&gt;/&lt;type&gt;/&lt;id&gt;"
 								<tr>
 									<td>Source only</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... /_source
 										</code></pre>
 									</td>
@@ -881,7 +881,7 @@ $ curl ... /_source
 								<tr>
 									<td>Full text search</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... /_search?q=&lt;term&gt;
 										</code></pre>
 									</td>
@@ -908,7 +908,7 @@ $ curl ... /_search?q=&lt;term&gt;
 								<tr>
 									<td>jq: add JSON</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ cat ... | jq -c '.["@graph"][] | {"1": "one"} + .'
 										</code></pre>
 									</td>
@@ -916,7 +916,7 @@ $ cat ... | jq -c '.["@graph"][] | {"1": "one"} + .'
 								<tr>
 									<td>Reindex (remote context)</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $...jq... _id:(.id/"/")|last}})\n\( \
 {"@context":"http://localhost:3000/context.json"} \
 +.)" > bulk.ndjson
@@ -926,7 +926,7 @@ $...jq... _id:(.id/"/")|last}})\n\( \
 								<tr>
 									<td>Run server</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ npm start
 										</code></pre>
 									</td>
@@ -934,7 +934,7 @@ $ npm start
 								<tr>
 									<td>To N-Quads</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ jsonld format -q http://localhost:9200.../_source
 										</code></pre>
 									</td>
@@ -964,7 +964,7 @@ $ jsonld format -q http://localhost:9200.../_source
 								<tr>
 									<td>Field search</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... /_search?q=&lt;field&gt;:&lt;term&gt;
 										</code></pre>
 									</td>
@@ -972,7 +972,7 @@ $ curl ... /_search?q=&lt;field&gt;:&lt;term&gt;
 								<tr>
 									<td>Boolean</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... /_search?q=&lt;???&gt; # AND, OR
 										</code></pre>
 									</td>
@@ -980,7 +980,7 @@ $ curl ... /_search?q=&lt;???&gt; # AND, OR
 								<tr>
 									<td>Wildcards</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... /_search?q=&lt;???&gt; # alt spellings
 										</code></pre>
 									</td>
@@ -988,7 +988,7 @@ $ curl ... /_search?q=&lt;???&gt; # alt spellings
 								<tr>
 									<td>Ranges</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... /_search?q=&lt;???&gt; # creation date
 										</code></pre>
 									</td>
@@ -996,7 +996,7 @@ $ curl ... /_search?q=&lt;???&gt; # creation date
 								<tr>
 									<td>Exists</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 $ curl ... /_search?q=&lt;???&gt; # classification
 										</code></pre>
 									</td>
@@ -1018,7 +1018,7 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 
 					<section>
 						<h2>Exercise 13: HTML</h2>
-						<pre><code class="html" data-trim contenteditable>
+						<pre><code class="html" data-trim>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -1035,7 +1035,7 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 					<section>
 						<blockquote><h2>JQuery</h2></blockquote>
 						<span class="fragment"><p>Simplify interaction with the DOM</p></span>
-						<span class="fragment"><pre><code class="html" data-trim contenteditable>
+						<span class="fragment"><pre><code class="html" data-trim>
 &lt;head&gt;
   &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot;/&gt;
 &lt;/head&gt;
@@ -1044,7 +1044,7 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 
 					<section>
 						<h2>Exercise 14: Text Input</h2>
-						<pre><code class="html" data-trim contenteditable>
+						<pre><code class="html" data-trim>
 &lt;input id='search' type='text'/&gt;
 &lt;script&gt;
 	$('#search').keyup(function() {
@@ -1066,7 +1066,7 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 
 					<section>
 						<h2>Exercise 15: AJAX request</h2>
-						<pre><code class="javascript" data-trim contenteditable>
+						<pre><code class="javascript" data-trim>
 var q = encodeURIComponent($('#search').val()); // User input
 $.ajax({
 	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
@@ -1091,7 +1091,7 @@ $.ajax({
 
 					<section>
 						<h2>Exercise 16: Configure CORS in Elasticsearch</h2>
-						<pre><code class="nohighlight" data-trim contenteditable>
+						<pre><code class="json" data-trim>
 "http": {
     "cors.enabled": true,
     "cors.allow-origin": "*"
@@ -1102,7 +1102,7 @@ $.ajax({
 
 					<section>
 						<h2>Exercise 17: AJAX request, second try</h2>
-						<pre><code class="javascript" data-trim contenteditable>
+						<pre><code class="javascript" data-trim>
 var q = encodeURIComponent($('#search').val()); // User input
 $.ajax({
 	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
@@ -1119,7 +1119,7 @@ $.ajax({
 
 					<section>
 						<blockquote><h2>Response format</h2></blockquote>
-						<pre><code class="json" data-trim contenteditable>
+						<pre><code class="json" data-trim>
 {
   "took": 1,
   "timed_out": false,
@@ -1140,7 +1140,7 @@ $.ajax({
 
 					<section>
 						<h2>Exercise 18: Process hits</h2>
-						<pre><code class="javascript" data-trim contenteditable>
+						<pre><code class="javascript" data-trim>
 success: function(result) {
 	console.log(JSON.stringify(result));
 
@@ -1163,7 +1163,7 @@ success: function(result) {
 								<tr>
 									<td>Hits</td>
 									<td>
-										<pre><code class="javascript" data-trim contenteditable>
+										<pre><code class="javascript" data-trim>
 $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 										</code></pre>
 									</td>
@@ -1171,7 +1171,7 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 								<tr>
 									<td>Links</td>
 									<td>
-										<pre><code class="javascript" data-trim contenteditable>
+										<pre><code class="javascript" data-trim>
 `http://localhost:9200/loc/work/${hit._id}/_source`
 										</code></pre>
 									</td>
@@ -1194,7 +1194,7 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 
 					<section>
 						<h2>Exercise 20:<br/> Two-column layout</h2>
-						<pre><code class="html" data-trim contenteditable>
+						<pre><code class="html" data-trim>
 &lt;div class='row'&gt;
   &lt;div class='col'&gt;
     &lt;code&gt;&lt;pre id='sample'&gt;&lt;/pre&gt;&lt;/code&gt;
@@ -1204,7 +1204,7 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
   &lt;/div&gt;
 &lt;/div&gt;
 						</code></pre>
-						<pre><code class="html" data-trim contenteditable>
+						<pre><code class="html" data-trim>
 &lt;head&gt;
   &lt;!-- ... --&gt;
   &lt;style&gt;
@@ -1218,7 +1218,7 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 
 					<section>
 						<h2>Exercise 21:<br/> Embed sample</h2>
-						<pre><code class="javascript" data-trim contenteditable>
+						<pre><code class="javascript" data-trim>
 $.ajax({
   url: 'http://localhost:9200/loc/work/c000000026/_source',
   success: function(result) {
@@ -1246,7 +1246,7 @@ $.ajax({
 								<tr>
 									<td>Field search</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 field:term
 										</code></pre>
 									</td>
@@ -1254,7 +1254,7 @@ field:term
 								<tr>
 									<td>Boolean</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 ??? # AND, OR
 										</code></pre>
 									</td>
@@ -1262,7 +1262,7 @@ field:term
 								<tr>
 									<td>Wildcards</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 ??? # alt spellings
 										</code></pre>
 									</td>
@@ -1270,7 +1270,7 @@ field:term
 								<tr>
 									<td>Ranges</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 ??? # creation date
 										</code></pre>
 									</td>
@@ -1278,7 +1278,7 @@ field:term
 								<tr>
 									<td>Exists</td>
 									<td>
-										<pre><code class="nohighlight" data-trim contenteditable>
+										<pre><code class="bash" data-trim>
 ??? # classification
 										</code></pre>
 									</td>
@@ -1298,7 +1298,7 @@ field:term
 
 					<section>
 						<h2>Exercise 23:<br/>Embedding Hypothes.is</h2>
-						<pre><code class="html" data-trim contenteditable>
+						<pre><code class="html" data-trim>
 &lt;head&gt;
   &lt;!-- ... --&gt;
   &lt;script type="application/json" class="js-hypothesis-config"&gt;
