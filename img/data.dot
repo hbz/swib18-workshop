@@ -39,7 +39,7 @@ digraph data {
 	
 	
 	
-	api[label="Lobid API" width=3]
+	api[label="lobid API" width=3]
 	
 	//libs->union[lhead=cluster_title]
 	//libs->sigel[lhead=cluster_auth]
@@ -48,9 +48,9 @@ digraph data {
 	sigel->api[ltail=cluster_auth]
 	union->api[ltail=cluster_title]
 	
-	app1[label="Application 1"]
-	app2[label="Application 2"]
-	app3[label="Application 3"]
+	app1[label="{Application 1|NWBib (1st party)}", shape=record]
+	app2[label="{Application 2|Edoweb (2nd party)}", shape=record]
+	app3[label="{Application 3|OpenRefine (3rd party)}", shape=record]
 	
 	api->app1[dir=back]
 	api->app2[dir=back]

@@ -104,7 +104,7 @@
 						<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
 						<tr><td><b>Part I</b></td><td>Convert RDF data into usable JSON-LD</td><td>13:00-15:00</td></tr>
 						<tr><td><b>Part II</b></td><td>Index and query the data with Elasticsearch</td><td>15:00-16:00</td></tr>
-						<tr><td><b>Part III</b></td><td>Use the data to build a web app</td><td>16:00-17:30</td></tr>
+						<tr><td><b>Part III</b></td><td>Use the data to build a web application</td><td>16:00-17:30</td></tr>
 						<tr><td><b>Part IV</b></td><td>Use the data in existing tools: Kibana, OpenRefine</td><td>17:30-18:45</td></tr>
 					</table>
 				</section>
@@ -141,73 +141,71 @@
 				</section>
 
 				<section>
-					<h2>Part I<br><small>(Convert RDF data into usable JSON-LD)</small></h2>
+					<h2>Part I:<br><small>Convert RDF data into usable JSON-LD</small></h2>
 					<table>
 						<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
-						<tr><td><b>Usable data & APIs</b></td><td>API basics: why, how</td><td>13:00-13:15</td></tr>
+						<tr><td><b>Usable data & APIs</b></td><td>Application Programming Interfaces: why, how</td><td>13:00-13:15</td></tr>
 						<tr><td><b>JSON APIs</b></td><td>Using the GitHub API, processing JSON</td><td>13:15-14:00</td></tr>
-						<tr><td><b>From RDF to JSON</b></td><td>Basics of jsonld.js via jsonld-cli</td><td>14:00-15:00</td></tr>
+						<tr><td><b>From RDF to JSON</b></td><td>JSON-LD processing with jsonld.js via jsonld-cli</td><td>14:00-15:00</td></tr>
 					</table>
 				</section>
 
 				<section>
-					<blockquote><h1>Using data</h1></blockquote>
-					<span class="fragment"><h1>= building software</h1></span>
+					<p>Part Ia.</p>
+					<blockquote><h2>Usable data & APIs</h2></blockquote>
+					<blockquote><h2>APIs: why, how</h2></blockquote>
 				</section>
 
 				<section>
-					<h1>
-						<blockquote>Libraries are Software</blockquote>
-					</h1>
-					<blockquote class="twitter-tweet" data-cards="hidden" lang="en"
-						width="550">
-						<p lang="en" dir="ltr">
-							&quot;Libraries are Software&quot; by <a
-								href="https://twitter.com/codyh">@codyh</a> — Good short essay
-							for dev and non-dev librarians <a href="http://t.co/Y9YLmTaZj0">http://t.co/Y9YLmTaZj0</a>
-							<a href="http://t.co/iVGKFaBql8">pic.twitter.com/iVGKFaBql8</a>
-						</p>
-						&mdash; Tim Spalding (@librarythingtim) <a
-							href="https://twitter.com/librarythingtim/status/644509561076981760">September
-							17, 2015</a>
-					</blockquote>
+					<blockquote><p>Usable data [& APIs]</p></blockquote>
+					<span class="fragment"><h1>Using data <br/>requires software</h1></span>
+					<span class="fragment"><p>Build new software based on the data</p></span>
+					<span class="fragment"><p>Use the data with existing software</p></span>
 				</section>
 
 				<section>
-					<h1>Application Programming Interfaces</h1>
-					<span class="fragment"><h4>Why API?</h4></span>
+					<h1>Libraries are Software</h1>
+					<blockquote>Our collections and services are delivered primarily via software. [...] The choices we make in the development, 
+					selection, and implementation of this software [...] define the limits of our content and services. We can only be as good as our software.</blockquote>
+					<blockquote> &mdash; Cody Hanson, <a href="http://codyhanson.com/writing/software.html">Libraries are Software</a></blockquote>
 				</section>
 
 				<section>
-					<h2>APIs make software development manageable</h2>
-					<span class="fragment"><h4>modular software</h4></span>
-					<span class="fragment"><h4>stable applications</h4></span>
-					<span class="fragment"><h4>flexible data sources</h4></span>
+					<blockquote><p>[Usable data &] APIs</p></blockquote>
+					<span class="fragment"><h1>Software <br/>requires APIs</h1></span>
+					<span class="fragment"><h4>APIs make software development manageable <br/>(for 1st and 2nd party software)</h4></span>
+					<span class="fragment"><h4>APIs enable usage and integration of 3rd party software</h4></span>
 				</section>
 
 				<section>
-					<h3>e.g. lobid API data sources and formats</h3>
+					<h3>e.g. lobid sources, formats, applications</h3>
 					<img src="img/data.png" style="border: none; box-shadow: none;" /> <span
 						class="fragment"><h4>APIs decouple applications from
 							specific data sources, formats, and systems. They enable modular, sustainable applications.</h4></span>
 				</section>
 
 				<section>
-					<blockquote><h1>Usable data</h1></blockquote>
+					<blockquote><h1>API: why?</h1></blockquote>
+					<span class="fragment"><h1>Usable data</h1></span>
 					<span class="fragment"><h1>= data with APIs</h1></span>
+					<span class="fragment">(necessary, not sufficient)</span>
 				</section>
 
 				<section>
-					<blockquote><h1>JSON</h1></blockquote>
-					<span class="fragment"><h3>standard web API format <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">since years</a></h3></span>
-					<span class="fragment"><h4>e.g.
-						<a href='https://api.github.com/'>
-						https://api.github.com/</a>
-					</h4></span>
+					<blockquote><h1>API: how?</h1></blockquote>
+					<span class="fragment"><h1>JSON over HTTP</h1></span>
+					<span class="fragment"><h3><a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">standard web API format since years</a></h3></span>
+					<span class="fragment"><h4>e.g. <a href='https://api.github.com/'> https://api.github.com/</a></h4></span>
 				</section>
 
 				<section>
-					<blockquote><h1>Setup</h1></blockquote>
+					<p>Part Ib.</p>
+					<blockquote><h2>JSON APIs</h2></blockquote>
+					<blockquote><h2>Using the GitHub API, processing JSON</h2></blockquote>
+				</section>
+
+				<section>
+					<h1>Setup</h1>
 					<span class="fragment"><p><a href='https://github.com/hbz/swib18-workshop#setup'>https://github.com/hbz/swib18-workshop#setup</a></p></span>
 				</section>
 
@@ -230,7 +228,7 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop
 					</section>
 
 					<section>
-						<blockquote><h2>JavaScript Object Notation</h2></blockquote>
+						<h2>JavaScript Object Notation (JSON)</h2>
 						<span class="fragment"><pre><code class="javascript" data-trim>
 var options = {
   url: 'https://api.github.com/repos/hbz/swib18-workshop',
@@ -298,8 +296,14 @@ $ curl ... | jq '???' # get the number of open issues
 					</section>
 
 					<section>
-						<blockquote><h1>So JSON is great</h1></blockquote>
-						<span class="fragment"><h1>but what if we have <a href="http://id.loc.gov/download/">RDF</a></h1></span>
+						<h1>So JSON is great.</h1>
+						<span class="fragment"><h1>But what if we have <a href="http://id.loc.gov/download/">RDF</a> data?</h1></span>
+					</section>
+
+					<section>
+						<p>Part Ic.</p>
+						<blockquote><h2>From RDF to JSON</h2></blockquote>
+						<blockquote><h2>JSON-LD processing with jsonld.js via jsonld-cli</h2></blockquote>
 					</section>
 
 					<section>
@@ -318,14 +322,14 @@ $ curl ... | jq '???' # get the number of open issues
 					</section>
 
 					<section>
-						<blockquote><h1>JSON-LD</h1></blockquote>
+						<h1>JSON-LD</h1>
 						<span class="fragment"><p>&quot;designed to be usable directly as JSON, with no knowledge of RDF&quot; &mdash; it's real JSON!</p></span>
 						<span class="fragment"><p>&quot;also designed to be usable as RDF&quot;</p></span>
 						<span class="fragment"><p><a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></p></span>
 					</section>
 
 					<section>
-						<blockquote><h1>Cool, so let's make JSON-LD</h1></blockquote>
+						<h1>Cool, so let's make JSON-LD</h1>
 						<span class="fragment"><p>jsonld.js</p></span>
 						<span class="fragment"><p>jsonld-cli</p></span>
 					</section>
@@ -403,14 +407,15 @@ $ cat loc.json | jq '???' # like '.license.name'?
 					</section>
 
 					<section>
-						<blockquote><h1>Worst of both worlds</h1></blockquote>
+						<blockquote><p>So JSON is great?</p></blockquote>
+						<span class="fragment"><h1>Worst of both worlds</h1></span>
 						<span class="fragment"><p>Unwieldy URIs as keys from RDF</p></span>
 						<span class="fragment"><p>Syntactic overhead from JSON</p></span>
 						<span class="fragment"><p>Flat data, bad readability</p></span>
 					</section>
 
 					<section>
-						<blockquote><h1>Framing</h1></blockquote>
+						<h1>Framing</h1>
 						<span class="fragment"><p>Frame the way we look at our graph from the perspective of one entity type (to make it a tree, or a document)</p></span>
 						<span class="fragment"><p>Look at my data from a "Work" perspective, and embed other entities under their works</p></span>
 					</section>
@@ -496,13 +501,13 @@ $ cat loc-framed.json | jq '???' # like .license.name
 					</section>
 
 					<section>
-						<blockquote><h1>Compacting</h1></blockquote>
+						<h1>Compacting</h1>
 						<span class="fragment"><p>Mapping JSON keys to URIs with a <code>@context</code><br/><small><code>"name": "http://schema.org/name"</code></small></p></span>
 						<span class="fragment"><p>Here: <a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">context generated from ontologies</a><br/></p></span>
 					</section>
 
 					<section>
-						<blockquote><h2>Context can do more than simple name-URI mapping</h2></blockquote>
+						<h2>Context can do more than simple name-URI mapping</h2>
 						<span class="fragment"><p>Field 'contribution' should be an array</p></span>
 						<span class="fragment"><pre><code class="javascript" data-trim>
 "contribution": {
@@ -510,7 +515,7 @@ $ cat loc-framed.json | jq '???' # like .license.name
   "@container": "@set" // <-- array
 }
 						</pre></code></span>
-						<span class="fragment"><p>See <a href="https://www.w3.org/TR/json-ld11/#the-context">the spec</a> for more about contexts</p></span>
+						<span class="fragment"><p>See <a href="https://www.w3.org/TR/json-ld11/#the-context">specification</a> for more about contexts</p></span>
 					</section>
 
 					<section>
@@ -636,29 +641,31 @@ $ jsonld format -q data/loc-compact.json
 					</section>
 
 					<section>
-						<blockquote><h1>Best of both worlds</h1></blockquote>
+						<blockquote><p>So JSON is great</p></blockquote>
+						<span class="fragment"><h1>Best of both worlds</h1></span>
 						<span class="fragment"><p>RDF-compatible linked data</p></span>
 						<span class="fragment"><p>Useful, practical JSON</p></span>
 					</section>
 
 					<section>
-						<blockquote><h2>RDF view</h2></blockquote>
-						<span class="fragment"><p>Steps to make usable JSON-LD from RDF: frame, compact, postprocess</p></span>
+						<h2>RDF view</h2>
+						<span class="fragment"><p>Multiple steps to make usable JSON-LD</p></span>
+						<span class="fragment"><p>Serialize RDF as JSON-LD, frame, compact</p></span>
 					</section>
 
 					<section>
-						<blockquote><h2>JSON view</h2></blockquote>
-						<span class="fragment"><p>Add context to JSON to make RDF</p></span>
+						<h2>JSON view</h2>
+						<span class="fragment"><p>Add context to usable JSON</p></span>
 						<span class="fragment"><p>(Add <code>@id</code>s where needed)</p></span>
 					</section>
 
 					<section>
-						<blockquote><h2>Context maps stable API to implementation details</h2></blockquote>
+						<h2>Context maps stable API to implementation details</h2>
 						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately may change)</p></span>
 					</section>
 
 					<section>
-					<blockquote><h2>JSON with context</h2></blockquote>
+					<h2>JSON with context</h2>
 					<p>(based on part of <a href='https://api.github.com/users/hbz'>https://api.github.com/users/hbz</a>)</p>
 					<pre><code class="json" data-trim>
 {
@@ -700,12 +707,18 @@ $ jsonld format -q data/loc-compact.json
 					</section>
 
 					<section>
-						<h2>Part II<br><small>(Index and query the data with Elasticsearch)</small></h2>
+						<h2>Part II:<br><small>Index and query the data with Elasticsearch</small></h2>
 						<table>
 							<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
 							<tr><td><b>Elasticsearch bulk indexing</b></td><td>Create bulk format with jq, index with curl</td><td>15:00-15:30</td></tr>
 							<tr><td><b>Query the Elasticsearch index</b></td><td>Elasticsearch URI search, query string syntax</td><td>15:30-16:00</td></tr>
 						</table>
+					</section>
+
+					<section>
+						<p>Part IIa.</p>
+						<blockquote><h2>Elasticsearch bulk indexing</h2></blockquote>
+						<blockquote><h2>Create bulk format with jq, index with curl</h2></blockquote>
 					</section>
 
 					<section>
@@ -752,20 +765,14 @@ $ jsonld compact ...
 					</section>
 
 					<section>
-						<blockquote><h2>Elasticsearch bulk format</h2></blockquote>
+						<h1>Elasticsearch bulk format</h1>
 						<span class="fragment"><code><pre>{"index":{"_index":"loc","_type":"work","_id":"c000101650"}}</pre></code></span>
 						<span class="fragment"><code><pre>{@context: ...,"id":"http://...","type":["Work","Text"],...}</pre></code></span>
 						<span class="fragment"><p>bulk.ndjson</p></span>
-						<span class="fragment">
-							<code><pre>
-$ curl -H "Content-Type: application/x-ndjson" \
--XPOST localhost:9200/_bulk --data-binary "@bulk.ndjson"</pre></code>
-							<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
-						</span>
 					</section>
 
 					<section>
-						<blockquote><h2>Input data format</h2></blockquote>
+						<h1>Input data format</h1>
 						<span class="fragment">
 							<pre><code class="json" data-trim>
 {
@@ -834,9 +841,15 @@ $ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
 					</section>
 
 					<section>
-						<blockquote><h2>Elasticsearch bulk API</h2></blockquote>
+						<h1>Elasticsearch bulk API</h1>
 						<span class="fragment"><p>Send the bulk.ndjson file to the Elasticsearch bulk API</p></span>
 						<span class="fragment"><p>HTTP POST to /_bulk</p></span>
+					</section>
+
+					<section>
+						<p>Setup</p>
+						<blockquote><h1>You Know,<br/> for Search</h1></blockquote>
+						<p><a href='http://localhost:9200'>http://localhost:9200</a></p>
 					</section>
 
 					<section>
@@ -884,7 +897,13 @@ $ curl localhost:9200/_search ; echo
 					</section>
 
 					<section>
-						<blockquote><h2>Elasticsearch URI search</h2></blockquote>
+						<p>Part IIb.</p>
+						<blockquote><h2>Query the Elasticsearch index</h2></blockquote>
+						<blockquote><h2>Elasticsearch URI search, query string syntax</h2></blockquote>
+					</section>
+
+					<section>
+						<h1>Elasticsearch URI search</h1>
 						<span class="fragment"><p>Search query as part of the URI (very versatile: full text, fields, boolean operators, wildcards)</p></span>
 						<span class="fragment"><p>(Won't cover here: body search, even more advanced)</p></span>
 						<span class="fragment"><p>Search: /&lt;index&gt;/&lt;type&gt;/_search</p></span>
@@ -935,7 +954,7 @@ $ curl ... /_search?q=&lt;term&gt;
 					</section>
 
 					<section>
-						<blockquote><h2>Remote JSON to N-Quads</h2></blockquote>
+						<h1>Remote JSON <br/>to N-Quads</h1>
 						<span class="fragment"><p><code>jsonld format -q http://localhost:9200.../_source</code></p></span>
 						<span class="fragment"><p>Context was included once, at top level, with @graph</p></span>
 						<span class="fragment"><p>Need to include for each document</p></span>
@@ -988,11 +1007,12 @@ $ jsonld format -q http://localhost:9200.../_source
 					</section>
 
 					<section>
-						<blockquote><h2>Serving single documents as JSON over HTTP, serializable as RDF</h2></blockquote>
+						<blockquote>API: How &mdash; JSON over HTTP</blockquote>
+						<h2>Serving single documents as JSON over HTTP, serializable as RDF</h2>
 					</section>
 
 					<section>
-						<blockquote><h2>Elasticsearch query string syntax</h2></blockquote>
+						<h1>Elasticsearch query string syntax</h1>
 						<span class="fragment"><p>Very versatile: full text, fields, boolean operators, wildcards</p></span>
 						<span class="fragment"><p>HTTP GET .../_search?q=&lt;query-string&gt;</p></span>
 						<span class="fragment"><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch documentation</a></p></span>
@@ -1050,7 +1070,7 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 					</section>
 
 					<section>
-						<h2>Part III<br><small>(Use the data to build a web app)</small></h2>
+						<h2>Part III:<br><small>Use the data to build a web application</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
 							<tr><td><b>Search page</b></td><td>HTML page for index search</td><td>16:00-16:30</td></tr>
@@ -1058,6 +1078,13 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 							<tr><td><b>Hypothes.is</b></td><td>Embed Hypothes.is in HTML, add annotations to document the data</td><td>17:00-17:30</td></tr>
 						</table>
 					</section>
+
+					<section>
+						<p>Part IIIa.</p>
+						<blockquote><h2>Search page</h2></blockquote>
+						<blockquote><h2>HTML page for index search</h2></blockquote>
+					</section>
+
 
 					<section>
 						<h2>Exercise 13: HTML</h2>
@@ -1073,11 +1100,12 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 	&lt;/body&gt;
 &lt;/html&gt;
 						</code></pre>
+						<p>Save to a file called search.html</p>
 					</section>
 
 					<section>
-						<blockquote><h2>JQuery</h2></blockquote>
-						<span class="fragment"><p>Simplify interaction with the DOM</p></span>
+						<h1>JQuery</h1>
+						<span class="fragment"><p>Provides API to simplify interaction with the browser DOM (document object model)</p></span>
 						<span class="fragment"><pre><code class="html" data-trim>
 &lt;head&gt;
   &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot;/&gt;
@@ -1095,12 +1123,13 @@ $ curl ... /_search?q=&lt;???&gt; # classification
 		console.log(query);
 	});
 &lt;/script&gt;
+&lt;div id='result'&gt;&lt;/div&gt;
 						</code></pre>
 						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
 					</section>
 
 					<section>
-						<blockquote><h2>AJAX</h2></blockquote>
+						<h1>AJAX</h1>
 						<span class="fragment"><p>"Asynchronous JavaScript And XML"</p></span>
 						<span class="fragment"><p>Asynchronous JavaScript And <strike>XML</strike> JSON</p></span>
 						<span class="fragment"><p>Part of the browser: XMLHttpRequest</p></span>
@@ -1125,26 +1154,26 @@ $.ajax({
 					</section>
 
 					<section>
-						<blockquote><h2>CORS</h2></blockquote>
+						<h1>CORS</h1>
 						<span class="fragment"><p>Error: not allowed by Access-Control-Allow-Origin</p></span>
 						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the API (Elasticsearch server)</p></span>
 						<span class="fragment"><p>API server needs to set header: Access-Control-Allow-Origin</p></span>
-						<span class="fragment"><p>In production: specify which domain can make requests</p></span>
+						<span class="fragment"><p>In production: specify which domain can make requests <br/>(for development we'll can set it to *)</p></span>
 					</section>
 
 					<section>
-						<h2>Exercise 16: Configure CORS in Elasticsearch</h2>
+						<h2>Exercise 16:<br/> Configure CORS in Elasticsearch</h2>
 						<pre><code class="json" data-trim>
 "http": {
     "cors.enabled": true,
     "cors.allow-origin": "*"
 }
 						</code></pre>
-						<p><font size="5">(in /etc/elasticsearch/elasticsearch.yml, then: sudo service elasticsearch restart)</font></p>
+						<p><font size="5">(add in /etc/elasticsearch/elasticsearch.yml, then: sudo service elasticsearch restart)</font></p>
 					</section>
 
 					<section>
-						<h2>Exercise 17: AJAX request, second try</h2>
+						<h2>Exercise 17: <br/>AJAX request, second try</h2>
 						<pre><code class="javascript" data-trim>
 var q = encodeURIComponent($('#search').val()); // User input
 $.ajax({
@@ -1161,7 +1190,7 @@ $.ajax({
 					</section>
 
 					<section>
-						<blockquote><h2>Response format</h2></blockquote>
+						<h2>Response format</h2>
 						<pre><code class="json" data-trim>
 {
   "took": 1,
@@ -1195,6 +1224,7 @@ success: function(result) {
 	}
 }
 						</code></pre>
+						<p>Append the label of each hit to the result div in our HTML</p>
 					</section>
 
 					<section>
@@ -1222,10 +1252,17 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 							</tbody>
 						</table>
 						</code></pre>
+						<p>Show total hits, link from each hit to its JSON</p>
 					</section>
 
 					<section data-background="img/search-1-html.png"
 						data-background-size="contain">
+					</section>
+
+					<section>
+						<p>Part IIIb.</p>
+						<blockquote><h2>Sample searches</h2></blockquote>
+						<blockquote><h2>Use the page to query the data</h2></blockquote>
 					</section>
 
 					<section>
@@ -1260,7 +1297,7 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 					</section>
 
 					<section>
-						<h2>Exercise 21:<br/> Embed sample</h2>
+						<h2>Exercise 21:<br/> Embed sample from index</h2>
 						<pre><code class="javascript" data-trim>
 $.ajax({
   url: 'http://localhost:9200/loc/work/c000000026/_source',
@@ -1332,6 +1369,12 @@ field:term
 					</section>
 
 					<section>
+						<p>Part IIIc.</p>
+						<blockquote><h2>Hypothes.is</h2></blockquote>
+						<blockquote><h2>Embed Hypothes.is in HTML, add annotations to document the data</h2></blockquote>
+					</section>
+
+					<section>
 						<h1>Hypothes.is</h1>
 						<p><span class="fragment">"Annotate the web, with anyone, anywhere"</span></p>
 						<p><span class="fragment">"Use Hypothesis right now to hold discussions, read socially, organize your research, and take personal notes"</span></p>
@@ -1354,6 +1397,7 @@ field:term
     href="https://hbz.github.io/swib18-workshop/search.html"/&gt;
 &lt;/head&gt;
 						</code></pre>
+						<p><small>(Only embed.js script is required, config and canonical link are optional)</small>
 					</section>
 
 					<section data-background="img/search-3-annotation.png"
@@ -1363,16 +1407,24 @@ field:term
 					<section>
 						<h2>Exercise 24:<br/>Add annotations</h2>
 						<p>Based on your experience in the query exercise, pick a field and document it like in the sample annotation</p>
+						<p>Markdown syntax is supported for links etc.</p>
+						<p>Use the `swib18-workshop` tag to make it searchable</p>
 						<p><a href="https://hypothes.is/search?q=tag:%22swib18-workshop%22">https://hypothes.is/search?q=tag:%22swib18-workshop%22</a></p>
 					</section>
 
 					<section>
-						<h2>Part IV<br><small>(Use the data with existing tools)</small></h2>
+						<h2>Part IV:<br><small>Use the data with existing tools</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
 							<tr><td><b>Kibana</b></td><td>Create visualizations for local index data; look at full data visualizations</td><td>17:30-18:15</td></tr>
 							<tr><td><b>OpenRefine</b></td><td>Use index data in OpenRefine; brief intro to the reconciliation API</td><td>18:15-18:45</td></tr>
 						</table>
+					</section>
+
+					<section>
+						<p>Part IVa.</p>
+						<blockquote><h2>Kibana</h2></blockquote>
+						<blockquote><h2>Create visualizations for local index data; look at full data visualizations</h2></blockquote>
 					</section>
 
 					<section>
@@ -1443,6 +1495,12 @@ field:term
 					<section>
 						<h1>Kibana: <br/>full LOC index</h1>
 						<p><a href='http://kibana.lobid.org/'>http://kibana.lobid.org/</a></p>
+					</section>
+
+					<section>
+						<p>Part IVb.</p>
+						<blockquote><h2>OpenRefine</h2></blockquote>
+						<blockquote><h2>Use index data in OpenRefine; brief intro to the reconciliation API</h2></blockquote>
 					</section>
 
 					<section>
@@ -1534,12 +1592,36 @@ Educational interests of Colorado
 						<p><span class="fragment">All of the above: nothing specific built for OpenRefine, just JSON over HTTP, and lots to explore in OpenRefine</span></p>
 						<p><span class="fragment">Implement OpenRefine Reconciliation API (serve some specific JSON) for better integration in OpenRefine UI</span></p>
 						<p><span class="fragment">Select best matches using scores and small inline previews, filter by type, suggest fields for data extension, etc.</span></p>
-						<p><span class="fragment"><a href="http://blog.lobid.org/2018/08/27/openrefine.html">http://blog.lobid.org/2018/08/27/openrefine.html</a></span></p>
+					</section>
+
+					<section data-background="img/openrefine-reconcile-1-preview.png"
+						data-background-size="contain">
+					</section>
+
+					<section data-background="img/openrefine-reconcile-2-suggest.png"
+						data-background-size="contain">
+					</section>
+
+					<section>
+						<h1>Reconciliation details</h1>
+						<p><a href="http://blog.lobid.org/2018/08/27/openrefine.html">http://blog.lobid.org/2018/08/27/openrefine.html</a></p>
+						<p><a href="https://github.com/OpenRefine/OpenRefine/wiki/Reconciliation">https://github.com/OpenRefine/OpenRefine/wiki/Reconciliation</a></p>
+						<p><a href="http://openrefine.org/documentation.html">http://openrefine.org/documentation.html</a></p>
+					</section>
+
+					<section>
+						<h2>Review</h2>
+						<table>
+							<tr><th width="17%"/><th width="83%"/></tr>
+							<tr><td><b>Part I</b></td><td>Convert RDF data into usable JSON-LD</td></tr>
+							<tr><td><b>Part II</b></td><td>Index &amp; query the data with Elasticsearch</td></tr>
+							<tr><td><b>Part III</b></td><td>Use the data to build a web application</td></tr>
+							<tr><td><b>Part IV</b></td><td>Use it in existing tools: Kibana, OpenRefine</td></tr>
+						</table>
 					</section>
 
 					<section>
 						<h1>Time for questions, discussions, feedback</h1>
-						<p><a href="https://hbz.github.io/swib18-workshop/">https://hbz.github.io/swib18-workshop/</a></p>
 						<p><a href="https://github.com/hbz/swib18-workshop/">https://github.com/hbz/swib18-workshop/</a></p>
 					</section>
 
