@@ -501,18 +501,22 @@ $ cat loc-framed.json | jq '???' # like .license.name
 					</section>
 
 					<section>
-						<h1>Compacting</h1>
-						<span class="fragment"><p>Mapping JSON keys to URIs with a <code>@context</code><br/><small><code>"name": "http://schema.org/name"</code></small></p></span>
+						<h1>JSON-LD Context</h1>
+						<span class="fragment"><p>Mapping of JSON keys to URIs: <br/><code>"@context":{"name":"http://schema.org/name"}</code></p></span>
 						<span class="fragment"><p>Here: <a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">context generated from ontologies</a><br/></p></span>
+						<span class="fragment"><p>With this context, we can <a href='https://www.w3.org/TR/json-ld11-api/#compaction'>compact</a> (replace URIs with short keys) or 
+						<a href='https://www.w3.org/TR/json-ld11-api/#expansion'>expand</a> (replace short keys with URIs) our JSON-LD</p></span>
+						<span class="fragment"><p>http://schema.org/name &rlarr; name</p></span>
+						<span class="fragment"><p>`http://id.loc.gov/ontologies/bibframe/contribution`<br/>.`http://id.loc.gov/ontologies/bibframe/agent`<br/>.`http://www.w3.org/2000/01/rdf-schema#label`?</p></span>
 					</section>
 
 					<section>
 						<h2>Context can do more than simple name-URI mapping</h2>
-						<span class="fragment"><p>Field 'contribution' should be an array</p></span>
+						<span class="fragment"><p>Field 'contribution' should be a JSON array</p></span>
 						<span class="fragment"><pre><code class="javascript" data-trim>
 "contribution": {
   "@id": "http://id.loc.gov/ontologies/bibframe/contribution",
-  "@container": "@set" // <-- array
+  "@container": "@set"
 }
 						</pre></code></span>
 						<span class="fragment"><p>See <a href="https://www.w3.org/TR/json-ld11/#the-context">specification</a> for more about contexts</p></span>
@@ -1158,7 +1162,7 @@ $.ajax({
 						<span class="fragment"><p>Error: not allowed by Access-Control-Allow-Origin</p></span>
 						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the API (Elasticsearch server)</p></span>
 						<span class="fragment"><p>API server needs to set header: Access-Control-Allow-Origin</p></span>
-						<span class="fragment"><p>In production: specify which domain can make requests <br/>(for development we can set it to *)</p></span>
+						<span class="fragment"><p>In production: specify which domain can make requests <br/>(for development we'll set it to *)</p></span>
 					</section>
 
 					<section>
