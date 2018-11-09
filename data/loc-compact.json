@@ -819,13 +819,19 @@
     "acquisitionTerms": "http://id.loc.gov/ontologies/bibframe/acquisitionTerms",
     "ascensionAndDeclination": "http://id.loc.gov/ontologies/bibframe/ascensionAndDeclination",
     "awards": "http://id.loc.gov/ontologies/bibframe/awards",
-    "changeDate": "http://id.loc.gov/ontologies/bibframe/changeDate",
+    "changeDate": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/changeDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
     "classificationPortion": "http://id.loc.gov/ontologies/bibframe/classificationPortion",
     "code": "http://id.loc.gov/ontologies/bibframe/code",
     "coordinates": "http://id.loc.gov/ontologies/bibframe/coordinates",
     "copyrightDate": "http://id.loc.gov/ontologies/bibframe/copyrightDate",
     "count": "http://id.loc.gov/ontologies/bibframe/count",
-    "creationDate": "http://id.loc.gov/ontologies/bibframe/creationDate",
+    "creationDate": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/creationDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
     "credits": "http://id.loc.gov/ontologies/bibframe/credits",
     "custodialHistory": "http://id.loc.gov/ontologies/bibframe/custodialHistory",
     "date": "http://id.loc.gov/ontologies/bibframe/date",
@@ -1006,6 +1012,7 @@
     "TermsOfAddressNameElement": "http://www.loc.gov/mads/rdf/v1#TermsOfAddressNameElement",
     "Territory": "http://www.loc.gov/mads/rdf/v1#Territory",
     "TitleElement": "http://www.loc.gov/mads/rdf/v1#TitleElement",
+    "Topical": "http://www.loc.gov/mads/rdf/v1#Topic",
     "TopicElement": "http://www.loc.gov/mads/rdf/v1#TopicElement",
     "Variant": "http://www.loc.gov/mads/rdf/v1#Variant",
     "Thing": "owl:Thing",
@@ -1132,14 +1139,8 @@
           "code": "f"
         }
       ],
-      "changeDate": {
-        "type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2015-05-15T14:10:02"
-      },
-      "creationDate": {
-        "type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "1996-05-02"
-      },
+      "changeDate": "2015-05-15T14:10:02",
+      "creationDate": "1996-05-02",
       "descriptionConventions": [
         {
           "type": "DescriptionConventions",
@@ -1246,7 +1247,7 @@
       "authoritativeLabel": "Climatic changes--Europe.",
       "componentList": [
         {
-          "type": "http://www.loc.gov/mads/rdf/v1#Topic",
+          "type": "Topical",
           "authoritativeLabel": "Climatic changes"
         },
         {
@@ -1265,11 +1266,11 @@
       "authoritativeLabel": "Climatic changes--Social aspects--Europe.",
       "componentList": [
         {
-          "type": "http://www.loc.gov/mads/rdf/v1#Topic",
+          "type": "Topical",
           "authoritativeLabel": "Climatic changes"
         },
         {
-          "type": "http://www.loc.gov/mads/rdf/v1#Topic",
+          "type": "Topical",
           "authoritativeLabel": "Social aspects"
         },
         {
@@ -1283,7 +1284,7 @@
       "id": "http://id.loc.gov/resources/works/101650#Topic650-22",
       "type": [
         "Topic",
-        "http://www.loc.gov/mads/rdf/v1#Topic"
+        "Topical"
       ],
       "authoritativeLabel": "Civilization, Medieval.",
       "label": "Civilization, Medieval."
