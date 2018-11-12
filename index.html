@@ -99,40 +99,6 @@
 				</section>
 
 				<section>
-					<h1>Linked Open Usable Data (LOUD)</h1>
-					<span class="fragment"><p>Term coined by <a href="https://de.slideshare.net/azaroth42/community-challenges-for-practical-linked-open-data-linked-pasts-keynote">Robert Sanderson in 2016</a></p></span>
-					<span class="fragment"><p>Focussing on <i>developers</i> as audience of Linked Open Data</p></span>
-					<span class="fragment">LOUD publication is oriented towards developers' needs and conventions</p></span>
-				</section>
-
-				<section>
-					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-22.png" width=800 /></a>
-					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
-				</section>
-				
-				<section>
-					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-32.png" width=800 /></a>
-					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
-				</section>
-
-				<section>
-					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-32_highlighted.png" width=800 /></a>
-					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
-				</section>
-
-				<section>
-					<h1>Design for JSON-LD, Consistently</h1>
-				</section>
-				
-				<section>
-					<h1><strike>Design for JSON-LD</strike>, Consistently</h1>
-				</section>
-
-				<section>
-					<h1>Design your JSON-LD from RDF, Consistently</h1>
-				</section>
-
-				<section>
 					<h2>Overview</h2>
 					<table>
 						<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
@@ -164,6 +130,27 @@
 					<p><span class="fragment">2013: First API release based on JSON-LD &amp; Elasticsearch</span></p>
 					<p><span class="fragment">2017&ndash;2018: LOUD with lobid API 2.0</span></p>
 					<span class="fragment"><h4><a href="http://lobid.org/team">http://lobid.org/team</a> | <a href="http://blog.lobid.org">http://blog.lobid.org</a></h4></span>
+				</section>
+
+				<section>
+					<h2>Linked Open Usable Data (LOUD)</h2>
+					<span class="fragment"><p><a href="https://de.slideshare.net/azaroth42/community-challenges-for-practical-linked-open-data-linked-pasts-keynote">Term coined by Robert Sanderson in 2016</a></p></span>
+					<span class="fragment">LOUD is oriented towards the needs and conventions for developing software on the web</p></span>
+				</section>
+
+				<section>
+					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-22.png" width=800 /></a>
+					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
+				</section>
+
+				<section>
+					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-32.png" width=800 /></a>
+					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
+				</section>
+
+				<section>
+					<h2>Design for JSON-LD <br/><i>from RDF</i>, consistently</h2>
+					<span class="fragment"><p>(Our background &amp; this workshop: we start with RDF data)</p></span>
 				</section>
 
 				<section>
@@ -355,12 +342,16 @@ $ curl ... | jq '???' # get the number of open issues
 					</section>
 
 					<section>
-						<h1>Cool, so let's make JSON-LD</h1>
+						<h1><blockquote>Design for JSON-LD, consistently</blockquote></h1>
+					</section>
+
+					<section>
+						<h1>Great, so let's make JSON-LD from our RDF</h1>
 						<span class="fragment"><p>jsonld.js</p></span>
 						<span class="fragment"><p>jsonld-cli</p></span>
 					</section>
 
-<section>
+					<section>
 						<h2>Exercise 3:<br/>N-Triples to JSON-LD</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
@@ -438,6 +429,10 @@ $ cat loc.json | jq '???' # like '.license.name'?
 						<span class="fragment"><p>Unwieldy URIs as keys from RDF</p></span>
 						<span class="fragment"><p>Syntactic overhead from JSON</p></span>
 						<span class="fragment"><p>Flat data, bad readability</p></span>
+					</section>
+
+					<section>
+						<h1><blockquote>Design for JSON-LD from RDF, consistently</blockquote></h1>
 					</section>
 
 					<section>
