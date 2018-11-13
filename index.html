@@ -201,9 +201,19 @@
 
 				<section>
 					<blockquote><h1>API: why?</h1></blockquote>
+					<span class="fragment"><blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Right abstraction for the audience</h2></blockquote></span>
+				</section>
+
+				<section>
+					<blockquote><h1>API: why?</h1></blockquote>
 					<span class="fragment"><h1>Usable data</h1></span>
 					<span class="fragment"><h1>= data with APIs</h1></span>
 					<span class="fragment">(necessary, not sufficient)</span>
+				</section>
+
+				<section>
+					<blockquote><h1>API: how?</h1></blockquote>
+					<span class="fragment"><blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>3. </a>Don't break the web</h2></blockquote></span>
 				</section>
 
 				<section>
@@ -344,7 +354,7 @@ $ curl ... | jq '???' # get the number of open issues
 					</section>
 
 					<section>
-						<h1><blockquote>Design for JSON-LD, consistently</blockquote></h1>
+						<h1><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>5. </a>Design for JSON-LD, consistently</blockquote></h1>
 					</section>
 
 					<section>
@@ -423,6 +433,10 @@ $ cat loc.json | jq '???' # like '.license.name'?
 						<span class="fragment"><p>`http://www.w3.org/2000/01/rdf-schema#label`.`@value`?</p></span>
 						<span class="fragment"><p>Can't work: we have just a flat array of objects, which label?</p></span>
 						<span class="fragment"><p>Problem: only <i>technically</i> JSON, but not <i>usable</i></p></span>
+					</section>
+
+					<section>
+						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Few barriers to entry?</h1></blockquote>
 					</section>
 
 					<section>
@@ -524,7 +538,11 @@ $ cat loc-framed.json | jq '???' # like .license.name
 					</section>
 
 					<section>
-						<h1>JSON-LD Context</h1>
+						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>2. </a>As simple as possible?</h1></blockquote>
+					</section>
+
+					<section>
+						<h1>JSON-LD Contex</h1>
 						<span class="fragment"><p>Mapping of JSON keys to URIs: <br/><code>"@context":{"name":"http://schema.org/name"}</code></p></span>
 						<span class="fragment"><p>Here: <a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">context generated from ontologies</a><br/></p></span>
 						<span class="fragment"><p>With this context, we can <a href='https://www.w3.org/TR/json-ld11-api/#compaction'>compact</a> (replace URIs with short keys) or 
@@ -534,15 +552,28 @@ $ cat loc-framed.json | jq '???' # like .license.name
 					</section>
 
 					<section>
-						<h2>Context can do more than simple name-URI mapping</h2>
-						<span class="fragment"><p>Field 'contribution' should be a JSON array</p></span>
+						<h1>Context: more than simple mappings</h1>
+						<span class="fragment"><p><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Few exceptions, many consistent patterns</blockquote></p></span>
+					</section>
+
+					<section>
+						<h1>Describing values</h1>
+						<span class="fragment"><p>Field 'contribution' should always be a JSON array</p></span>
 						<span class="fragment"><pre><code class="javascript" data-trim>
 "contribution": {
   "@id": "http://id.loc.gov/ontologies/bibframe/contribution",
   "@container": "@set"
 }
 						</pre></code></span>
-						<span class="fragment"><p>See <a href="https://www.w3.org/TR/json-ld11/#the-context">specification</a> for more about contexts</p></span>
+						<span class="fragment"><p><a href="https://www.w3.org/TR/json-ld11/#describing-values">See context specification for details</a></p></span>
+					</section>
+
+					<section>
+						<h1>Consistency</h1>
+						<span class="fragment"><p>e.g. the <i>contribution</i> field should always be an array, even if a particular record has only one contribution | <a href='https://www.w3.org/TR/json-ld11/#sets'>spec</a></p></span>
+						<span class="fragment"><p>Other fields, which occur only once for every record can use the default non-array single values</p></span>
+						<span class="fragment"><p>To have all fields always be arrays: compacting option <a href='https://www.w3.org/TR/json-ld11-api/#dom-jsonldoptions-compactarrays'>compactArrays:false</a></p></span>
+						<span class="fragment"><p><small>(Consistent field types also required for Elasticsearch indexing)</small></p></span>
 					</section>
 
 					<section>
@@ -678,6 +709,10 @@ $ jsonld format -q data/loc-compact.json
 						<h2>RDF view</h2>
 						<span class="fragment"><p>Multiple steps to make usable JSON-LD</p></span>
 						<span class="fragment"><p>Serialize RDF as JSON-LD, frame, compact</p></span>
+					</section>
+
+					<section>
+						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>1. </a>Require use cases, with data</h1></blockquote>
 					</section>
 
 					<section>
@@ -1293,16 +1328,10 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 					</section>
 
 					<section>
-						<h1>Documentation</h1>
+						<h2><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Documentation with working examples</blockquote></h2>
 						<p><span class="fragment">Which field? How is it nested?</span></p>
 						<p><span class="fragment">Samples very useful as documentation</span></p>
 						<p><span class="fragment">Embed a live sample from the index in the search UI</span></p>
-					</section>
-
-					<section>
-						<h1>LOUD</h1>
-						<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-22_highlighted.png" width=800 /></a>
-						<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
 					</section>
 
 					<section>
@@ -1348,6 +1377,20 @@ $.ajax({
 
 					<section data-background="img/search-2-sample.png"
 						data-background-size="contain">
+					</section>
+
+					<section>
+						<h2><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Comprehensible by introspection</blockquote></h2>
+						<p><span class="fragment">Look at sample document</span></p>
+						<p><span class="fragment">Full query access to every field you see</span></p>
+						<p><span class="fragment">(Look up details for meaning of keys in the context)</span></p>
+					</section>
+
+					<section>
+						<blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>4. </a>Define success, not failure</h2></blockquote>
+						<p><span class="fragment">Don't define fixed query parameters for authors, subjects</span></p>
+						<p><span class="fragment">Instead define a specific syntax to query any field</span></p>
+						<p><span class="fragment">New fields added to the data can immediately be queried</span></p>
 					</section>
 
 					<section>
@@ -1665,7 +1708,8 @@ Educational interests of Colorado
 					</section>
 
 					<section>
-						<h1>LOUD is more than nicely structured JSON-LD</h1>
+						<h1>LOUD is more than a nice JSON-LD API</h1>
+						<p><span class="fragment">(But a nice JSON-LD API is LOUDer than an RDF file)</span></p>
 					</section>
 
 					<section>
@@ -1675,9 +1719,13 @@ Educational interests of Colorado
 					</section>
 
 					<section>
-						<h2>Is Bibframe data LOUD, then?</h2>
+						<h2>Bibframe, from LOD to LOUD?</h2>
 						<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32"><img src="img/sanderson-2018-loud-32-checked.png" width=800 /></a>
 						<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
+					</section>
+
+					<section>
+						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>1. </a>Require use cases, with data</h1></blockquote>
 					</section>
 
 					<section>
