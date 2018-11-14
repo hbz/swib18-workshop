@@ -300,6 +300,14 @@ $ curl ... | jq '.name'
 									</td>
 								</tr>
 								<tr>
+									<td>Issues</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl ... | jq '???' # get the number of open issues
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
 									<td>License</td>
 									<td>
 										<pre><code class="bash" data-trim>
@@ -307,11 +315,46 @@ $ curl ... | jq '???' # get the repo's license name
 										</code></pre>
 									</td>
 								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 2:<br/>Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="10%" />
+							<col width="90%" />
+							<tbody>
+								<tr>
+									<td>GET</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl https://api.github.com/repos/hbz/swib18-workshop
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Name</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl ... | jq '.name'
+										</code></pre>
+									</td>
+								</tr>
 								<tr>
 									<td>Issues</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... | jq '???' # get the number of open issues
+$ curl ... | jq '.open_issues_count'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>License</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl ... | jq '.license.name'
 										</code></pre>
 									</td>
 								</tr>
@@ -418,7 +461,11 @@ $ jsonld import loc.nt > loc.json
 							<tbody>
 								<tr>
 									<td>Identify field</td>
-									<td><pre><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output</a></pre></td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc.json | less
+										</code></pre>
+									</td>
 								</tr>
 								<tr>
 									<td>Access field</td>
@@ -530,7 +577,11 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 							<tbody>
 								<tr>
 									<td>Identify field</td>
-									<td><pre><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed</a></pre></td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-framed.json | less
+										</code></pre>
+									</td>
 								</tr>
 								<tr>
 									<td>Access field</td>
@@ -641,19 +692,50 @@ $ jsonld compact ... > loc-compact.json
 							<tbody>
 								<tr>
 									<td>Identify field</td>
-									<td><pre><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact</a></pre></td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-compact.json | less
+										</code></pre>
+									</td>
 								</tr>
 								<tr>
 									<td>Access field</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat loc-compact.json | jq '???' # .license.name'
+$ cat loc-compact.json | jq '???' # .license.name?
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<span class="fragment"><p><p><code>.contribution[0].agent.label</code></p></span>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 5a:<br/><small>Solution</small></h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="13%" />
+							<col width="87%" />
+							<tbody>
+								<tr>
+									<td>Identify field</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-compact.json | less
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Access field</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat ... | jq '.contribution[0].agent.label'
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
 					<section>
@@ -679,10 +761,10 @@ $ cat data/loc-compact.json | jq '.label'
 									</td>
 								</tr>
 								<tr>
-									<td>Author</td>
+									<td>Subject</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat ... | jq '???' # get the author label
+$ cat ... | jq '???' # get a subject label
 										</code></pre>
 									</td>
 								</tr>
@@ -691,6 +773,57 @@ $ cat ... | jq '???' # get the author label
 									<td>
 										<pre><code class="bash" data-trim>
 $ cat ... | jq '???' # get the subtitle
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>To N-Quads</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ jsonld format -q data/loc-compact.json
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 6: Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="20%" />
+							<col width="88%" />
+							<tbody>
+								<tr>
+									<td>All</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat data/loc-compact.json
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Full Title</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat data/loc-compact.json | jq '.label'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Subject</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat ... | jq '.subject[0].label'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Subtitle</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat ... | jq '.title.subtitle'
 										</code></pre>
 									</td>
 								</tr>
@@ -810,7 +943,7 @@ $ cd data ; bunzip2 loc-100.nt.bz2
 									<td>Import</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ jsonld import ...
+$ jsonld import &lt;???&gt;
 										</code></pre>
 									</td>
 								</tr>
@@ -818,7 +951,7 @@ $ jsonld import ...
 									<td>Frame</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ jsonld frame ...
+$ jsonld frame &lt;???&gt;
 										</code></pre>
 									</td>
 								</tr>
@@ -826,7 +959,50 @@ $ jsonld frame ...
 									<td>Compact</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ jsonld compact ...
+$ jsonld compact &lt;???&gt;
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 7: Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Extract</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cd data ; bunzip2 loc-100.nt.bz2
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Import</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ jsonld import loc-100.nt > loc-100.json
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Frame</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ jsonld frame -f frame.json loc-100.json > loc-100-framed.json
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Compact</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ jsonld compact -c context.json loc-100-framed.json > loc-100-compact.json
 										</code></pre>
 									</td>
 								</tr>
@@ -1004,10 +1180,10 @@ $ curl "localhost:9200/&lt;index&gt;/&lt;type&gt;/&lt;id&gt;"
 									</td>
 								</tr>
 								<tr>
-									<td>Source only</td>
+									<td>Source only, formatted</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_source
+$ curl "... /_source" | json_pp
 										</code></pre>
 									</td>
 								</tr>
@@ -1025,9 +1201,52 @@ $ curl ... /_search?q=&lt;term&gt;
 					</section>
 
 					<section>
+						<h2>Exercise 10: Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Reindex (usable ID)</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$...jq... _id:(.id/"/")|last... > bulk.ndjson
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>GET by ID</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl "localhost:9200/loc/work/c000000026"
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Source only, formatted</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl "... /_source" | json_pp
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Full text search</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl ... /_search?q=america
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
 						<h1>Remote JSON <br/>to N-Quads</h1>
-						<span class="fragment"><p><code>jsonld format -q http://localhost:9200.../_source</code></p></span>
-						<span class="fragment"><p>Context was included once, at top level, with @graph</p></span>
+						<span class="fragment"><p><code>jsonld format -q http://localhost:9200/loc/work/c000000026/_source</code></p></span>
+						<span class="fragment"><p>No context: was included once, at top level, with @graph</p></span>
 						<span class="fragment"><p>Need to include for each document</p></span>
 						<span class="fragment"><p>Not embedded, but remote: application/ld+json, CORS</p></span>
 					</section>
@@ -1099,7 +1318,7 @@ $ jsonld format -q http://localhost:9200.../_source
 									<td>Field search</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;field&gt;:&lt;term&gt;
+$ curl ... /_search?q=&lt;???&gt; # &lt;field&gt;:&lt;term&gt;
 										</code></pre>
 									</td>
 								</tr>
@@ -1115,23 +1334,42 @@ $ curl ... /_search?q=&lt;???&gt; # AND, OR
 									<td>Wildcards</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;???&gt; # alt spellings
+$ curl ... /_search?q=&lt;???&gt; # truncate with *
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 12: Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Field search</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl ... /_search?q=label:letters
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Ranges</td>
+									<td>Boolean</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;???&gt; # creation date
+$ curl ... /_search?q=canada+OR+alaska
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Exists</td>
+									<td>Wildcards</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;???&gt; # classification
+$ curl ... /_search?q=ameri*
 										</code></pre>
 									</td>
 								</tr>
@@ -1412,7 +1650,7 @@ $.ajax({
 									<td>Field search</td>
 									<td>
 										<pre><code class="bash" data-trim>
-field:term
+??? # &lt;field&gt;:&lt;term&gt;
 										</code></pre>
 									</td>
 								</tr>
@@ -1428,7 +1666,7 @@ field:term
 									<td>Wildcards</td>
 									<td>
 										<pre><code class="bash" data-trim>
-??? # alt spellings
+??? # truncate with *
 										</code></pre>
 									</td>
 								</tr>
@@ -1436,7 +1674,7 @@ field:term
 									<td>Ranges</td>
 									<td>
 										<pre><code class="bash" data-trim>
-??? # creation date
+??? # &lt;field&gt;:[* TO &lt;???&gt;], creation date?
 										</code></pre>
 									</td>
 								</tr>
@@ -1444,7 +1682,58 @@ field:term
 									<td>Exists</td>
 									<td>
 										<pre><code class="bash" data-trim>
-??? # classification
+??? # _exists_:&lt;field&gt;, geo information?
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string documentation</a></font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 22: Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Field search</td>
+									<td>
+										<pre><code class="bash" data-trim>
+label:letters
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Boolean</td>
+									<td>
+										<pre><code class="bash" data-trim>
+canada OR alaska
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Wildcards</td>
+									<td>
+										<pre><code class="bash" data-trim>
+ameri*
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Ranges</td>
+									<td>
+										<pre><code class="bash" data-trim>
+adminMetadata.creationDate:[* TO 1995-12-31]
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Exists</td>
+									<td>
+										<pre><code class="bash" data-trim>
+_exists_:geographicCoverage
 										</code></pre>
 									</td>
 								</tr>
@@ -1622,16 +1911,17 @@ http://id.loc.gov/resources/works/c000000100
 
 					<section>
 						<h2>Create URL to get JSON</h2>
-						<pre><code class="nohighlight" data-trim>
+						<span class="fragment">
 http://id.loc.gov/resources/works/c000000011
-						</code></pre>
-						<pre><code class="nohighlight" data-trim>
-http://localhost:9200/loc/work/c000000011/_source
-						</code></pre>
-						<code class="nohighlight" data-trim>
+						</span>
+						<span class="fragment">
+&rarr; http://localhost:9200/loc/work/c000000011/_source
+						</span>
+						<span class="fragment"><code class="nohighlight" data-trim>
+<hr/>
 "http://localhost:9200/loc/work/" + split(value, '/')[-1] + "/_source"
 						</code>
-						<p><small>(Copy this to the clipboard)</small></p>
+						<p><small>(Copy this to the clipboard)</small></p></span>
 					</section>
 
 					<section data-background="img/openrefine-4-add-from-url.png"
