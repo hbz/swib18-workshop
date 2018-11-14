@@ -213,11 +213,7 @@
       "@type":"@id",
       "@container":"@set"
     },
-    "adminMetadata":{
-      "@id":"http://id.loc.gov/ontologies/bibframe/adminMetadata",
-      "@type":"@id",
-      "@container":"@set"
-    },
+    "adminMetadata":"http://id.loc.gov/ontologies/bibframe/adminMetadata",
     "agent":"http://id.loc.gov/ontologies/bibframe/agent",
     "appliedMaterial":{
       "@id":"http://id.loc.gov/ontologies/bibframe/appliedMaterial",

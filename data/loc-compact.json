@@ -213,11 +213,7 @@
       "@type": "@id",
       "@container": "@set"
     },
-    "adminMetadata": {
-      "@id": "http://id.loc.gov/ontologies/bibframe/adminMetadata",
-      "@type": "@id",
-      "@container": "@set"
-    },
+    "adminMetadata": "http://id.loc.gov/ontologies/bibframe/adminMetadata",
     "agent": "http://id.loc.gov/ontologies/bibframe/agent",
     "appliedMaterial": {
       "@id": "http://id.loc.gov/ontologies/bibframe/appliedMaterial",
@@ -1130,65 +1126,63 @@
     "Work",
     "Text"
   ],
-  "adminMetadata": [
-    {
-      "type": "AdminMetadata",
-      "encodingLevel": [
-        {
-          "type": "EncodingLevel",
-          "code": "f"
-        }
-      ],
-      "changeDate": "2015-05-15T14:10:02",
-      "creationDate": "1996-05-02",
-      "descriptionConventions": [
-        {
-          "type": "DescriptionConventions",
-          "code": "aacr"
-        }
-      ],
-      "descriptionModifier": [
-        {
-          "type": "Agent",
-          "label": "DLC"
-        }
-      ],
-      "generationProcess": [
-        {
-          "type": "GenerationProcess",
-          "label": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
-        }
-      ],
-      "identifiedBy": [
-        {
-          "type": "Local",
-          "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": "101650"
-        }
-      ],
-      "source": [
-        {
-          "type": [
-            "Source",
-            "Agent"
-          ],
-          "label": "DLC"
-        },
-        {
-          "type": [
-            "Source",
-            "Agent"
-          ],
-          "label": "DLC"
-        }
-      ],
-      "status": [
-        {
-          "type": "Status",
-          "code": "c"
-        }
-      ]
-    }
-  ],
+  "adminMetadata": {
+    "type": "AdminMetadata",
+    "encodingLevel": [
+      {
+        "type": "EncodingLevel",
+        "code": "f"
+      }
+    ],
+    "changeDate": "2015-05-15T14:10:02",
+    "creationDate": "1996-05-02",
+    "descriptionConventions": [
+      {
+        "type": "DescriptionConventions",
+        "code": "aacr"
+      }
+    ],
+    "descriptionModifier": [
+      {
+        "type": "Agent",
+        "label": "DLC"
+      }
+    ],
+    "generationProcess": [
+      {
+        "type": "GenerationProcess",
+        "label": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+      }
+    ],
+    "identifiedBy": [
+      {
+        "type": "Local",
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": "101650"
+      }
+    ],
+    "source": [
+      {
+        "type": [
+          "Source",
+          "Agent"
+        ],
+        "label": "DLC"
+      },
+      {
+        "type": [
+          "Source",
+          "Agent"
+        ],
+        "label": "DLC"
+      }
+    ],
+    "status": [
+      {
+        "type": "Status",
+        "code": "c"
+      }
+    ]
+  },
   "classification": [
     {
       "type": "ClassificationLcc",
