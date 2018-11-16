@@ -2,5 +2,4 @@
 node_modules
 bulk.ndjson
 loc*
-!loc-100.nt.bz2
-!loc.nt
+!loc*.nt
