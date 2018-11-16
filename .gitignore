@@ -3,3 +3,4 @@ node_modules
 bulk.ndjson
 loc*
 !loc*.nt
+data/search.html

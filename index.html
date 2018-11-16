@@ -238,18 +238,63 @@
 						<h1>cURL</h1>
 						<p><span class="fragment">Command line tool for transferring data with URLs</span></p>
 						<p><span class="fragment"><a href="https://curl.haxx.se/download.html" target="_blank">https://curl.haxx.se/download.html</a></span></p>
+						<span class="fragment">
+							<pre><code class="bash">$ curl --help</code></pre>
+							<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						</span>
 					</section>
+
 					<section>
-						<h2>Exercise 1: <br/>cURL</h2>
-						<pre><code class="bash">
-# Get your own profile
-$ curl https://api.github.com/users/&lt;user&gt;
+						<h2>Exercise 1a: cURL<br/> Sample</h2>
+						<pre><code class="bash" data-trim>
+$ curl https://api.github.com
+						</code></pre>
+					<p><font size="5"><i>(You can copy and paste in the terminal with Shift+Ctrl+C and Shift+Ctrl+V)</i></font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 1b: cURL<br/> Task</h2>
+						<pre><code class="bash" data-trim>
+# Get a user or organization profile
+$ curl https://api.github.com/&lt;???&gt;
+
+# Get data for a repo
+$ curl https://api.github.com/&lt;???&gt;
+					</code></pre>
+					<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
+					<p>We have a repo for this workshop called 'swib18-workshop' under the 'hbz' organization</p>
+					</section>
+
+					<section>
+						<h2>Exercise 1c: cURL<br/> Solution</h2>
+						<pre><code class="bash" data-trim>
+# Get a user or organization profile
+$ curl https://api.github.com/users/hbz
 
 # Get data for a repo
 $ curl https://api.github.com/repos/hbz/swib18-workshop
 					</code></pre>
 					<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
-					<p><span class="fragment">Last cURL output was long, we often want specific values</span></p>
+					</section>
+
+					<section>
+						<h2>Response</h2>
+						<pre><code class="json" data-trim>
+$ curl https://api.github.com/repos/hbz/swib18-workshop
+{
+  "id": 150073510,
+  "node_id": "MDEwOlJlcG9zaXRvcnkxNTAwNzM1MTA=",
+  "name": "swib18-workshop",
+  "full_name": "hbz/swib18-workshop",
+  "private": false,
+  "owner": {
+    "login": "hbz",
+    "id": 6557108,
+    "node_id": "MDEyOk9yZ2FuaXphdGlvbjY1NTcxMDg=",
+    "avatar_url": "https://avatars3.githubusercontent.com/u/6557108?v=4",
+    "gravatar_id": "",
+						</code></pre>
+						<p>Output is quite long, we often want specific values</p>
 					</section>
 
 					<section>
@@ -275,35 +320,31 @@ request(options, function (error, response, body) {
 						<p><span class="fragment">A lightweight and flexible command-line JSON processor</span></p>
 						<p><span class="fragment"><a href="https://stedolan.github.io/jq/" target="_blank">https://stedolan.github.io/jq/</a></span></p>
 						<p><span class="fragment"><a href="https://jqplay.org/">https://jqplay.org/</a></span></p>
+						<span class="fragment">
+							<pre><code class="bash">$ jq --help</code></pre>
+							<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						</span>
 					</section>
 
 					<section>
-						<h2>Exercise 2:<br/>Using the GitHub API</h2>
+						<h2>Exercise 2a: Using the GitHub API &ndash; Sample</h2>
+						<pre><code class="bash" data-trim>
+$ curl https://api.github.com/repos/hbz/swib18-workshop | jq .name
+						</code></pre>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 2b: Using the GitHub API &ndash; Task</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>GET</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl https://api.github.com/repos/hbz/swib18-workshop
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Name</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl ... | jq '.name'
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
 									<td>Issues</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... | jq '???' # get the number of open issues
+$ curl https://api.github.com/repos/hbz/swib18-workshop | jq &lt;???&gt; # get the number of open issues
 										</code></pre>
 									</td>
 								</tr>
@@ -311,42 +352,26 @@ $ curl ... | jq '???' # get the number of open issues
 									<td>License</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... | jq '???' # get the repo's license name
+$ curl https://api.github.com/repos/hbz/swib18-workshop | jq &lt;???&gt; # get the repo's license name
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
 					</section>
 
 					<section>
-						<h2>Exercise 2:<br/>Solutions</h2>
+						<h2>Exercise 2c: Using the GitHub API &ndash; Solution</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>GET</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl https://api.github.com/repos/hbz/swib18-workshop
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Name</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl ... | jq '.name'
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
 									<td>Issues</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... | jq '.open_issues_count'
+$ curl https://api.github.com/repos/hbz/swib18-workshop | jq .open_issues_count
 										</code></pre>
 									</td>
 								</tr>
@@ -354,7 +379,7 @@ $ curl ... | jq '.open_issues_count'
 									<td>License</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... | jq '.license.name'
+$ curl https://api.github.com/repos/hbz/swib18-workshop | jq .license.name
 										</code></pre>
 									</td>
 								</tr>
@@ -401,22 +426,39 @@ $ curl ... | jq '.license.name'
 					</section>
 
 					<section>
-						<h1>Great, so let's make JSON-LD from our RDF</h1>
-						<span class="fragment"><p>jsonld.js</p></span>
-						<span class="fragment"><p>jsonld-cli</p></span>
+						<h1>Great, so let's make JSON-LD from RDF</h1>
+					</section>
+
+					<section>
+						<h1>jsonld-cli</h1>
+						<p><span class="fragment">JSON-LD command line interface tool</span></p>
+						<p><span class="fragment"><a href="https://github.com/hbz/jsonld-cli" target="_blank">https://github.com/hbz/jsonld-cli</a></span></p>
+						<p><span class="fragment">Our fork of https://github.com/digitalbazaar/jsonld-cli, added import from N-Quads</p>
+						<span class="fragment">
+							<pre><code class="bash">$ jsonld --help</code></pre>
+							<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						</span>
 					</section>
 
 					<section>
 						<h2>Exercise 3:<br/>N-Triples to JSON-LD</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="10%" />
-							<col width="90%" />
+							<col width="20%" />
+							<col width="80%" />
 							<tbody>
+								<tr>
+									<td>Location</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cd ~/git/swib18-workshop/data
+										</code></pre>
+									</td>
+								</tr>
 								<tr>
 									<td>Import</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cd data ; jsonld import -f application/n-quads loc.nt
+$ jsonld import loc.nt
 										</code></pre>
 									</td>
 								</tr>
@@ -437,24 +479,26 @@ $ jsonld import loc.nt > loc.json
 					<h2>Result</h2>
 					<pre><code class="json" data-trim>
 {
-  "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
-  "@type": [
-    "http://id.loc.gov/ontologies/bibframe/Agent",
-    "http://id.loc.gov/ontologies/bibframe/Person"
-  ],
-  ...,
-  "http://www.w3.org/2000/01/rdf-schema#label": [
-    {
-      "@value": "Brown, Neville."
-    }
-  ]
-}, ...
+ "@id": "http://id.loc.gov/resources/works/c000101650",
+ "http://id.loc.gov/ontologies/bibframe/subject": [{
+  "@id": "http://id.loc.gov/resources/works/101650#Topic650-20"
+ }, ...]
+}, {
+ "@id": "http://id.loc.gov/resources/works/101650#Topic650-20",
+ "@type": [
+  "http://id.loc.gov/ontologies/bibframe/Topic",
+  "http://www.loc.gov/mads/rdf/v1#ComplexSubject"
+ ],
+ "http://www.w3.org/2000/01/rdf-schema#label": [{
+  "@value": "Climatic changes--Europe."
+ }],...
+}
 					</code></pre>
 					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>Serialized RDF as JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11-api/#serialize-rdf-as-json-ld-algorithm'>Specification</a></p>
 					</section>
 
 					<section>
-						<h2>Exercise 3a:<br/><small>Use serialized RDF to access author label</small></h2>
+						<h2>Exercise 3a:<br/><small>Use serialized RDF to access subjects</small></h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
 							<col width="85%" />
@@ -471,7 +515,8 @@ $ cat loc.json | less
 									<td>Access field</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat loc.json | jq '???' # like '.license.name'?
+# like .license.name, but for subject labels?
+$ cat loc.json | jq &lt;???&gt;
 										</code></pre>
 									</td>
 								</tr>
@@ -483,15 +528,15 @@ $ cat loc.json | jq '???' # like '.license.name'?
 					</section>
 
 					<section>
-						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Few barriers to entry?</h1></blockquote>
-					</section>
-
-					<section>
 						<blockquote><p>So JSON is great?</p></blockquote>
 						<span class="fragment"><h1>Worst of both worlds</h1></span>
 						<span class="fragment"><p>Unwieldy URIs as keys from RDF</p></span>
 						<span class="fragment"><p>Syntactic overhead from JSON</p></span>
 						<span class="fragment"><p>Flat data, bad readability</p></span>
+					</section>
+
+					<section>
+						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Few barriers to entry?</h1></blockquote>
 					</section>
 
 					<section>
@@ -520,7 +565,7 @@ $ cat loc.json | jq '???' # like '.license.name'?
 							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>data/ frame .json</td>
+									<td>frame .json</td>
 									<td>
 										<pre><code class="javascript" data-trim>
 {
@@ -534,7 +579,7 @@ $ cat loc.json | jq '???' # like '.license.name'?
 									<td>Frame</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cd data ; jsonld frame -f frame.json loc.json
+$ jsonld frame -f frame.json loc.json
 										</code></pre>
 									</td>
 								</tr>
@@ -554,23 +599,24 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 					<section>
 					<h2>Result</h2>
 					<pre><code class="json" data-trim>
-"http://id.loc.gov/ontologies/bibframe/contribution": {
- "@type": "http://id.loc.gov/ontologies/bibframe/Contribution",
- "http://id.loc.gov/ontologies/bibframe/agent": {
-  "@id": "http://id.loc.gov/resources/works/101650#Agent100-13",
-  "@type": [
-    "http://id.loc.gov/ontologies/bibframe/Agent",
-    "http://id.loc.gov/ontologies/bibframe/Person"
-  ],
-  "http://www.w3.org/2000/01/rdf-schema#label":"Brown, Neville."
- }
-},
+{
+ "@id": "http://id.loc.gov/resources/works/c000101650",
+ "http://id.loc.gov/ontologies/bibframe/subject": [{
+   "@id":"http://id.loc.gov/resources/works/101650#Topic650-20",
+   "@type": [
+     "http://id.loc.gov/ontologies/bibframe/Topic",
+     "http://www.loc.gov/mads/rdf/v1#ComplexSubject"
+   ],
+   ...
+   "http://www.w3.org/2000/01/rdf-schema#label": "Climatic changes--Europe."
+ }, {...}],
+}
 					</code></pre>
 					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed'>Framed JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11/#framed-document-form'>Specification</a></p>
 					</section>
 
 					<section>
-						<h2>Exercise 4a:<br/><small>Use framed JSON-LD to access author label</small></h2>
+						<h2>Exercise 4a:<br/><small>Use framed JSON-LD to access subjects</small></h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="13%" />
 							<col width="87%" />
@@ -587,13 +633,14 @@ $ cat loc-framed.json | less
 									<td>Access field</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat loc-framed.json | jq '???' # like .license.name
+# like .license.name, but for subject labels?
+$ cat loc-framed.json | jq &lt;???&gt;
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<span class="fragment"><p>`http://id.loc.gov/ontologies/bibframe/contribution`<br/>.`http://id.loc.gov/ontologies/bibframe/agent`<br/>.`http://www.w3.org/2000/01/rdf-schema#label`?</p></span>
+						<span class="fragment"><p>`http://id.loc.gov/ontologies/bibframe/subject`<br/>.`http://www.w3.org/2000/01/rdf-schema#label`?</p></span>
 						<span class="fragment"><p>Could work conceptually, but not very handy</p></span>
 					</section>
 
@@ -608,7 +655,7 @@ $ cat loc-framed.json | jq '???' # like .license.name
 						<span class="fragment"><p>With this context, we can <a href='https://www.w3.org/TR/json-ld11-api/#compaction'>compact</a> (replace URIs with short keys) or 
 						<a href='https://www.w3.org/TR/json-ld11-api/#expansion'>expand</a> (replace short keys with URIs) our JSON-LD</p></span>
 						<span class="fragment"><p>http://schema.org/name &rlarr; name</p></span>
-						<span class="fragment"><p>`http://id.loc.gov/ontologies/bibframe/contribution`<br/>.`http://id.loc.gov/ontologies/bibframe/agent`<br/>.`http://www.w3.org/2000/01/rdf-schema#label`?</p></span>
+						<span class="fragment"><p>`http://id.loc.gov/ontologies/bibframe/subject`<br/>.`http://www.w3.org/2000/01/rdf-schema#label`?</p></span>
 					</section>
 
 					<section>
@@ -654,7 +701,7 @@ $ jsonld compact -c context.json loc-framed.json
 									<td>Write</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ jsonld compact ... > loc-compact.json
+$ jsonld compact -c context.json loc-framed.json > loc-compact.json
 										</code></pre>
 									</td>
 								</tr>
@@ -666,26 +713,25 @@ $ jsonld compact ... > loc-compact.json
 					<section>
 					<h2>Result</h2>
 					<pre><code class="json" data-trim>
-"contribution": [{
-  "type": [
-    "Contribution",
-    "PrimaryContribution"
-  ],
-  "agent": {
-   "id": "http://id.loc.gov/resources/works/101650#Agent100-13",
+{
+ "@id": "http://id.loc.gov/resources/works/c000101650",
+ "subject": [
+  {
+   "id": "http://id.loc.gov/resources/works/101650#Topic650-20",
    "type": [
-     "Agent",
-     "Person"
+    "Topic",
+    "ComplexSubject"
    ],
-   "label": "Brown, Neville."
+   "label": "Climatic changes--Europe."
   }
-}], ...
+ ], ...
+}
 					</code></pre>
 					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>Compacted JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11/#compacted-document-form'>Specification</a></p>
 					</section>
 
 					<section>
-						<h2>Exercise 5a:<br/><small>Use compact JSON-LD to access author label</small></h2>
+						<h2>Exercise 5a:<br/><small>Use compact JSON-LD to access subjects</small></h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="13%" />
 							<col width="87%" />
@@ -699,10 +745,19 @@ $ cat loc-compact.json | less
 									</td>
 								</tr>
 								<tr>
-									<td>Access field</td>
+									<td>Full Title</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat loc-compact.json | jq '???' # .license.name?
+$ cat loc-compact.json | jq .label
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Subject</td>
+									<td>
+										<pre><code class="bash" data-trim>
+# like .license.name, but for subject labels?
+$ cat loc-compact.json | jq &lt;???&gt;
 										</code></pre>
 									</td>
 								</tr>
@@ -718,18 +773,28 @@ $ cat loc-compact.json | jq '???' # .license.name?
 							<col width="87%" />
 							<tbody>
 								<tr>
-									<td>Identify field</td>
+									<td>like .license .name?</td>
 									<td>
-										<pre><code class="bash" data-trim>
-$ cat loc-compact.json | less
+										<pre><code class="nohighlight" data-trim>
+$ cat loc-compact.json | jq .subject.label
+
+jq: error: Cannot index array with string "label"
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Access field</td>
+									<td>Access one</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat ... | jq '.contribution[0].agent.label'
+$ cat loc-compact.json | jq .subject[0].label
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Access all</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-compact.json | jq .subject[].label
 										</code></pre>
 									</td>
 								</tr>
@@ -745,26 +810,18 @@ $ cat ... | jq '.contribution[0].agent.label'
 							<col width="88%" />
 							<tbody>
 								<tr>
-									<td>All</td>
+									<td>Identify fields</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat data/loc-compact.json
+$ cat loc-compact.json | less
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Full Title</td>
+									<td>Authors</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat data/loc-compact.json | jq '.label'
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Subject</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ cat ... | jq '???' # get a subject label
+$ cat loc-compact.json | jq &lt;???&gt; # get authors
 										</code></pre>
 									</td>
 								</tr>
@@ -772,7 +829,7 @@ $ cat ... | jq '???' # get a subject label
 									<td>Subtitle</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat ... | jq '???' # get the subtitle
+$ cat loc-compact.json | jq &lt;???&gt; # get subtitle
 										</code></pre>
 									</td>
 								</tr>
@@ -792,30 +849,14 @@ $ jsonld format -q data/loc-compact.json
 					<section>
 						<h2>Exercise 6: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="20%" />
-							<col width="88%" />
+							<col width="10%" />
+							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>All</td>
+									<td>Authors</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat data/loc-compact.json
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Full Title</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ cat data/loc-compact.json | jq '.label'
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Subject</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ cat ... | jq '.subject[0].label'
+$ cat loc-compact.json | jq .contribution[].agent.label
 										</code></pre>
 									</td>
 								</tr>
@@ -823,15 +864,7 @@ $ cat ... | jq '.subject[0].label'
 									<td>Subtitle</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat ... | jq '.title.subtitle'
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>To N-Quads</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ jsonld format -q data/loc-compact.json
+$ cat loc-compact.json | jq .title.subtitle
 										</code></pre>
 									</td>
 								</tr>
@@ -932,10 +965,10 @@ $ jsonld format -q data/loc-compact.json
 							<col width="75%" />
 							<tbody>
 								<tr>
-									<td>Extract</td>
+									<td>Input file</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cd data ; bunzip2 loc-100.nt.bz2
+$ tail loc-100.nt
 										</code></pre>
 									</td>
 								</tr>
@@ -974,14 +1007,6 @@ $ jsonld compact &lt;???&gt;
 							<col width="25%" />
 							<col width="75%" />
 							<tbody>
-								<tr>
-									<td>Extract</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ cd data ; bunzip2 loc-100.nt.bz2
-										</code></pre>
-									</td>
-								</tr>
 								<tr>
 									<td>Import</td>
 									<td>
@@ -1036,49 +1061,110 @@ $ jsonld compact -c context.json loc-100-framed.json > loc-100-compact.json
 					</section>
 
 					<section>
-						<h2>Exercise 8: Advanced jq</h2>
+						<h2>Exercise 8a: Document line</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="10%" />
-							<col width="90%" />
+							<col width="15%" />
+							<col width="85%" />
 							<tbody>
 								<tr>
 									<td>All</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat loc-100-compact.json | jq -c '.'
+$ cat loc-100-compact.json | jq
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Each</td>
+									<td>All, 1 line</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat ... | jq -c '.["@graph"][] | .'
+$ cat loc-100-compact.json | jq -c .
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>JSON</td>
+									<td>Each doc, 1 line</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ ... '.["@graph"][] | { _index:"loc", _id:.id }'
+$ cat loc-100-compact.json | jq -c '.["@graph"][]'
 										</code></pre>
+										<pre><p><font size="5"><i>@graph requires special escaping in jq with ', [], "</i></font></p></pre>
 									</td>
 								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						<span class="fragment"><p>Second line for each pair in bulk.ndjson: 1 doc in 1 line</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 8b: Metadata line</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="20%" />
+							<col width="80%" />
+							<tbody>
 								<tr>
-									<td>Raw</td>
+									<td>Like previous</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ ... -r '.["@graph"][] | "\({_id:.id})\n\(.)"'
+$ cat loc-100-compact.json | \
+jq -c '.["@graph"][] | .'
+									</td>
+								</tr>
+								<tr>
+									<td>Construct JSON</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-100-compact.json | \
+jq -c '.["@graph"][] | { test:1 }'
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>bulk .ndjson</td>
+									<td>Insert values</td>
 									<td>
-										<pre><code class="plaintext" data-trim>
-{ "index":{"_index":"loc", "_type":"work", "_id":"1"} }
-{ "id": "http://.../1", "type": ["Work", "Text"], ... }
+										<pre><code class="bash" data-trim>
+$ cat loc-100-compact.json | \
+jq -c '.["@graph"][] | { _id:.id }'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Full metadata</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-100-compact.json | \
+jq -c '.["@graph"][] | { "index":{"_index":"loc", "_type":"work", "_id":.id} }'
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<span class="fragment"><p>First line for each pair in bulk.ndjson: index metadata</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 8c: Putting it together</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
+							<tbody>
+								<tr>
+									<td>Insert newline with -r</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-100-compact.json | jq -r \
+'.["@graph"][] | "\({meta:1})\n\({data:2})"'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Write bulk .ndjson</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-100-compact.json | jq -r \
+'.["@graph"][] | "\({ "index":{"_index":"loc", "_type":"work", "_id":.id} })\n\(.)"' \
+> bulk.ndjson
 										</code></pre>
 									</td>
 								</tr>
@@ -1114,19 +1200,12 @@ $ tail -n 2 bulk.ndjson
 									</td>
 								</tr>
 								<tr>
-									<td>(Delete index)</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl -XDELETE localhost:9200/loc ; echo
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
 									<td>Index data</td>
 									<td>
 										<pre><code class="bash" data-trim>
 $ curl -H "Content-Type: application/x-ndjson" \
-  -XPOST .../_bulk --data-binary "@bulk.ndjson" ; echo
+-XPOST localhost:9200/_bulk \
+--data-binary "@bulk.ndjson" | jq
 										</code></pre>
 									</td>
 								</tr>
@@ -1134,13 +1213,14 @@ $ curl -H "Content-Type: application/x-ndjson" \
 									<td>Check index</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl localhost:9200/_search ; echo
+$ curl localhost:9200/loc/work/_search | jq
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						<span class="fragment"><p><a href='http://localhost:9200/loc/work/_search'>http://localhost:9200/loc/work/_search</a></p></span>
 					</section>
 
 					<section>
@@ -1158,128 +1238,254 @@ $ curl localhost:9200/_search ; echo
 					</section>
 
 					<section>
-						<h2>Exercise 10: Query index</h2>
-						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="25%" />
-							<col width="75%" />
-							<tbody>
-								<tr>
-									<td>Reindex (usable ID)</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$...jq... _id:(.id/"/")|last... > bulk.ndjson
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>GET by ID</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl "localhost:9200/&lt;index&gt;/&lt;type&gt;/&lt;id&gt;"
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Source only, formatted</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl "... /_source" | json_pp
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Full text search</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;term&gt;
-										</code></pre>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						<h1>Direct doc access</h1>
+						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
+						<span class="fragment"><p><i>http://example.com/loc/work/c000000007</i></p></span>
+						<span class="fragment"><p>But our index IDs are URIs</p></span>
+						<span class="fragment"><p><small><a href='http://localhost:9200/loc/work/http%3A%2F%2Fid.loc.gov%2Fresources%2Fworks%2Fc000000007'>
+						http://localhost:9200/loc/work/http%3A%2F%2Fid.loc.gov%2Fresources%2Fworks%2Fc000000007</a></p></span></small>
 					</section>
 
 					<section>
-						<h2>Exercise 10: Solutions</h2>
-						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="25%" />
-							<col width="75%" />
-							<tbody>
-								<tr>
-									<td>Reindex (usable ID)</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$...jq... _id:(.id/"/")|last... > bulk.ndjson
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>GET by ID</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl "localhost:9200/loc/work/c000000026"
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Source only, formatted</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl "... /_source" | json_pp
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Full text search</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=america
-										</code></pre>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
-					</section>
-
-					<section>
-						<h1>Remote JSON <br/>to N-Quads</h1>
-						<span class="fragment"><p><code>jsonld format -q http://localhost:9200/loc/work/c000000026/_source</code></p></span>
-						<span class="fragment"><p>No context: was included once, at top level, with @graph</p></span>
-						<span class="fragment"><p>Need to include for each document</p></span>
-						<span class="fragment"><p>Not embedded, but remote: application/ld+json, CORS</p></span>
-					</section>
-
-<section>
-						<h2>Exercise 11: Remote context</h2>
+						<h2>Exercise 10c: Re-index</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
 							<col width="85%" />
 							<tbody>
 								<tr>
+									<td>jq: split</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-compact.json | jq '(.id / "/") | last'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Recreate bulk .ndjson</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-100-compact.json | jq -r \
+'.["@graph"][] | "\({ "index":{"_index":"loc", "_type":"work", "_id":(.id / "/") | last} })\n\(.)"' > bulk.ndjson
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Delete index</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl -XDELETE localhost:9200/loc | jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Reindex</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl -H "Content-Type: application/x-ndjson" \
+-XPOST localhost:9200/_bulk \
+--data-binary "@bulk.ndjson" | jq
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h2>Exercise 10b: Query index</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="20%" />
+							<col width="80%" />
+							<tbody>
+								<tr>
+									<td>GET by ID</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl "localhost:9200/&lt;???&gt;/&lt;???&gt;/&lt;???&gt;" \
+| jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Source only, formatted</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl \
+"localhost:9200/&lt;???&gt;/&lt;???&gt;/&lt;???&gt;/_source" \
+| jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Full text search</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl "localhost:9200/&lt;???&gt;/&lt;???&gt;/_search?q=&lt;???&gt;" | jq
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 10c: Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="20%" />
+							<col width="80%" />
+							<tbody>
+								<tr>
+									<td>GET by ID</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl "localhost:9200/loc/work/c000000026" \
+| jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Source only, formatted</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl "localhost:9200/loc/work/c000000026/_source" \
+| jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Full text search</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl "localhost:9200/loc/work/_search?q=america" | jq
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h1>Direct doc access</h1>
+						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
+						<span class="fragment"><p><a href='http://localhost:9200/loc/work/c000000026'>http://localhost:9200/loc/work/c000000026</a></p></span>
+					</section>
+
+					<section>
+						<h1>Remote JSON <br/>to N-Quads</h1>
+						<span class="fragment"><p><code>jsonld format -q loc-compact.json</code></p></span>
+						<span class="fragment"><p><code>jsonld format -q http://localhost:9200/loc/work/c000000026/_source</code></p></span>
+						<span class="fragment"><p>No context: was included once, at top level, with @graph</p></span>
+					</section>
+
+					<section>
+						<h1>Input data format</h1>
+						<pre><code class="json" data-trim>
+{
+  "@context": { ... },
+  "@graph": [
+    { "id": "http://.../1", "type": ["Work", "Text"], ... },
+    { "id": "http://.../2", "type": ["Work", "Text"], ... },
+    ...
+  ]
+}
+						</code></pre>
+						<p>We processed &amp; indexed each element of the @graph array</p>
+					</section>
+
+					<section>
+						<h1>Remote Context</h1>
+						<span class="fragment"><p>Need to include for each document</p></span>
+						<span class="fragment"><p>Not embedded, but remote: add context URL</p></span>
+						<span class="fragment"><p>(Server needs to serve context as application/ld+json, with CORS header, we will cover CORS in part III)</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 11a: Serve context</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="30%" />
+							<col width="70%" />
+							<tbody>
+								<tr>
+									<td>Run server (new terminal)</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cd .. ; npm start
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Access context (old terminal)</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl http://localhost:3000/context.json | jq
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section>
+						<h2>Exercise 11b: Link to context</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="10%" />
+							<col width="90%" />
+							<tbody>
+								<tr>
 									<td>jq: add JSON</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cat ... | jq -c '.["@graph"][] | {"1": "one"} + .'
+$ cat loc-100-compact.json | \
+jq -c '.["@graph"][] | {"test": 1} + .'
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Reindex (remote context)</td>
+									<td>Add context URL</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$...jq... _id:(.id/"/")|last}})\n\( \
-{"@context":"http://localhost:3000/context.json"} \
-+.)" > bulk.ndjson
+$ cat loc-100-compact.json | \
+jq -c '.["@graph"][] | {"@context":"http://localhost:3000/context.json"}+.'
+										</code></pre>
+									</td>
+								</tr>
+																<tr>
+									<td>Write bulk .ndjson</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-100-compact.json | jq -r \
+'.["@graph"][] | "\({ "index":{"_index":"loc", "_type":"work", "_id":(.id / "/") | last} })\n\({"@context":"http://localhost:3000/context.json"}+.)"' > bulk.ndjson
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h2>Exercise 11c: Reindex and use</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
+							<tbody>
+								<tr>
+									<td>Delete index</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl -XDELETE localhost:9200/loc | jq
 										</code></pre>
 									</td>
 								</tr>
 								<tr>
-									<td>Run server</td>
+									<td>Reindex</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ npm start
+$ curl -H "Content-Type: application/x-ndjson" \
+-XPOST localhost:9200/_bulk \
+--data-binary "@bulk.ndjson" | jq
 										</code></pre>
 									</td>
 								</tr>
@@ -1287,7 +1493,7 @@ $ npm start
 									<td>To N-Quads</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ jsonld format -q http://localhost:9200.../_source
+$ jsonld format -q http://localhost:9200/loc/work/c000000026/_source
 										</code></pre>
 									</td>
 								</tr>
@@ -1298,7 +1504,7 @@ $ jsonld format -q http://localhost:9200.../_source
 
 					<section>
 						<blockquote>API: How &mdash; JSON over HTTP</blockquote>
-						<h2>Serving single documents as JSON over HTTP, serializable as RDF</h2>
+						<h2>Serving our data as JSON over HTTP, serializable as RDF</h2>
 					</section>
 
 					<section>
@@ -1309,16 +1515,17 @@ $ jsonld format -q http://localhost:9200.../_source
 					</section>
 
 					<section>
-						<h2>Exercise 12: Query syntax</h2>
+						<h2>Exercise 12a: Query syntax</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="25%" />
-							<col width="75%" />
+							<col width="15%" />
+							<col width="85%" />
 							<tbody>
 								<tr>
 									<td>Field search</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;???&gt; # &lt;field&gt;:&lt;term&gt;
+# &lt;field&gt;:&lt;term&gt;
+$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
 										</code></pre>
 									</td>
 								</tr>
@@ -1326,7 +1533,8 @@ $ curl ... /_search?q=&lt;???&gt; # &lt;field&gt;:&lt;term&gt;
 									<td>Boolean</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;???&gt; # AND, OR
+# AND, OR
+$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
 										</code></pre>
 									</td>
 								</tr>
@@ -1334,26 +1542,27 @@ $ curl ... /_search?q=&lt;???&gt; # AND, OR
 									<td>Wildcards</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=&lt;???&gt; # truncate with *
+# truncate with *
+$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
 										</code></pre>
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
 					</section>
 
 					<section>
-						<h2>Exercise 12: Solutions</h2>
+						<h2>Exercise 12b: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="25%" />
-							<col width="75%" />
+							<col width="15%" />
+							<col width="85%" />
 							<tbody>
 								<tr>
 									<td>Field search</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=label:letters
+$ curl localhost:9200/loc/work/_search?q=label:letters | jq
 										</code></pre>
 									</td>
 								</tr>
@@ -1361,7 +1570,7 @@ $ curl ... /_search?q=label:letters
 									<td>Boolean</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=canada+OR+alaska
+$ curl localhost:9200/loc/work/_search?q=canada+OR+alaska | jq
 										</code></pre>
 									</td>
 								</tr>
@@ -1369,7 +1578,7 @@ $ curl ... /_search?q=canada+OR+alaska
 									<td>Wildcards</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ curl ... /_search?q=ameri*
+$ curl localhost:9200/loc/work/_search?q=ameri* | jq
 										</code></pre>
 									</td>
 								</tr>
@@ -1394,10 +1603,24 @@ $ curl ... /_search?q=ameri*
 						<blockquote><h2>HTML page for index search</h2></blockquote>
 					</section>
 
-
 					<section>
 						<h2>Exercise 13: HTML</h2>
-						<pre><code class="html" data-trim>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Edit new file</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ gedit search.html &amp;
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Paste content</td>
+									<td>
+										<pre><code class="html" data-trim>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -1408,33 +1631,48 @@ $ curl ... /_search?q=ameri*
 		Hello HTML
 	&lt;/body&gt;
 &lt;/html&gt;
-						</code></pre>
-						<p>Save to a file called search.html</p>
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Open in browser</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ chromium-browser search.html &amp;
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 
 					<section>
 						<h1>JQuery</h1>
 						<span class="fragment"><p>Provides API to simplify interaction with the browser DOM (document object model)</p></span>
-						<span class="fragment"><pre><code class="html" data-trim>
-&lt;head&gt;
-  &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot;/&gt;
-&lt;/head&gt;
-						</code></pre></span>
 					</section>
 
 					<section>
 						<h2>Exercise 14: Text Input</h2>
 						<pre><code class="html" data-trim>
-&lt;input id='search' type='text'/&gt;
-&lt;script&gt;
-	$('#search').keyup(function() {
-		var q = $('#search').val();
-		console.log(query);
-	});
-&lt;/script&gt;
-&lt;div id='result'&gt;&lt;/div&gt;
+&lt;head&gt;
+  &lt;!-- previous head content --&gt;
+  &lt;script src=&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot;&gt;
+  &lt;/script&gt;
+&lt;/head&gt;
 						</code></pre>
-						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
+						<pre><code class="html" data-trim>
+&lt;body&gt;
+	&lt;input id='search' type='text'/&gt;
+	&lt;script&gt;
+		$('#search').keyup(function() {
+			var q = $('#search').val();
+			console.log(q);
+		});
+	&lt;/script&gt;
+	&lt;div id='result'&gt;&lt;/div&gt;
+&lt;/body&gt;
+						</code></pre>
+						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
 					</section>
 
 					<section>
@@ -1448,44 +1686,9 @@ $ curl ... /_search?q=ameri*
 					<section>
 						<h2>Exercise 15: AJAX request</h2>
 						<pre><code class="javascript" data-trim>
-var q = encodeURIComponent($('#search').val()); // User input
-$.ajax({
-	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
-	success: function(result) {
-		console.log(JSON.stringify(result));
-	},
-	error: function(jqXHR, textStatus, errorThrown) {
-		console.log('error: ', textStatus);
-	}
-});
-						</code></pre>
-						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
-					</section>
-
-					<section>
-						<h1>CORS</h1>
-						<span class="fragment"><p>Error: not allowed by Access-Control-Allow-Origin</p></span>
-						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the API (Elasticsearch server)</p></span>
-						<span class="fragment"><p>API server needs to set header: Access-Control-Allow-Origin</p></span>
-						<span class="fragment"><p>In production: specify which domain can make requests <br/>(for development we'll set it to *)</p></span>
-					</section>
-
-					<section>
-						<h2>Exercise 16:<br/> Configure CORS in Elasticsearch</h2>
-						<pre><code class="json" data-trim>
-"http": {
-    "cors.enabled": true,
-    "cors.allow-origin": "*"
-}
-						</code></pre>
-						<p><font size="5">(add in /etc/elasticsearch/elasticsearch.yml, then: sudo service elasticsearch restart)</font></p>
-					</section>
-
-					<section>
-						<h2>Exercise 17: <br/>AJAX request, second try</h2>
-						<pre><code class="javascript" data-trim>
-var q = encodeURIComponent($('#search').val()); // User input
-$.ajax({
+$('#search').keyup(function() { // <-- insert after this
+  var q = encodeURIComponent($('#search').val());
+  $.ajax({
 	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
 	success: function(result) {
 		console.log(JSON.stringify(result));
@@ -1493,9 +1696,83 @@ $.ajax({
 	error: function(jqXHR, textStatus, errorThrown) {
 		console.log(textStatus, ': ', errorThrown);
 	}
+  });
 });
 						</code></pre>
-						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
+						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
+					</section>
+
+					<section>
+						<h2>Cross-Origin Resource Sharing (CORS)</h2>
+						<span class="fragment"><p>Error: not allowed by Access-Control-Allow-Origin</p></span>
+						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the API (Elasticsearch server)</p></span>
+						<span class="fragment"><p>API server needs to set header: Access-Control-Allow-Origin</p></span>
+						<span class="fragment"><p>In production: specify which domain can make requests <br/>(for development we'll set it to *)</p></span>
+					</section>
+
+					<section>
+						<h2>Exercise 16: Configure CORS</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="25%" />
+							<col width="75%" />
+							<tbody>
+								<tr>
+									<td>Edit config file</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ sudo gedit /etc/elasticsearch/elasticsearch.yml
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Add content</td>
+									<td>
+										<pre><code class="yaml" data-trim>
+"http": {
+    "cors.enabled": true,
+    "cors.allow-origin": "*"
+}
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Restart Elasticsearch</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ sudo service elasticsearch restart
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Check log</td>
+									<td>
+										<pre><code class="nohighlight" data-trim>
+$ sudo tail -f /var/log/elasticsearch/elasticsearch.log
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><small>Stop the tail command with Ctrl+C after the restart is complete ("started")</small></p>
+					</section>
+
+					<section>
+						<h2>Exercise 17: <br/>AJAX request, second try</h2>
+						<pre><code class="javascript" data-trim>
+$('#search').keyup(function() { // <-- insert after this
+  var q = encodeURIComponent($('#search').val());
+  $.ajax({
+	url: `http://localhost:9200/loc/work/_search?&q=${q}`,
+	success: function(result) {
+		console.log(JSON.stringify(result));
+	},
+	error: function(jqXHR, textStatus, errorThrown) {
+		console.log(textStatus, ': ', errorThrown);
+	}
+  });
+});
+						</code></pre>
+						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
 					</section>
 
 					<section>
@@ -1524,16 +1801,21 @@ $.ajax({
 						<pre><code class="javascript" data-trim>
 success: function(result) {
 	console.log(JSON.stringify(result));
-
+	// ^-- insert after this
+	$("#result").html('&lt;p/&gt;');
 	var hits = result.hits.hits;
 	for (i in hits) {
 		var hit = hits[i];
 		var label = hit._source.label;
-		$("#result").append(label + '&lt;hr/&gt;');
+		$("#result").append('&lt;hr/&gt;' + label);
 	}
 }
 						</code></pre>
 						<p>Append the label of each hit to the result div in our HTML</p>
+					</section>
+
+					<section data-background="img/search-0-simple.png"
+						data-background-size="contain">
 					</section>
 
 					<section>
@@ -1545,6 +1827,9 @@ success: function(result) {
 								<tr>
 									<td>Hits</td>
 									<td>
+										<strike><pre><code class="javascript" data-trim>
+$("#result").html('&lt;p/&gt;');
+										</code></pre></strike>
 										<pre><code class="javascript" data-trim>
 $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 										</code></pre>
@@ -1553,8 +1838,13 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 								<tr>
 									<td>Links</td>
 									<td>
+										<strike><pre><code class="javascript" data-trim>
+$("#result").append('&lt;hr/&gt;' + label);
+										</code></pre></strike>
 										<pre><code class="javascript" data-trim>
-`http://localhost:9200/loc/work/${hit._id}/_source`
+var link = `<a href='http://localhost:9200/loc/work/`+
+`${hit._id}/_source'>${label}</a>`;
+$("#result").append('<hr/>' + link);
 										</code></pre>
 									</td>
 								</tr>
@@ -1582,20 +1872,32 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
 					</section>
 
 					<section>
-						<h2>Exercise 20:<br/> Two-column layout</h2>
+						<h2>Exercise 20: columns</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="30%" />
+							<col width="70%" />
+							<tbody>
+								<tr>
+									<td>Wrap body content in divs</td>
+									<td>
 						<pre><code class="html" data-trim>
 &lt;div class='row'&gt;
   &lt;div class='col'&gt;
     &lt;code&gt;&lt;pre id='sample'&gt;&lt;/pre&gt;&lt;/code&gt;
   &lt;/div&gt;
   &lt;div class='col'&gt;
-    <!-- previous content -->
+    <!-- previous body content -->
   &lt;/div&gt;
 &lt;/div&gt;
 						</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Define CSS styles in head</td>
+									<td>
 						<pre><code class="html" data-trim>
 &lt;head&gt;
-  &lt;!-- ... --&gt;
+  &lt;!-- previous head content --&gt;
   &lt;style&gt;
     .row { display: flex; }
     .col { flex: 50%; margin: 5px; }
@@ -1603,12 +1905,18 @@ $("#result").html(`<p>Hits: ${result.hits.total}</p>`);
   &lt;/style&gt;
 &lt;/head&gt;
 						</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</code></pre>
 					</section>
 
 					<section>
 						<h2>Exercise 21:<br/> Embed sample from index</h2>
-						<pre><code class="javascript" data-trim>
-$.ajax({
+						<pre><code class="html" data-trim>
+&lt;script&gt;
+ $.ajax({
   url: 'http://localhost:9200/loc/work/c000000026/_source',
   success: function(result) {
     console.log(JSON.stringify(result));
@@ -1617,9 +1925,11 @@ $.ajax({
   error: function(jqXHR, textStatus, errorThrown) {
     console.log(textStatus, ': ', errorThrown);
   }
-});
+ });
+ // previous script content here
+&lt;/script&gt;
 						</code></pre>
-						<p><font size="5">(Open your browser's developer tools to see the console.log output)</font></p>
+						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
 					</section>
 
 					<section data-background="img/search-2-sample.png"
@@ -1760,7 +2070,8 @@ _exists_:geographicCoverage
 						<h2>Exercise 23:<br/>Embedding Hypothes.is</h2>
 						<pre><code class="html" data-trim>
 &lt;head&gt;
-  &lt;!-- ... --&gt;
+  &lt;!-- previous head content --&gt;
+
   &lt;script type="application/json" class="js-hypothesis-config"&gt;
     { "openSidebar": true }
   &lt;/script&gt;
