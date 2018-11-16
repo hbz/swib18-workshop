@@ -19,7 +19,176 @@
 	 <div class='row'>
 		<div class='col'>
 			<h3 style='margin-top:0px'>Document structure:</h3>
-			<div ><code><pre id='sample'>c000000026</pre></code></div>
+			<div ><code><pre id='sample'>
+{
+  "@context": "http://localhost:3000/context.json",
+  "id": "http://id.loc.gov/resources/works/c000000026",
+  "type": [
+    "Work",
+    "Text"
+  ],
+  "adminMetadata": {
+    "type": "AdminMetadata",
+    "encodingLevel": [
+      {
+        "type": "EncodingLevel",
+        "code": "f"
+      }
+    ],
+    "changeDate": "2013-04-08T08:09:51",
+    "creationDate": "1998-07-08",
+    "descriptionConventions": [
+      {
+        "type": "DescriptionConventions",
+        "code": "aacr"
+      }
+    ],
+    "generationProcess": [
+      {
+        "type": "GenerationProcess",
+        "label": "DLC marc2bibframe2 v1.3.0-SNAPSHOT"
+      }
+    ],
+    "identifiedBy": [
+      {
+        "type": "Local",
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": "26"
+      }
+    ],
+    "source": [
+      {
+        "type": [
+          "Source",
+          "Agent"
+        ],
+        "label": "DLC"
+      },
+      {
+        "type": [
+          "Source",
+          "Agent"
+        ],
+        "label": "DLC"
+      }
+    ],
+    "status": [
+      {
+        "type": "Status",
+        "code": "c"
+      }
+    ]
+  },
+  "classification": [
+    {
+      "type": "ClassificationLcc",
+      "classificationPortion": "KF223.R93",
+      "itemPortion": "R93 1811",
+      "source": [
+        {
+          "id": "http://id.loc.gov/vocabulary/organizations/dlc",
+          "type": "Source"
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": [
+        "Contribution",
+        "PrimaryContribution"
+      ],
+      "agent": {
+        "id": "http://id.loc.gov/resources/works/26#Agent100-12",
+        "type": [
+          "Agent",
+          "Person"
+        ],
+        "name00MarcKey": "1001 $aRyan, George,$dactive 1811.",
+        "name00MatchKey": "Ryan, George, active 1811.",
+        "primaryContributorName00MatchKey": "Ryan, George, active 1811.",
+        "label": "Ryan, George, active 1811."
+      },
+      "role": {
+        "id": "http://id.loc.gov/vocabulary/relators/ctb",
+        "type": "Role"
+      }
+    },
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "http://id.loc.gov/resources/works/26#Agent710-20",
+        "type": [
+          "Agent",
+          "Jurisdiction"
+        ],
+        "name10MarcKey": "7101 $aNew Hampshire.$bSuperior Court of Judicature.",
+        "name10MatchKey": "New Hampshire. Superior Court of Judicature.",
+        "label": "New Hampshire. Superior Court of Judicature."
+      },
+      "role": {
+        "id": "http://id.loc.gov/vocabulary/relators/ctb",
+        "type": "Role"
+      }
+    }
+  ],
+  "geographicCoverage": [
+    {
+      "id": "http://id.loc.gov/vocabulary/geographicAreas/n-us-nh",
+      "type": "GeographicCoverage"
+    }
+  ],
+  "language": [
+    {
+      "id": "http://id.loc.gov/vocabulary/languages/eng",
+      "type": "Language"
+    }
+  ],
+  "subject": [
+    {
+      "id": "http://id.loc.gov/resources/works/26#Agent600-18",
+      "type": [
+        "Agent",
+        "Person",
+        "ComplexSubject"
+      ],
+      "name00MarcKey": "60010$aRyan, George,$dactive 1811$xTrials, litigation, etc.",
+      "name00MatchKey": "Ryan, George, active 1811",
+      "authoritativeLabel": "Ryan, George, active 1811--Trials, litigation, etc.",
+      "label": "Ryan, George, active 1811"
+    },
+    {
+      "id": "http://id.loc.gov/resources/works/26#Topic650-19",
+      "type": [
+        "Topic",
+        "ComplexSubject"
+      ],
+      "authoritativeLabel": "Trials (Robbery)--New Hampshire--Charlestown.",
+      "componentList": [
+        {
+          "type": "Topical",
+          "authoritativeLabel": "Trials (Robbery)"
+        },
+        {
+          "type": "Geographic",
+          "authoritativeLabel": "New Hampshire"
+        },
+        {
+          "type": "Geographic",
+          "authoritativeLabel": "Charlestown"
+        }
+      ],
+      "label": "Trials (Robbery)--New Hampshire--Charlestown."
+    }
+  ],
+  "title": {
+    "type": "Title",
+    "titleSortKey": "Report of the trial of George Ryan : before the Superior Court at Charlestown, N.H., in the county of Cheshire, May term 1811, for highway robbery.",
+    "mainTitle": "Report of the trial of George Ryan",
+    "subtitle": "before the Superior Court at Charlestown, N.H., in the county of Cheshire, May term 1811, for highway robbery",
+    "label": "Report of the trial of George Ryan : before the Superior Court at Charlestown, N.H., in the county of Cheshire, May term 1811, for highway robbery."
+  },
+  "label": "Report of the trial of George Ryan : before the Superior Court at Charlestown, N.H., in the county of Cheshire, May term 1811, for highway robbery."
+}</pre></code></div>
 		</div>
 		<div class='col'>
 			<input id='search' type='text' style='width: 99%' placeholder='Search query... (e.g. label:letters, wildcards with *)' autofocus/>
