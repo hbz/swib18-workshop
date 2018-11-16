@@ -1,4 +1,6 @@
 *.log
 node_modules
-loc-100*
+bulk.ndjson
+loc*
 !loc-100.nt.bz2
+!loc.nt
