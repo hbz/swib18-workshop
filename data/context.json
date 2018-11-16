@@ -228,6 +228,7 @@
     "Island":"http://www.loc.gov/mads/rdf/v1#Island",
     "LanguageElement":"http://www.loc.gov/mads/rdf/v1#LanguageElement",
     "MADSCollection":"http://www.loc.gov/mads/rdf/v1#MADSCollection",
+    "MADSGenreForm": "http://www.loc.gov/mads/rdf/v1#GenreForm",
     "MADSScheme":"http://www.loc.gov/mads/rdf/v1#MADSScheme",
     "MADSType":"http://www.loc.gov/mads/rdf/v1#MADSType",
     "MainTitleElement":"http://www.loc.gov/mads/rdf/v1#MainTitleElement",
@@ -351,7 +352,10 @@
     		"@type":"@id",
     		"@container":"@set"
     	},
-    	"duration":"http://id.loc.gov/ontologies/bibframe/duration",
+    	"duration":{
+        "@id": "http://id.loc.gov/ontologies/bibframe/duration",
+        "@type": "http://www.w3.org/2001/XMLSchema#duration"
+      },
     	"edition":"http://id.loc.gov/ontologies/bibframe/edition",
     	"encodingLevel":{
     		"@id":"http://id.loc.gov/ontologies/bflc/encodingLevel",
