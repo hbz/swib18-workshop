@@ -18,7 +18,6 @@ cat loc-compact.json | jq '.label'
 cat loc-compact.json | jq '.contribution[0].agent.label'
 
 # Convert 100 documents
-bunzip2 -kf loc-100.nt.bz2
 jsonld import loc-100.nt > loc-100.json
 jsonld frame -f frame.json loc-100.json > loc-100-framed.json
 jsonld compact -c context.json loc-100-framed.json > loc-100-compact.json

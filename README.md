@@ -39,10 +39,6 @@ Install [jq](https://stedolan.github.io/jq/download/):
 
 `apt install jq`
 
-Install [bzip2](https://stedolan.github.io/jq/download/):
-
-`apt install bzip2`
-
 #### Node.js
 
 Install [node](https://nodejs.org/en/download/) (8.x or higher):
