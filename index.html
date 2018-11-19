@@ -133,6 +133,14 @@
 				</section>
 
 				<section>
+					<h1>Your background &amp; experience</h1>
+					<span class="fragment"><p>Library data?</p></span>
+					<span class="fragment"><p>Software development?</p></span>
+					<span class="fragment"><p>Command line?</p></span>
+					<span class="fragment"><p>Graphical tools?</p></span>
+				</section>
+
+				<section>
 					<h2>Linked Open Usable Data (LOUD)</h2>
 					<span class="fragment"><p><a href="https://de.slideshare.net/azaroth42/community-challenges-for-practical-linked-open-data-linked-pasts-keynote">Term coined by Robert Sanderson in 2016</a></p></span>
 					<span class="fragment"><p>Core idea: to make your data useful you have know and cater to your audience</p></span>
@@ -223,6 +231,24 @@
 					<span class="fragment"><h4>e.g. <a href='https://api.github.com/'> https://api.github.com/</a></h4></span>
 				</section>
 
+					<section>
+						<h2>GET https://api.github.com</h2>
+						<pre><code class="json" data-trim>
+{
+  "current_user_url": "https://api.github.com/user",
+  "authorizations_url": "https://api.github.com/authorizations",
+  "emails_url": "https://api.github.com/user/emails",
+  "emojis_url": "https://api.github.com/emojis",
+  "events_url": "https://api.github.com/events",
+  "feeds_url": "https://api.github.com/feeds",
+  "followers_url": "https://api.github.com/user/followers",
+  "gists_url": "https://api.github.com/gists{/gist_id}",
+  "hub_url": "https://api.github.com/hub",
+  ...
+}
+						</code></pre>
+					</section>
+
 				<section>
 					<p>Part Ib.</p>
 					<blockquote><h2>JSON APIs</h2></blockquote>
@@ -232,6 +258,7 @@
 				<section>
 					<h1>Setup</h1>
 					<span class="fragment"><p><a href='https://github.com/hbz/swib18-workshop#setup'>https://github.com/hbz/swib18-workshop#setup</a></p></span>
+					<span class="fragment"><p>($ git pull origin master)</p></span>
 				</section>
 
 				<section>
@@ -246,10 +273,39 @@
 
 					<section>
 						<h2>Exercise 1a: cURL<br/> Sample</h2>
-						<pre><code class="bash" data-trim>
+							<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+								<col width="10%" />
+								<col width="90%" />
+								<tbody>
+									<tr>
+										<td>cURL</td>
+										<td>
+											<pre><code class="bash" data-trim>
 $ curl https://api.github.com
-						</code></pre>
-					<p><font size="5"><i>(You can copy and paste in the terminal with Shift+Ctrl+C and Shift+Ctrl+V)</i></font></p>
+											</code></pre>
+										</td>
+									</tr>
+									<tr>
+										<td>Paste</td>
+										<td>
+											<pre><code class="bash" data-trim>
+# Copy above, paste in terminal
+$ curl https://api.github.com
+											</code></pre>
+										</td>
+									</tr>
+									<tr>
+										<td>History</td>
+										<td>
+											<pre><code class="bash" data-trim>
+$ &uarr; # access the history
+$ curl https://api.github.com
+											</code></pre>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						<p><font size="5"><i>(You can copy and paste in the terminal with Shift+Ctrl+C and Shift+Ctrl+V)</i></font></p>
 					</section>
 
 					<section>
@@ -983,6 +1039,12 @@ $ cat loc-compact.json | jq .title.subtitle
 					</section>
 
 					<section>
+						<p>Part I: Convert RDF data into usable JSON-LD</p>
+						<span class="fragment"><h1>Break</h1></span>
+						<span class="fragment">Part II: Index and query the data with Elasticsearch</span>
+					</section>
+
+					<section>
 						<h2>Part II:<br><small>Index and query the data with Elasticsearch</small></h2>
 						<table>
 							<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
@@ -1627,6 +1689,19 @@ $ curl localhost:9200/loc/work/_search?q=ameri* | jq
 					</section>
 
 					<section>
+						<h1>Elasticsearch: so much more</h1>
+						<p><span class="fragment">Boosting, Analyzers, Aggregations, etc.</span></p>
+						<p><span class="fragment"><a href='https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html'>Elasticsearch: The Definitive Guide (concepts)</a></span></p>
+						<p><span class="fragment"><a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html'>Elasticsearch Reference (current API)</a></span></p>
+					</section>
+
+					<section>
+						<p>Part II: Index and query the data with Elasticsearch</p>
+						<span class="fragment"><h1>Break</h1></span>
+						<span class="fragment">Part III: Use the data to build a web application</span>
+					</section>
+
+					<section>
 						<h2>Part III:<br><small>Use the data to build a web application</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
@@ -1908,6 +1983,7 @@ $("#result").append('<hr/>' + link);
 						<p><span class="fragment">Which field? How is it nested?</span></p>
 						<p><span class="fragment">Samples very useful as documentation</span></p>
 						<p><span class="fragment">Embed a live sample from the index in the search UI</span></p>
+						<p><span class="fragment"><a href='http://blog.lobid.org/2017/04/26/api-documentation-2.html'>(Read more about how we document the lobid API)</a></span></p>
 					</section>
 
 					<section>
@@ -2137,6 +2213,12 @@ _exists_:geographicCoverage
 					</section>
 
 					<section>
+						<p>Part III: Use the data to build a web application</p>
+						<span class="fragment"><h1>Break</h1></span>
+						<span class="fragment">Part IV: Use the data with existing tools</span>
+					</section>
+
+					<section>
 						<h2>Part IV:<br><small>Use the data with existing tools</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
@@ -2218,7 +2300,7 @@ _exists_:geographicCoverage
 
 					<section>
 						<h1>Kibana: <br/>full LOC index</h1>
-						<p><a href='http://kibana.lobid.org/'>http://kibana.lobid.org/</a></p>
+						<p><a href='http://kibana.lab.lobid.org/'>http://kibana.lab.lobid.org/</a></p>
 					</section>
 
 					<section>
@@ -2232,7 +2314,7 @@ _exists_:geographicCoverage
 						<p><span class="fragment">"A powerful tool for working with messy data"</span></p>
 						<p><span class="fragment">"cleaning it; transforming it from one format into another; and extending it with web services and external data"</span></p>
 						<p><span class="fragment">Spreadsheet-like user interface, in the browser, locally</span></p>
-						<p><span class="fragment">Run with <code>./refine</code>, then open <a href='http://localhost:3333/'>http://localhost:3333/</a></span></p>
+						<p><span class="fragment">Run with <code>./refine</code> in your OpenRefine location, then open <a href='http://localhost:3333/'>http://localhost:3333/</a></span></p>
 					</section>
 
 					<section>
