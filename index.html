@@ -536,7 +536,35 @@ $ cat loc.json | jq &lt;???&gt;
 					</section>
 
 					<section>
-						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Few barriers to entry?</h1></blockquote>
+						<h2>Data processing vs. API access</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="17%" />
+							<col width="83%" />
+							<tbody>
+								<tr>
+									<td>Data processing</td>
+									<td>
+										<pre><code class="javascript" data-trim>
+for o in doc :
+		if o["@type"] contains "http://id.loc.gov/ontologies/bibframe/Topic" :
+			subjectId = o["http://id.loc.gov/ontologies/bibframe/subject"][0]["@id"] // + error handling
+
+for o in doc :
+	if o["@id"] == subjectId :
+		subjectLabel = o["http://www.w3.org/2000/01/rdf-schema#label"]["@value"] // + error handling
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>API access</td>
+									<td>
+										<pre><code class="javascript" data-trim>
+doc.license.name // doc.subject.label?
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 
 					<section>
@@ -546,6 +574,17 @@ $ cat loc.json | jq &lt;???&gt;
 							to the development and publication of APIs (simplicity, obviousness, fit-for-purpose etc). </p></blockquote>
 							<small><p><a href='https://apiguide.readthedocs.io/en/latest/principles/empathy.html'>API Design Guide, Digital Transformation Agency, Australia</a></p></small>
 						</span>
+					</section>
+
+					<section>
+						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Few barriers to entry?</h1></blockquote>
+					</section>
+
+					<section>
+						<h1>Non-developer empathy</h1>
+						<span class="fragment"><p>Default RDF -> JSON-LD <i>requires</i> programming with loops &amp; conditionals to access a single nested field, the subject label</p></span>
+						<span class="fragment"><p>Should be as simple as <i>doc.license.name</i></p></span>
+						<span class="fragment"><p>Not providing an API actually <i>excludes</i> non-developers by putting up barriers for usage with CLI or GUI tools</p></span>
 					</section>
 
 					<section>
