@@ -27,9 +27,11 @@ b) install all tools locally into your own operating system (OS)
 
 ### VirtualBox
 This may be the easiest way for you to create a working environment.
+VirtualBox is available for all OS' and allows to run a whole different
+computer in your own OS.
 The virtual disk image provides every tool mentioned under
-"Installation of all tools into your operating system", set up in a linux
-OS.
+"Installation of all tools into your operating system", set up as a linux
+box.
 
 Note: we tested the disk image on several linux flavors like Ubuntu and
 Debian and also on some MacOs. However, we experienced troubles with Linux Mint,
@@ -46,37 +48,33 @@ We prepared a disk image with the following apps, amongst others:
 
 -- *OS*: Ubuntu 32bit with Xubuntu as graphical-UI
 -- *browser*: chromium
--- *java*: openjdk-8-jdk
--- *elasticsearch 5.6.13*
--- *kibana 5.6.13*
 -- *text editors*: visualstudio 1.29.0; gedit; vim
--- *git* , *jq*
--- *openrefine*
 
-It's deliberately a 32bit-System to avoid possible BIOS problems.
-enabled "Guest Additions" to copy'n'paste between box and host
+It's deliberately a 32bit-system to avoid possible BIOS problems.
 
 #### Load the virtual disk image (vdi) into VirtualBox
 Download the 7z-archived vdi: http://labs.lobid.org/download/.
 The size of the packed file is 2.4 GB, unpacked it's 7.5 GB
-(so make sure you have got enough free space).
+(so make sure you have got around at least 10 GB free space).
 To decompress the archive you need the 7z archiver.
 Installation on debian-based linux':
-'sudo apt install p7zip'
-Unpack it like '7z x swib_2018-Workshop_VBox.7z'
+`sudo apt install p7zip`
+Unpack it like `7z x swib_2018-Workshop_VBox.7z`
 Decompressing may take 4 minutes.
 
 Go to your VirtualBox-GUI and click "new". Then:
-Name: "swib"
+Name: yourChoiceReally
 Type:"Linux"
 Version: "Ubuntu 32bit"
 MemorySize: best >=2048
 HardDrive: Use an existing one
 Choose the extracted vdi, then click "create".
+
 When you are finished a virtual machine should appear in the VirtualBox.
 Start the machine.
 A new window should appear with ubuntu booting until you see the graphical
-login manager..
+login manager. If you got a "kernel panic" instead you may try variant b) and need to install
+all tools directly to your OS.
 
 #### Configs of your virtual machine
 The password for the user _I_ is "12345".
@@ -86,8 +84,8 @@ on the right bottom, select "Keyboard" on the left side. Click on the "Layout" t
 the "Use system defaults", "Add" the keyboard layout you need, then push it to first position by
 selecting that layout and clicking on the arrows. Close the window, you are done.
 
-Normally it's possible to copy'n'paste between your local OS (host) and the
-guest (the ubunut machine). While it's not a mandatory feature it may be handy.
+Normally it's possible to copy'n'paste between your "normal" OS (aka "host") and the
+"guest" (the ubunut machine). While it's not a mandatory feature it may be handy.
 If that's not working and you feel you need it: you need to install the ["Guest Additions"](https://www.virtualbox.org/manual/ch03.html#settings-general-advanced).
 
 You machine has automatically started elasticsearch and kibana.
