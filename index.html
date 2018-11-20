@@ -65,16 +65,23 @@
 		<![endif]-->
 		<style>
 			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
 		</style>
 	</head>
-
+	<div id="footer-left"></div>
 	<body>
 
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
+				<section data-state="adrian">
 					<h2>From LOD to LOUD: <br/>making data usable</h2>
 					<h4>Workshop at SWIB18</h4>
 					<p>
@@ -89,7 +96,6 @@
 						<a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
 						<small>Bonn, 2018-11-26</small>
 					</p>
-					<p>**DRAFT**</p>
 					<p>
 						This presentation: <br /> <a
 							href="http://hbz.github.io/swib18-workshop">http://hbz.github.io/swib18-workshop</a>
@@ -98,7 +104,7 @@
 					</p>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<h2>Overview</h2>
 					<table>
 						<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
@@ -109,11 +115,11 @@
 					</table>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<h1>Our background &amp; experience</h1>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<img src="img/hbz.png" style="border: none; box-shadow: none;background-color: white; height: 100px; padding:10px" />
 					<p><span class="fragment">Hochschulbibliothekszentrum des Landes NRW &mdash;<br/>Academic library center for German state of NRW, est. 1973</span></p>
 					<p><span class="fragment">Software services for libraries in NRW and beyond</span></p>
@@ -122,7 +128,7 @@
 					<p><span class="fragment"><a href="https://www.hbz-nrw.de/service/mediathek/flyer/hbz-product-scope/at_download/file">hbz flyer in English (PDF)</a></span></p>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<img src="img/lobid.png" style="border: none; box-shadow: none;background-color: white; height: 100px; padding:10px" />
 					<p><span class="fragment">lobid: hbz's LOD service, providing bibliographic data, authorities &amp; organizations</span></p>
 					<p><span class="fragment">Started 2010 with open data publication, triple store &amp; Perl transformation script</span></p>
@@ -132,7 +138,7 @@
 					<span class="fragment"><h4><a href="http://lobid.org/team">http://lobid.org/team</a> | <a href="http://blog.lobid.org">http://blog.lobid.org</a></h4></span>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<h1>Your background &amp; experience</h1>
 					<span class="fragment"><p>Library data?</p></span>
 					<span class="fragment"><p>Software development?</p></span>
@@ -140,7 +146,7 @@
 					<span class="fragment"><p>Graphical tools?</p></span>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<h2>Linked Open Usable Data (LOUD)</h2>
 					<span class="fragment"><p><a href="https://de.slideshare.net/azaroth42/community-challenges-for-practical-linked-open-data-linked-pasts-keynote">Term coined by Robert Sanderson in 2016</a></p></span>
 					<span class="fragment"><p>Core idea: to make your data useful you have know and cater to your audience</p></span>
@@ -148,22 +154,22 @@
 					<span class="fragment"><p>LOUD: oriented towards the needs and conventions for developing software</p></span>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-22.png" width=800 /></a>
 					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-32.png" width=800 /></a>
 					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
 				</section>
 
-				<section>
+				<section data-state="adrian">
 					<h2>Design for JSON-LD <br/><i>from RDF</i>, consistently</h2>
 					<span class="fragment"><p>(Our background &amp; this workshop: we start with RDF data)</p></span>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<h2>Part I:<br><small>Convert RDF data into usable JSON-LD</small></h2>
 					<table>
 						<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
@@ -173,67 +179,67 @@
 					</table>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<p>Part Ia.</p>
 					<blockquote><h2>Usable data & APIs</h2></blockquote>
 					<blockquote><h2>APIs: why, how</h2></blockquote>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<blockquote><p>Usable data [& APIs]</p></blockquote>
-					<span class="fragment"><h1>Using data <br/>requires software</h1></span>
-					<span class="fragment"><p>Build new software based on the data</p></span>
-					<span class="fragment"><p>Use the data with existing software</p></span>
+					<span class="fragment"><h1>Data is used with software</h1></span>
+					<span class="fragment"><p>Build new software with the data</p></span>
+					<span class="fragment"><p>Use existing software with the data</p></span>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<h1>Libraries are Software</h1>
 					<blockquote>Our collections and services are delivered primarily via software. [...] The choices we make in the development, 
 					selection, and implementation of this software [...] define the limits of our content and services. We can only be as good as our software.</blockquote>
 					<blockquote> &mdash; Cody Hanson, <a href="http://codyhanson.com/writing/software.html">Libraries are Software</a></blockquote>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<blockquote><p>[Usable data &] APIs</p></blockquote>
 					<span class="fragment"><h1>Software <br/>requires APIs</h1></span>
 					<span class="fragment"><h4>APIs make software development manageable <br/>(for 1st and 2nd party software)</h4></span>
 					<span class="fragment"><h4>APIs enable usage and integration of 3rd party software</h4></span>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<h3>e.g. lobid sources, formats, applications</h3>
 					<img src="img/data.png" style="border: none; box-shadow: none;" /> <span
 						class="fragment"><h4>APIs decouple applications from
 							specific data sources, formats, and systems. They enable modular, sustainable applications.</h4></span>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<blockquote><h1>API: why?</h1></blockquote>
 					<span class="fragment"><blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Right abstraction for the audience</h2></blockquote></span>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<blockquote><h1>API: why?</h1></blockquote>
 					<span class="fragment"><h1>Usable data</h1></span>
 					<span class="fragment"><h1>= data with APIs</h1></span>
 					<span class="fragment">(necessary, not sufficient)</span>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<blockquote><h1>API: how?</h1></blockquote>
 					<span class="fragment"><blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>3. </a>Don't break the web</h2></blockquote></span>
 				</section>
 
-				<section>
+				<section data-state="fabian">
 					<blockquote><h1>API: how?</h1></blockquote>
 					<span class="fragment"><h1>JSON over HTTP</h1></span>
 					<span class="fragment"><h3><a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">standard web API format since years</a></h3></span>
 					<span class="fragment"><h4>e.g. <a href='https://api.github.com/'> https://api.github.com/</a></h4></span>
 				</section>
 
-					<section>
-						<h2>GET https://api.github.com</h2>
-						<pre><code class="json" data-trim>
+				<section data-state="fabian">
+					<h2>GET https://api.github.com</h2>
+					<pre><code class="json" data-trim>
 {
   "current_user_url": "https://api.github.com/user",
   "authorizations_url": "https://api.github.com/authorizations",
@@ -246,33 +252,33 @@
   "hub_url": "https://api.github.com/hub",
   ...
 }
-						</code></pre>
-					</section>
+					</code></pre>
+				</section>
 
-				<section>
+				<section data-state="fabian">
 					<p>Part Ib.</p>
 					<blockquote><h2>JSON APIs</h2></blockquote>
 					<blockquote><h2>Using the GitHub API, processing JSON</h2></blockquote>
 				</section>
 
-				<section>
+				<section data-state="pascal">
 					<h1>Setup</h1>
 					<span class="fragment"><p><a href='https://github.com/hbz/swib18-workshop#setup'>https://github.com/hbz/swib18-workshop#setup</a></p></span>
 					<span class="fragment"><p>($ git pull origin master)</p></span>
 				</section>
 
-				<section>
-						<h1>cURL</h1>
-						<p><span class="fragment">Command line tool for transferring data with URLs</span></p>
-						<p><span class="fragment"><a href="https://curl.haxx.se/download.html" target="_blank">https://curl.haxx.se/download.html</a></span></p>
-						<span class="fragment">
-							<pre><code class="bash">$ curl --help</code></pre>
-							<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
-						</span>
-					</section>
+				<section data-state="fabian">
+					<h1>cURL</h1>
+					<p><span class="fragment">Command line tool for transferring data with URLs</span></p>
+					<p><span class="fragment"><a href="https://curl.haxx.se/download.html" target="_blank">https://curl.haxx.se/download.html</a></span></p>
+					<span class="fragment">
+						<pre><code class="bash">$ curl --help</code></pre>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</span>
+				</section>
 
-					<section>
-						<h2>Exercise 1a: cURL<br/> Sample</h2>
+					<section data-state="fabian">
+						<h2>Exercise 1a: cURL</h2>
 							<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 								<col width="10%" />
 								<col width="90%" />
@@ -308,32 +314,63 @@ $ curl https://api.github.com
 						<p><font size="5"><i>(You can copy and paste in the terminal with Shift+Ctrl+C and Shift+Ctrl+V)</i></font></p>
 					</section>
 
-					<section>
-						<h2>Exercise 1b: cURL<br/> Task</h2>
-						<pre><code class="bash" data-trim>
-# Get a user or organization profile
+					<section data-state="fabian">
+						<h2>Exercise 1b: cURL</h2>
+							<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+								<col width="10%" />
+								<col width="90%" />
+								<tbody>
+									<tr>
+										<td>Profile</td>
+										<td>
+											<pre><code class="bash" data-trim>
+$ curl https://api.github.com/&lt;???&gt; # user or org
+											</code></pre>
+										</td>
+									</tr>
+									<tr>
+										<td>Repo</td>
+										<td>
+											<pre><code class="bash" data-trim>
 $ curl https://api.github.com/&lt;???&gt;
-
-# Get data for a repo
-$ curl https://api.github.com/&lt;???&gt;
-					</code></pre>
+											</code></pre>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 					<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
 					<p>We have a repo for this workshop called 'swib18-workshop' under the 'hbz' organization</p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 1c: cURL<br/> Solution</h2>
-						<pre><code class="bash" data-trim>
-# Get a user or organization profile
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+								<col width="10%" />
+								<col width="90%" />
+								<tbody>
+									<tr>
+										<td>Profile</td>
+										<td>
+											<pre><code class="bash" data-trim>
 $ curl https://api.github.com/users/hbz
-
-# Get data for a repo
+											</code></pre>
+										</td>
+									</tr>
+									<tr>
+										<td>Repo</td>
+										<td>
+											<pre><code class="bash" data-trim>
 $ curl https://api.github.com/repos/hbz/swib18-workshop
+											</code></pre>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 					</code></pre>
 					<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Response</h2>
 						<pre><code class="json" data-trim>
 $ curl https://api.github.com/repos/hbz/swib18-workshop
@@ -353,7 +390,7 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop
 						<p>Output is quite long, we often want specific values</p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>JavaScript Object Notation (JSON)</h2>
 						<span class="fragment"><pre><code class="javascript" data-trim>
 var options = {
@@ -371,7 +408,7 @@ request(options, function (error, response, body) {
 						</code></pre></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>jq</h1>
 						<p><span class="fragment">A lightweight and flexible command-line JSON processor</span></p>
 						<p><span class="fragment"><a href="https://stedolan.github.io/jq/" target="_blank">https://stedolan.github.io/jq/</a></span></p>
@@ -382,16 +419,17 @@ request(options, function (error, response, body) {
 						</span>
 					</section>
 
-					<section>
-						<h2>Exercise 2a: Using the GitHub API &ndash; Sample</h2>
+					<section data-state="fabian">
+						<h2>Exercise 2a: JSON with jq</h2>
 						<pre><code class="bash" data-trim>
-$ curl https://api.github.com/repos/hbz/swib18-workshop | jq .name
+$ curl https://api.github.com/repos/hbz/swib18-workshop \
+| jq .name # filter: .name
 						</code></pre>
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
-						<h2>Exercise 2b: Using the GitHub API &ndash; Task</h2>
+					<section data-state="fabian">
+						<h2>Exercise 2b: JSON with jq</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
@@ -417,8 +455,8 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop | jq &lt;???&gt; # get t
 						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
 					</section>
 
-					<section>
-						<h2>Exercise 2c: Using the GitHub API &ndash; Solution</h2>
+					<section data-state="fabian">
+						<h2>Exercise 2c: JSON with jq</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
@@ -444,48 +482,48 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop | jq .license.name
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>So JSON is great.</h1>
 						<span class="fragment"><h1>But what if we have <a href="http://id.loc.gov/download/">RDF</a> data?</h1></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part Ic.</p>
 						<blockquote><h2>From RDF to JSON</h2></blockquote>
 						<blockquote><h2>JSON-LD processing with jsonld.js via jsonld-cli</h2></blockquote>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Bibframe datasets (N-Triples)</h2>
 						<a href="http://id.loc.gov/download"><img src="img/loc-downloads.png" style="border: none; box-shadow: none;" /></a>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<a href="https://listserv.loc.gov/cgi-bin/wa?A2=BIBFRAME;3141fdaf.1806"><img src="img/bibframe-bulk-email.png" style="border: none; box-shadow: none;" /></a>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Example work</h2>
 						<a href="http://rdf-translator.appspot.com/convert/nt/nt/html/https%3A%2F%2Fraw.githubusercontent.com%2Fhbz%2Fswib18-workshop%2Fmaster%2Fdata%2Floc.nt"><img src="img/nt.png" style="border: none; box-shadow: none;" /></a>
 						<p><small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt</a></small></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>JSON-LD</h1>
 						<span class="fragment"><p>&quot;designed to be usable directly as JSON, with no knowledge of RDF&quot; &mdash; it's real JSON!</p></span>
 						<span class="fragment"><p>&quot;also designed to be usable as RDF&quot;</p></span>
 						<span class="fragment"><p><a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></p></span>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>5. </a>Design for JSON-LD, consistently</blockquote></h1>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Great, so let's make JSON-LD from RDF</h1>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>jsonld-cli</h1>
 						<p><span class="fragment">JSON-LD command line interface tool</span></p>
 						<p><span class="fragment"><a href="https://github.com/hbz/jsonld-cli" target="_blank">https://github.com/hbz/jsonld-cli</a></span></p>
@@ -496,7 +534,7 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop | jq .license.name
 						</span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 3:<br/>N-Triples to JSON-LD</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
@@ -531,7 +569,7 @@ $ jsonld import loc.nt > loc.json
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 					<h2>Result</h2>
 					<pre><code class="json" data-trim>
 {
@@ -553,7 +591,7 @@ $ jsonld import loc.nt > loc.json
 					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>Serialized RDF as JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11-api/#serialize-rdf-as-json-ld-algorithm'>Specification</a></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 3a:<br/><small>Use serialized RDF to access subjects</small></h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
@@ -583,15 +621,37 @@ $ cat loc.json | jq &lt;???&gt;
 						<span class="fragment"><p>Problem: only <i>technically</i> JSON, but not <i>usable</i></p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<blockquote><p>So JSON is great?</p></blockquote>
 						<span class="fragment"><h1>Worst of both worlds</h1></span>
 						<span class="fragment"><p>Unwieldy URIs as keys from RDF</p></span>
 						<span class="fragment"><p>Syntactic overhead from JSON</p></span>
-						<span class="fragment"><p>Flat data, bad readability</p></span>
+						<span class="fragment"><p>Bad readability &amp; usability</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
+					<h2>Result</h2>
+					<pre><code class="json" data-trim>
+{
+ "@id": "http://id.loc.gov/resources/works/c000101650",
+ "http://id.loc.gov/ontologies/bibframe/subject": [{
+  "@id": "http://id.loc.gov/resources/works/101650#Topic650-20"
+ }, ...]
+}, {
+ "@id": "http://id.loc.gov/resources/works/101650#Topic650-20",
+ "@type": [
+  "http://id.loc.gov/ontologies/bibframe/Topic",
+  "http://www.loc.gov/mads/rdf/v1#ComplexSubject"
+ ],
+ "http://www.w3.org/2000/01/rdf-schema#label": [{
+  "@value": "Climatic changes--Europe."
+ }],...
+}
+					</code></pre>
+					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-output'>Serialized RDF as JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11-api/#serialize-rdf-as-json-ld-algorithm'>Specification</a></p>
+					</section> 
+
+					<section data-state="fabian">
 						<h2>Data processing vs. API access</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="17%" />
@@ -623,37 +683,37 @@ doc.license.name // doc.subject.label?
 						</table>
 					</section>
 
-					<section>
-						<h1>Developer empathy</h1>
-						<span class="fragment"><blockquote>
-							<p>When it comes to APIs, developers are your users. The same principles of user-centred-design apply 
-							to the development and publication of APIs (simplicity, obviousness, fit-for-purpose etc). </p></blockquote>
-							<small><p><a href='https://apiguide.readthedocs.io/en/latest/principles/empathy.html'>API Design Guide, Digital Transformation Agency, Australia</a></p></small>
-						</span>
-					</section>
-
-					<section>
+					<section data-state="fabian">
 						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Few barriers to entry?</h1></blockquote>
 					</section>
 
-					<section>
+					<section data-state="fabian">
+						<h1>Developer empathy</h1>
+						<span class="fragment"><blockquote>
+							When it comes to APIs, developers are your users. The same principles of user-centred-design apply 
+							to the development and publication of APIs (simplicity, obviousness, fit-for-purpose etc).
+							<small><br/><a href='https://apiguide.readthedocs.io/en/latest/principles/empathy.html'>API Design Guide, Digital Transformation Agency, Australia</a></small></blockquote>
+						</span>
+					</section>
+
+					<section data-state="fabian">
 						<h1>Non-developer empathy</h1>
 						<span class="fragment"><p>Default RDF -> JSON-LD <i>requires</i> programming with loops &amp; conditionals to access a single nested field, the subject label</p></span>
 						<span class="fragment"><p>Should be as simple as <i>doc.license.name</i></p></span>
 						<span class="fragment"><p>Not providing an API actually <i>excludes</i> non-developers by putting up barriers for usage with CLI or GUI tools</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1><blockquote>Design for JSON-LD from RDF, consistently</blockquote></h1>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Framing</h1>
 						<span class="fragment"><p>Frame the way we look at our graph from the perspective of one entity type (to make it a tree, or a document)</p></span>
 						<span class="fragment"><p>Look at my data from a "Work" perspective, and embed other entities under their works</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 4:<br/>Framing</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
@@ -691,7 +751,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 					<h2>Result</h2>
 					<pre><code class="json" data-trim>
 {
@@ -710,7 +770,7 @@ $ jsonld frame -f frame.json loc.json > loc-framed.json
 					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-framed'>Framed JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11/#framed-document-form'>Specification</a></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 4a:<br/><small>Use framed JSON-LD to access subjects</small></h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="13%" />
@@ -739,28 +799,42 @@ $ cat loc-framed.json | jq &lt;???&gt;
 						<span class="fragment"><p>Could work conceptually, but not very handy</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>2. </a>As simple as possible?</h1></blockquote>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>JSON-LD Contex</h1>
 						<span class="fragment"><p>Mapping of JSON keys to URIs: <br/><code>"@context":{"name":"http://schema.org/name"}</code></p></span>
-						<span class="fragment"><p>Here: <a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">context generated from ontologies</a><br/></p></span>
 						<span class="fragment"><p>With this context, we can <a href='https://www.w3.org/TR/json-ld11-api/#compaction'>compact</a> (replace URIs with short keys) or 
 						<a href='https://www.w3.org/TR/json-ld11-api/#expansion'>expand</a> (replace short keys with URIs) our JSON-LD</p></span>
 						<span class="fragment"><p>http://schema.org/name &rlarr; name</p></span>
 						<span class="fragment"><p>`http://id.loc.gov/ontologies/bibframe/subject`<br/>.`http://www.w3.org/2000/01/rdf-schema#label`?</p></span>
 					</section>
 
-					<section>
+					<section data-state="adrian">
+						<h1>How do we get the context?</h1>
+						<span class="fragment"><p><a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">Here: context generated from ontologies</a></p></span>
+						<span class="fragment"><p>Alternatives: upfront design or generate from data</p></span>
+						<span class="fragment"><p>JSON-LD break-out session</p></span>
+					</section>
+
+					<section data-state="fabian">
 						<h1>Context: more than simple mappings</h1>
 						<span class="fragment"><p><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Few exceptions, many consistent patterns</blockquote></p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
+						<h1>Consistency</h1>
+						<span class="fragment"><p>e.g. the <i>contribution</i> field should always be an array, even if a particular record has only one contribution | <a href='https://www.w3.org/TR/json-ld11/#sets'>spec</a></p></span>
+						<span class="fragment"><p>Other fields, which occur only once for every record can use the default non-array single values</p></span>
+						<span class="fragment"><p>To have all fields always be arrays: compacting option <a href='https://www.w3.org/TR/json-ld11-api/#dom-jsonldoptions-compactarrays'>compactArrays:false</a></p></span>
+						<span class="fragment"><p><small>(Consistent field types also required for Elasticsearch indexing)</small></p></span>
+					</section>
+
+					<section data-state="fabian">
 						<h1>Describing values</h1>
-						<span class="fragment"><p>Field 'contribution' should always be a JSON array</p></span>
+						<span class="fragment"><p>e.g. field 'contribution' should always be a JSON array</p></span>
 						<span class="fragment"><pre><code class="javascript" data-trim>
 "contribution": {
   "@id": "http://id.loc.gov/ontologies/bibframe/contribution",
@@ -770,15 +844,7 @@ $ cat loc-framed.json | jq &lt;???&gt;
 						<span class="fragment"><p><a href="https://www.w3.org/TR/json-ld11/#describing-values">See context specification for details</a></p></span>
 					</section>
 
-					<section>
-						<h1>Consistency</h1>
-						<span class="fragment"><p>e.g. the <i>contribution</i> field should always be an array, even if a particular record has only one contribution | <a href='https://www.w3.org/TR/json-ld11/#sets'>spec</a></p></span>
-						<span class="fragment"><p>Other fields, which occur only once for every record can use the default non-array single values</p></span>
-						<span class="fragment"><p>To have all fields always be arrays: compacting option <a href='https://www.w3.org/TR/json-ld11-api/#dom-jsonldoptions-compactarrays'>compactArrays:false</a></p></span>
-						<span class="fragment"><p><small>(Consistent field types also required for Elasticsearch indexing)</small></p></span>
-					</section>
-
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 5:<br/>Compact</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
@@ -805,7 +871,7 @@ $ jsonld compact -c context.json loc-framed.json > loc-compact.json
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 					<h2>Result</h2>
 					<pre><code class="json" data-trim>
 {
@@ -825,7 +891,7 @@ $ jsonld compact -c context.json loc-framed.json > loc-compact.json
 					<p><a href='http://hbz.github.io/swib18-workshop/data/index.html#jsonld-compact'>Compacted JSON-LD</a> | <a href='https://www.w3.org/TR/json-ld11/#compacted-document-form'>Specification</a></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 5a:<br/><small>Use compact JSON-LD to access subjects</small></h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="13%" />
@@ -861,7 +927,7 @@ $ cat loc-compact.json | jq &lt;???&gt;
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 5a:<br/><small>Solution</small></h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="13%" />
@@ -898,7 +964,7 @@ $ cat loc-compact.json | jq .subject[].label
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 6: Use final JSON</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
@@ -941,7 +1007,7 @@ $ jsonld format -q data/loc-compact.json
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 6: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
@@ -968,35 +1034,35 @@ $ cat loc-compact.json | jq .title.subtitle
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<blockquote><p>So JSON is great</p></blockquote>
 						<span class="fragment"><h1>Best of both worlds</h1></span>
 						<span class="fragment"><p>RDF-compatible linked data</p></span>
 						<span class="fragment"><p>Useful, practical JSON</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>RDF view</h2>
 						<span class="fragment"><p>Multiple steps to make usable JSON-LD</p></span>
 						<span class="fragment"><p>Serialize RDF as JSON-LD, frame, compact</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>1. </a>Require use cases, with data</h1></blockquote>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>JSON view</h2>
 						<span class="fragment"><p>Add context to usable JSON</p></span>
 						<span class="fragment"><p>(Add <code>@id</code>s where needed)</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Context maps stable API to implementation details</h2>
 						<span class="fragment"><p>Applications can use the '<code>name</code>' field in their code, no matter what URI it's mapped to (which unfortunately may change)</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 					<h2>JSON with context</h2>
 					<p>(based on part of <a href='https://api.github.com/users/hbz'>https://api.github.com/users/hbz</a>)</p>
 					<pre><code class="json" data-trim>
@@ -1017,7 +1083,7 @@ $ cat loc-compact.json | jq .title.subtitle
 					<p>You can test this in the <a href='https://json-ld.org/playground/'>JSON-LD Playground</a></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 					<blockquote><h2>JSON as RDF</h2></blockquote>
 					<pre><code class="json" data-trim>
 {
@@ -1038,13 +1104,13 @@ $ cat loc-compact.json | jq .title.subtitle
 					<p>Output of N-Quads tab in the <a href='https://json-ld.org/playground/'>JSON-LD Playground</a></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part I: Convert RDF data into usable JSON-LD</p>
 						<span class="fragment"><h1>Break</h1></span>
 						<span class="fragment">Part II: Index and query the data with Elasticsearch</span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Part II:<br><small>Index and query the data with Elasticsearch</small></h2>
 						<table>
 							<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
@@ -1053,14 +1119,14 @@ $ cat loc-compact.json | jq .title.subtitle
 						</table>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part IIa.</p>
 						<blockquote><h2>Elasticsearch bulk indexing</h2></blockquote>
 						<blockquote><h2>Create bulk format with jq, index with curl</h2></blockquote>
 					</section>
 
-					<section>
-						<h2>Exercise 7: Convert larger data (100 documents)</h2>
+					<section data-state="fabian">
+						<h2>Exercise 7: Convert more data (100 documents)</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
 							<col width="75%" />
@@ -1102,7 +1168,7 @@ $ jsonld compact &lt;???&gt;
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 7: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
@@ -1137,7 +1203,7 @@ $ jsonld compact -c context.json loc-100-framed.json > loc-100-compact.json
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Elasticsearch bulk format</h1>
 						<span class="fragment"><code><pre>{"index":{"_index":"loc","_type":"work","_id":"c000101650"}}</pre></code></span>
 						<span class="fragment"><code><pre>{@context: ...,"id":"http://...","type":["Work","Text"],...}</pre></code></span>
@@ -1161,7 +1227,7 @@ $ jsonld compact -c context.json loc-100-framed.json > loc-100-compact.json
 						<span class="fragment"><p>We want to process each element of the @graph array</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 8a: Document line</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
@@ -1198,7 +1264,7 @@ $ cat loc-100-compact.json | jq -c '.["@graph"][]'
 						<span class="fragment"><p>Second line for each pair in bulk.ndjson: 1 doc in 1 line</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 8b: Metadata line</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
@@ -1244,7 +1310,7 @@ jq -c '.["@graph"][] | { "index":{"_index":"loc", "_type":"work", "_id":.id} }'
 						<span class="fragment"><p>First line for each pair in bulk.ndjson: index metadata</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 8c: Putting it together</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
@@ -1274,19 +1340,19 @@ $ cat loc-100-compact.json | jq -r \
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Elasticsearch bulk API</h1>
 						<span class="fragment"><p>Send the bulk.ndjson file to the Elasticsearch bulk API</p></span>
 						<span class="fragment"><p>HTTP POST to /_bulk</p></span>
 					</section>
 
-					<section>
+					<section data-state="pascal">
 						<p>Setup</p>
 						<blockquote><h1>You Know,<br/> for Search</h1></blockquote>
 						<p><a href='http://localhost:9200'>http://localhost:9200</a></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 9: Bulk indexing</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
@@ -1324,21 +1390,21 @@ $ curl localhost:9200/loc/work/_search | jq
 						<span class="fragment"><p><a href='http://localhost:9200/loc/work/_search'>http://localhost:9200/loc/work/_search</a></p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part IIb.</p>
 						<blockquote><h2>Query the Elasticsearch index</h2></blockquote>
 						<blockquote><h2>Elasticsearch URI search, query string syntax</h2></blockquote>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Elasticsearch URI search</h1>
-						<span class="fragment"><p>Search query as part of the URI (very versatile: full text, fields, boolean operators, wildcards)</p></span>
+						<span class="fragment"><p>Search query as part of the URI (very versatile: full text, fields, boolean operators, wildcards, etc.)</p></span>
 						<span class="fragment"><p>(Won't cover here: body search, even more advanced)</p></span>
-						<span class="fragment"><p>Search: /&lt;index&gt;/&lt;type&gt;/_search</p></span>
+						<span class="fragment"><p>Search: /&lt;index&gt;/&lt;type&gt;/_search?q=&lt;query-string&gt;</p></span>
 						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Direct doc access</h1>
 						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
 						<span class="fragment"><p><i>http://example.com/loc/work/c000000007</i></p></span>
@@ -1347,8 +1413,8 @@ $ curl localhost:9200/loc/work/_search | jq
 						http://localhost:9200/loc/work/http%3A%2F%2Fid.loc.gov%2Fresources%2Fworks%2Fc000000007</a></p></span></small>
 					</section>
 
-					<section>
-						<h2>Exercise 10c: Re-index</h2>
+					<section data-state="fabian">
+						<h2>Exercise 10a: Re-index</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
 							<col width="85%" />
@@ -1392,7 +1458,7 @@ $ curl -H "Content-Type: application/x-ndjson" \
 						</table>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 10b: Query index</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
@@ -1430,7 +1496,7 @@ $ curl "localhost:9200/&lt;???&gt;/&lt;???&gt;/_search?q=&lt;???&gt;" | jq
 						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 10c: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
@@ -1467,20 +1533,40 @@ $ curl "localhost:9200/loc/work/_search?q=america" | jq
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Direct doc access</h1>
 						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
 						<span class="fragment"><p><a href='http://localhost:9200/loc/work/c000000026'>http://localhost:9200/loc/work/c000000026</a></p></span>
 					</section>
 
-					<section>
-						<h1>Remote JSON <br/>to N-Quads</h1>
-						<span class="fragment"><p><code>jsonld format -q loc-compact.json</code></p></span>
-						<span class="fragment"><p><code>jsonld format -q http://localhost:9200/loc/work/c000000026/_source</code></p></span>
+					<section data-state="fabian">
+						<h2>Exercise 10d: Remote JSON to N-Quads</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="18%" />
+							<col width="82%" />
+							<tbody>
+								<tr>
+									<td>Local</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ jsonld format -q loc-compact.json
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Remote</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ jsonld format -q http://localhost:9200/loc/work/c000000026/_source
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 						<span class="fragment"><p>No context: was included once, at top level, with @graph</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Input data format</h1>
 						<pre><code class="json" data-trim>
 {
@@ -1495,14 +1581,14 @@ $ curl "localhost:9200/loc/work/_search?q=america" | jq
 						<p>We processed &amp; indexed each element of the @graph array</p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Remote Context</h1>
 						<span class="fragment"><p>Need to include for each document</p></span>
 						<span class="fragment"><p>Not embedded, but remote: add context URL</p></span>
 						<span class="fragment"><p>(Server needs to serve context as application/ld+json, with CORS header, we will cover CORS in part III)</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 11a: Serve context</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="30%" />
@@ -1529,7 +1615,7 @@ $ curl http://localhost:3000/context.json | jq
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 11b: Link to context</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
@@ -1540,7 +1626,7 @@ $ curl http://localhost:3000/context.json | jq
 									<td>
 										<pre><code class="bash" data-trim>
 $ cat loc-100-compact.json | \
-jq -c '.["@graph"][] | {"test": 1} + .'
+jq -c '.["@graph"][] | . + {"test": 1}'
 										</code></pre>
 									</td>
 								</tr>
@@ -1549,7 +1635,7 @@ jq -c '.["@graph"][] | {"test": 1} + .'
 									<td>
 										<pre><code class="bash" data-trim>
 $ cat loc-100-compact.json | \
-jq -c '.["@graph"][] | {"@context":"http://localhost:3000/context.json"}+.'
+jq -c '.["@graph"][] | . + {"@context":"http://localhost:3000/context.json"}'
 										</code></pre>
 									</td>
 								</tr>
@@ -1566,7 +1652,7 @@ $ cat loc-100-compact.json | jq -r \
 						</table>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 11c: Reindex and use</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
@@ -1603,19 +1689,19 @@ $ jsonld format -q http://localhost:9200/loc/work/c000000026/_source
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<blockquote>API: How &mdash; JSON over HTTP</blockquote>
 						<h2>Serving our data as JSON over HTTP, serializable as RDF</h2>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Elasticsearch query string syntax</h1>
 						<span class="fragment"><p>Very versatile: full text, fields, boolean operators, wildcards</p></span>
 						<span class="fragment"><p>HTTP GET .../_search?q=&lt;query-string&gt;</p></span>
 						<span class="fragment"><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch documentation</a></p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 12a: Query syntax</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
@@ -1653,7 +1739,7 @@ $ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
 						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 12b: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
@@ -1688,20 +1774,20 @@ $ curl localhost:9200/loc/work/_search?q=ameri* | jq
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Elasticsearch: so much more</h1>
 						<p><span class="fragment">Boosting, Analyzers, Aggregations, etc.</span></p>
 						<p><span class="fragment"><a href='https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html'>Elasticsearch: The Definitive Guide (concepts)</a></span></p>
 						<p><span class="fragment"><a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html'>Elasticsearch Reference (current API)</a></span></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part II: Index and query the data with Elasticsearch</p>
 						<span class="fragment"><h1>Break</h1></span>
 						<span class="fragment">Part III: Use the data to build a web application</span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Part III:<br><small>Use the data to build a web application</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
@@ -1711,13 +1797,13 @@ $ curl localhost:9200/loc/work/_search?q=ameri* | jq
 						</table>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part IIIa.</p>
 						<blockquote><h2>Search page</h2></blockquote>
 						<blockquote><h2>HTML page for index search</h2></blockquote>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 13: HTML</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
@@ -1760,12 +1846,12 @@ $ chromium-browser search.html &amp;
 						</table>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>JQuery</h1>
 						<span class="fragment"><p>Provides API to simplify interaction with the browser DOM (document object model)</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 14: Text Input</h2>
 						<pre><code class="html" data-trim>
 &lt;head&gt;
@@ -1789,7 +1875,7 @@ $ chromium-browser search.html &amp;
 						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>AJAX</h1>
 						<span class="fragment"><p>"Asynchronous JavaScript And XML"</p></span>
 						<span class="fragment"><p>Asynchronous JavaScript And <strike>XML</strike> JSON</p></span>
@@ -1797,7 +1883,7 @@ $ chromium-browser search.html &amp;
 						<span class="fragment"><p>Also available in JQuery: $.ajax(options)</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 15: AJAX request</h2>
 						<pre><code class="javascript" data-trim>
 $('#search').keyup(function() { // <-- insert after this
@@ -1816,7 +1902,7 @@ $('#search').keyup(function() { // <-- insert after this
 						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Cross-Origin Resource Sharing (CORS)</h2>
 						<span class="fragment"><p>Error: not allowed by Access-Control-Allow-Origin</p></span>
 						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the API (Elasticsearch server)</p></span>
@@ -1824,7 +1910,7 @@ $('#search').keyup(function() { // <-- insert after this
 						<span class="fragment"><p>In production: specify which domain can make requests <br/>(for development we'll set it to *)</p></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 16: Configure CORS</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
@@ -1870,7 +1956,7 @@ $ sudo tail -f /var/log/elasticsearch/elasticsearch.log
 						<p><small>Stop the tail command with Ctrl+C after the restart is complete ("started")</small></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 17: <br/>AJAX request, second try</h2>
 						<pre><code class="javascript" data-trim>
 $('#search').keyup(function() { // <-- insert after this
@@ -1889,7 +1975,7 @@ $('#search').keyup(function() { // <-- insert after this
 						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Response format</h2>
 						<pre><code class="json" data-trim>
 {
@@ -1910,7 +1996,7 @@ $('#search').keyup(function() { // <-- insert after this
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 18: Process hits</h2>
 						<pre><code class="javascript" data-trim>
 success: function(result) {
@@ -1928,11 +2014,11 @@ success: function(result) {
 						<p>Append the label of each hit to the result div in our HTML</p>
 					</section>
 
-					<section data-background="img/search-0-simple.png"
+					<section data-state="fabian" data-background="img/search-0-simple.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 19: Improve UI</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
@@ -1968,17 +2054,17 @@ $("#result").append('<hr/>' + link);
 						<p>Show total hits, link from each hit to its JSON</p>
 					</section>
 
-					<section data-background="img/search-1-html.png"
+					<section data-state="fabian" data-background="img/search-1-html.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part IIIb.</p>
 						<blockquote><h2>Sample searches</h2></blockquote>
 						<blockquote><h2>Use the page to query the data</h2></blockquote>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Documentation with working examples</blockquote></h2>
 						<p><span class="fragment">Which field? How is it nested?</span></p>
 						<p><span class="fragment">Samples very useful as documentation</span></p>
@@ -1986,7 +2072,7 @@ $("#result").append('<hr/>' + link);
 						<p><span class="fragment"><a href='http://blog.lobid.org/2017/04/26/api-documentation-2.html'>(Read more about how we document the lobid API)</a></span></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 20: columns</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="30%" />
@@ -2027,9 +2113,9 @@ $("#result").append('<hr/>' + link);
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 21:<br/> Embed sample from index</h2>
-						<pre><code class="html" data-trim>
+						<pre><code class="javascript" data-trim>
 &lt;script&gt;
  $.ajax({
   url: 'http://localhost:9200/loc/work/c000000026/_source',
@@ -2047,25 +2133,26 @@ $("#result").append('<hr/>' + link);
 						<p><font size="5">(Open your browser's developer tools with Ctrl+Shift+I to see the console.log output)</font></p>
 					</section>
 
-					<section data-background="img/search-2-sample.png"
+					<section data-state="fabian" data-background="img/search-2-sample.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Comprehensible by introspection</blockquote></h2>
 						<p><span class="fragment">Look at sample document</span></p>
 						<p><span class="fragment">Full query access to every field you see</span></p>
 						<p><span class="fragment">(Look up details for meaning of keys in the context)</span></p>
 					</section>
 
-					<section>
-						<blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>4. </a>Define success, not failure</h2></blockquote>
-						<p><span class="fragment">Don't define fixed query parameters for authors, subjects</span></p>
+					<section data-state="fabian">
+						<h1>What you see is what you can query</h1>
+						<p><span class="fragment">Don't pre-define fixed query params for authors, subjects</span></p>
 						<p><span class="fragment">Instead define a specific syntax to query any field</span></p>
 						<p><span class="fragment">New fields added to the data can immediately be queried</span></p>
+						<span class="fragment"><blockquote><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>4. </a>Define success, not failure</p></blockquote></span>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 22: Query syntax</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
@@ -2116,7 +2203,7 @@ $("#result").append('<hr/>' + link);
 						<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string documentation</a></font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 22: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="25%" />
@@ -2167,13 +2254,13 @@ _exists_:geographicCoverage
 						<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch query string documentation</a></font></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part IIIc.</p>
 						<blockquote><h2>Hypothes.is</h2></blockquote>
 						<blockquote><h2>Embed Hypothes.is in HTML, add annotations to document the data</h2></blockquote>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h1>Hypothes.is</h1>
 						<p><span class="fragment">"Annotate the web, with anyone, anywhere"</span></p>
 						<p><span class="fragment">"Use Hypothesis right now to hold discussions, read socially, organize your research, and take personal notes"</span></p>
@@ -2181,7 +2268,7 @@ _exists_:geographicCoverage
 						<p><span class="fragment">Based on browser plugin, proxy server, or embedded JS</span></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 23:<br/>Embedding Hypothes.is</h2>
 						<pre><code class="html" data-trim>
 &lt;head&gt;
@@ -2200,11 +2287,11 @@ _exists_:geographicCoverage
 						<p><small>(Only embed.js script is required, config and canonical link are optional)</small>
 					</section>
 
-					<section data-background="img/search-3-annotation.png"
+					<section data-state="fabian" data-background="img/search-3-annotation.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<h2>Exercise 24:<br/>Add annotations</h2>
 						<p>Based on your experience in the query exercise, pick a field and document it like in the sample annotation</p>
 						<p>Markdown syntax is supported for links etc.</p>
@@ -2212,13 +2299,13 @@ _exists_:geographicCoverage
 						<p><a href="https://hypothes.is/search?q=tag:%22swib18-workshop%22">https://hypothes.is/search?q=tag:%22swib18-workshop%22</a></p>
 					</section>
 
-					<section>
+					<section data-state="fabian">
 						<p>Part III: Use the data to build a web application</p>
 						<span class="fragment"><h1>Break</h1></span>
 						<span class="fragment">Part IV: Use the data with existing tools</span>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Part IV:<br><small>Use the data with existing tools</small></h2>
 						<table>
 							<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
@@ -2227,28 +2314,28 @@ _exists_:geographicCoverage
 						</table>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<p>Part IVa.</p>
 						<blockquote><h2>Kibana</h2></blockquote>
 						<blockquote><h2>Create visualizations for local index data; look at full data visualizations</h2></blockquote>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>Kibana</h1>
 						<p><span class="fragment">"Explore, Visualize, Discover Data"</span></p>
 						<p><span class="fragment">Open source data visualization plugin for Elasticsearch</span></p>
 						<p><span class="fragment">Running locally at <a href='http://localhost:5601/'>http://localhost:5601/</a></span></p>
 					</section>
 
-					<section data-background="img/kibana-1-index-pattern.png"
+					<section data-state="adrian" data-background="img/kibana-1-index-pattern.png"
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/kibana-2-new-visualization.png"
+					<section data-state="adrian" data-background="img/kibana-2-new-visualization.png"
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/kibana-3-select-index.png"
+					<section data-state="adrian" data-background="img/kibana-3-select-index.png"
 						data-background-size="contain">
 					</section>
 
@@ -2256,41 +2343,41 @@ _exists_:geographicCoverage
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/kibana-5-select-field.png"
+					<section data-state="adrian" data-background="img/kibana-5-select-field.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Exercise 25: Bar chart</h2>
 						<p>Create a bar chart visualization for the <code>'contribution.agent.type'</code> field</p>
 						<p><small>(Kibana will display an additional <code>'keyword'</code> suffix)</small></p>
 					</section>
 
-					<section data-background="img/kibana-6-vis-bar.png"
+					<section data-state="adrian" data-background="img/kibana-6-vis-bar.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Exercise 26: Pie chart</h2>
 						<p>Create a pie chart visualization for the <code>'adminMetadata.source.label'</code> field</p>
 						<p><small>(Kibana will display an additional <code>'keyword'</code> suffix)</small></p>
 					</section>
 
-					<section data-background="img/kibana-7-vis-pie.png"
+					<section data-state="adrian" data-background="img/kibana-7-vis-pie.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Exercise 27: Tag cloud</h2>
 						<p>Create a tag cloud visualization for the <code>'subject.componentList.authoritativeLabel'</code> field</p>
 						<p><small>(Kibana will display an additional <code>'keyword'</code> suffix)</small></p>
 					</section>
 
-					<section data-background="img/kibana-8-vis-tag.png"
+					<section data-state="adrian" data-background="img/kibana-8-vis-tag.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Kibana: so much more</h2>
 						<p><span class="fragment">Other types of aggregations</span></p>
 						<p><span class="fragment">Multiple aggregations in a visualization</span></p>
@@ -2298,18 +2385,18 @@ _exists_:geographicCoverage
 						<p><span class="fragment"><a href='https://www.elastic.co/products/kibana'>https://www.elastic.co/products/kibana</a></span></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>Kibana: <br/>full LOC index</h1>
-						<p><a href='http://kibana.lab.lobid.org/'>http://kibana.lab.lobid.org/</a></p>
+						<p><a href='http://kibana.labs.lobid.org/'>http://kibana.labs.lobid.org/</a></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<p>Part IVb.</p>
 						<blockquote><h2>OpenRefine</h2></blockquote>
 						<blockquote><h2>Use index data in OpenRefine; brief intro to the reconciliation API</h2></blockquote>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>OpenRefine</h1>
 						<p><span class="fragment">"A powerful tool for working with messy data"</span></p>
 						<p><span class="fragment">"cleaning it; transforming it from one format into another; and extending it with web services and external data"</span></p>
@@ -2317,7 +2404,7 @@ _exists_:geographicCoverage
 						<p><span class="fragment">Run with <code>./refine</code> in your OpenRefine location, then open <a href='http://localhost:3333/'>http://localhost:3333/</a></span></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Exercise 28: <br/>Getting labels for IDs</h2>
 						<pre><code class="nohighlight" data-trim>
 http://id.loc.gov/resources/works/c000000011
@@ -2329,19 +2416,19 @@ http://id.loc.gov/resources/works/c000000100
 						<p>Copy the lines above to the clipboard
 					</section>
 
-					<section data-background="img/openrefine-1-import.png"
+					<section data-state="adrian" data-background="img/openrefine-1-import.png"
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/openrefine-2-import.png"
+					<section data-state="adrian" data-background="img/openrefine-2-import.png"
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/openrefine-3-add-from-url.png"
+					<section data-state="adrian" data-background="img/openrefine-3-add-from-url.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Create URL to get JSON</h2>
 						<span class="fragment">
 http://id.loc.gov/resources/works/c000000011
@@ -2356,28 +2443,28 @@ http://id.loc.gov/resources/works/c000000011
 						<p><small>(Copy this to the clipboard)</small></p></span>
 					</section>
 
-					<section data-background="img/openrefine-4-add-from-url.png"
+					<section data-state="adrian" data-background="img/openrefine-4-add-from-url.png"
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/openrefine-5-add-from-json.png"
+					<section data-state="adrian" data-background="img/openrefine-5-add-from-json.png"
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/openrefine-6-add-from-json.png"
+					<section data-state="adrian" data-background="img/openrefine-6-add-from-json.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Exercise 29: <br/>Add first contributing agent</h2>
 						<p><span class="fragment"><code>contribution[0].agent.label</code></span></p>
 					</section>
 
-					<section data-background="img/openrefine-7-export.png"
+					<section data-state="adrian" data-background="img/openrefine-7-export.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Exercise 30: <br/>Getting IDs for labels</h2>
 						<pre><code class="nohighlight" data-trim>
 Letters from an American farmer
@@ -2386,37 +2473,37 @@ Report of the trial of George Ryan
 The devil upon crutches in England
 Educational interests of Colorado
 						</code></pre>
-						<p><code>"http://localhost:9200/loc/work/_search?q=\"" + replace(value, " ", "+") + "\""</code></p>
-						<p><code>value.parseJson().hits.hits[0]._source.id</code></p>
+						<span class="fragment"><p><code>"http://localhost:9200/loc/work/_search?q=\"" + replace(value, " ", "+") + "\""</code></p></span>
+						<span class="fragment"><p><code>value.parseJson().hits.hits[0]._source.id</code></p></span>
 					</section>
 
-					<section data-background="img/openrefine-8-uris.png"
+					<section data-state="adrian" data-background="img/openrefine-8-uris.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>Reconciliation API</h1>
 						<p><span class="fragment">All of the above: nothing specific built for OpenRefine, just JSON over HTTP, and lots to explore in OpenRefine</span></p>
 						<p><span class="fragment">Implement OpenRefine Reconciliation API (serve some specific JSON) for better integration in OpenRefine UI</span></p>
 						<p><span class="fragment">Select best matches using scores and small inline previews, filter by type, suggest fields for data extension, etc.</span></p>
 					</section>
 
-					<section data-background="img/openrefine-reconcile-1-preview.png"
+					<section data-state="adrian" data-background="img/openrefine-reconcile-1-preview.png"
 						data-background-size="contain">
 					</section>
 
-					<section data-background="img/openrefine-reconcile-2-suggest.png"
+					<section data-state="adrian" data-background="img/openrefine-reconcile-2-suggest.png"
 						data-background-size="contain">
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>Reconciliation details</h1>
 						<p><a href="http://blog.lobid.org/2018/08/27/openrefine.html">http://blog.lobid.org/2018/08/27/openrefine.html</a></p>
 						<p><a href="https://github.com/OpenRefine/OpenRefine/wiki/Reconciliation">https://github.com/OpenRefine/OpenRefine/wiki/Reconciliation</a></p>
 						<p><a href="http://openrefine.org/documentation.html">http://openrefine.org/documentation.html</a></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Review</h2>
 						<table>
 							<tr><th width="17%"/><th width="83%"/></tr>
@@ -2427,39 +2514,39 @@ Educational interests of Colorado
 						</table>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>Time for questions, discussions, feedback</h1>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Question from #eubfws2018</h2>
 						<a href="http://www.casalini.it/EBW2018/web_content/2018/presentations/Hubay.pdf"><img src="img/hubay-2018-bf-8.png" width=800 /></a>
 						<small><font size="3">Source: <br/><a href="http://www.casalini.it/EBW2018/web_content/2018/presentations/Hubay.pdf">Miklós Hubay, "The Past, the Present &amp; the
 					Future of the Semantic Web &amp; BIBFRAME in National Széchényi Library, Hungary"</a></font></small>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>LOUD is more than a nice JSON-LD API</h1>
 						<p><span class="fragment">(But a nice JSON-LD API is LOUDer than an RDF file)</span></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Let's recall</h2>
 						<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32"><img src="img/sanderson-2018-loud-32.png" width=800 /></a>
 						<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h2>Bibframe, from LOD to LOUD?</h2>
 						<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32"><img src="img/sanderson-2018-loud-32-checked.png" width=800 /></a>
 						<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<blockquote><h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>1. </a>Require use cases, with data</h1></blockquote>
 					</section>
 
-					<section>
+					<section data-state="adrian">
 						<h1>Code for exercises and HTML for slides available on the web</h1>
 						<p><a href="https://github.com/hbz/swib18-workshop/">https://github.com/hbz/swib18-workshop/</a></p>
 						<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a></p>
@@ -2472,7 +2559,9 @@ Educational interests of Colorado
 		<script src="js/reveal.js"></script>
 
 		<script>
-
+			Reveal.addEventListener('fabian', function() { document.querySelector('#footer-left').innerHTML = 'F'; } );
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } );
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -2498,6 +2587,5 @@ Educational interests of Colorado
 			});
 
 		</script>
-
 	</body>
 </html>
