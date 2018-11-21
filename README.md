@@ -124,7 +124,7 @@ Note: we tested the disk image on several Linux flavors like Ubuntu and Debian a
 
 See: [https://www.VirtualBox.org/wiki/Downloads](https://www.VirtualBox.org/wiki/Downloads)
 
-Start the box. If it doesn't come up with a GUI you may have to install the "VirtualBox-qt" package.
+Start the box. If it doesn't come up with a GUI you may have to install the "virtualbox-qt" package.
 
 #### Load the virtual machine into VirtualBox
 
