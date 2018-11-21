@@ -23,8 +23,8 @@ Requirements: Laptop with [Elasticsearch 6.x](https://www.elastic.co/guide/en/el
 
 There are two options:
 
-1. Install all tools locally into your own operating system (OS)
-2. Install _VirtualBox_ and use the virtual machine we provide
+1. [Install all tools locally into your own operating system (OS)](#local-installation)
+2. [Install _VirtualBox_ and use the virtual machine we provide](#virtualbox)
 
 ### Local installation
 
