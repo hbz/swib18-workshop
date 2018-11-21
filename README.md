@@ -21,7 +21,12 @@ Requirements: Laptop with [Elasticsearch 6.x](https://www.elastic.co/guide/en/el
 
 ## Setup
 
-### Prerequisites
+There are two options:
+
+1. Install all tools locally into your own operating system (OS)
+2. Install _VirtualBox_ and use the virtual machine we provide
+
+### Local installation
 
 With sample commands for Debian-based Linux systems, follow links for others.
 
@@ -75,6 +80,10 @@ Install [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/
 
 Wait a few seconds for Elasticsearch to start up, then open [http://localhost:9200/](http://localhost:9200/) to verify Elasticsearch is running.
 
+#### OpenRefine
+
+See [http://openrefine.org/download.html](http://openrefine.org/download.html)
+
 #### Kibana
 
 Install [Kibana](https://www.elastic.co/downloads/kibana):
@@ -95,28 +104,51 @@ Go to the repo:
 
 `cd swib18-workshop`
 
-## Usage
-
-### Node
-
 Install dependencies:
 
 `npm install`
 
-Run the code (in `js/app.js`):
+Run the server (in `js/app.js`):
 
 `npm start`
 
 This will serve the local context at [http://localhost:3000/context.json](http://localhost:3000/context.json).
 
-### Command line
+### VirtualBox
 
-Run all (convert, index, and query sample data):
+As an alternative to the manual setup above, we provide a working environment for VirtualBox. VirtualBox is available for all OSes and allows to run a virtual computer in your own OS. The virtual machine provides every tool mentioned under "Local installation", set up as a Linux box.
 
-`cd data` ; `./process.sh`
+Note: we tested the disk image on several Linux flavors like Ubuntu and Debian and also on macOS. However, we experienced troubles with Linux Mint, so if you use Mint you could give it a try but may end in "kernel panic" when disk image starts the virtual machine. Better then to go with the manual setup.
 
-Open `process.sh` in an editor for individual commands.
+#### Installation of VirtualBox
 
-### Browser
+See: [https://www.VirtualBox.org/wiki/Downloads](https://www.VirtualBox.org/wiki/Downloads)
 
-Open `data/index.html` in a web browser.
+Start the box. If it doesn't come up with a GUI you may have to install the "virtualbox-qt" package.
+
+#### Load the virtual machine into VirtualBox
+
+Download the 7z-archived virtual machine from [http://labs.lobid.org/download/](http://labs.lobid.org/download/). The size of the packed file is 2.4 GB, unpacked it's 7.5 GB (so make sure you have got around at least 10 GB free space). To decompress the archive you need the [7z archiver](https://www.7-zip.org/download.html).
+
+Installation on Debian-based Linux:
+
+`sudo apt install p7zip`
+
+Unpack:
+
+`7z x swib_2018-Workshop_VBox.7z`
+
+Decompressing takes about 5 minutes, depending on your hardware. To set it up in your VirtualBox:
+
+- Menu -> Machine -> Add...
+- Select the Swib_2018-Workshop_LOUD.vbox file
+
+When you are finished, a virtual machine should appear in the VirtualBox. Start the machine. A new window should appear with Ubuntu booting until you see the graphical login manager. If you got a "kernel panic" instead please try the local installation described above.
+
+#### Configs of your virtual machine
+
+The password for the user _I_ is "12345".
+
+*Note*: the keyboard-layout is preconfigured to German. If you want to change this: click on the blue-white icon in the top left corner under "machine", choose "settings" on the right bottom, select "Keyboard" on the left side. Click on the "Layout" tab, unclick the "Use system defaults", "Add" the keyboard layout you need, then push it to first position by selecting that layout and clicking on the arrows. Close the window, you are done.
+
+Normally it's possible to copy 'n' paste between your "normal" OS (aka "host") and the "guest" (the Ubuntu machine). While it's not a mandatory feature it may be handy. If that's not working and you feel you need it: you need to install the ["Guest Additions"](https://www.virtualbox.org/manual/ch03.html#settings-general-advanced).
