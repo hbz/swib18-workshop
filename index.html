@@ -965,6 +965,56 @@ $ cat loc-compact.json | jq .subject[].label
 					</section>
 
 					<section data-state="fabian">
+						<h1>Missing values in context</h1>
+						<span class="fragment"><p>Un-mapped URI in the data</p></span>
+						<span class="fragment"><p>Will still be URI after compaction</p></span>
+						<span class="fragment"><p>Iterate: compact, check data, fix context, compact again</p></span>
+					</section>
+
+					<section data-state="fabian">
+						<h2>Exercise 5b: Fix context</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="20%" />
+							<col width="88%" />
+							<tbody>
+								<tr>
+									<td>Check paths</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-compact.json | jq -c 'path(..)'
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Find URIs</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ cat loc-compact.json | jq -c 'path(..)' | grep http
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Update context</td>
+									<td>
+										<pre><code class="json" data-trim>
+"value" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Compact</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ jsonld compact -c context.json loc-framed.json > loc-compact.json
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section data-state="fabian">
 						<h2>Exercise 6: Use final JSON</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
