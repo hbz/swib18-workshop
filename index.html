@@ -140,28 +140,27 @@
 
 				<section data-state="adrian">
 					<h1>Your background &amp; experience</h1>
-					<span class="fragment"><p>Library data?</p></span>
-					<span class="fragment"><p>Software development?</p></span>
+					<span class="fragment"><p>Bulk data processing?</p></span>
 					<span class="fragment"><p>Command line?</p></span>
-					<span class="fragment"><p>Graphical tools?</p></span>
+					<span class="fragment"><p>Software development?</p></span>
 				</section>
 
 				<section data-state="adrian">
 					<h2>Linked Open Usable Data (LOUD)</h2>
 					<span class="fragment"><p><a href="https://de.slideshare.net/azaroth42/community-challenges-for-practical-linked-open-data-linked-pasts-keynote">Term coined by Robert Sanderson in 2016</a></p></span>
-					<span class="fragment"><p>Core idea: to make your data useful you have know and cater to your audience</p></span>
+					<span class="fragment"><p>Core idea: to make your data useful you have to know and cater to your audience</p></span>
 					<span class="fragment"><p>Primary audience of LOD: people developing (1st and 2nd party) or using (3rd party) <i>software</i> to access the data</p></span>
 					<span class="fragment"><p>LOUD: oriented towards the needs and conventions for developing software</p></span>
 				</section>
 
 				<section data-state="adrian">
 					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-22.png" width=800 /></a>
-					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
+					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY (<a href="https://youtu.be/r4afi8mGVAY?t=1112">video</a>)</font></p>
 				</section>
 
 				<section data-state="adrian">
 					<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-32.png" width=800 /></a>
-					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY</font></p>
+					<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY (<a href="https://youtu.be/r4afi8mGVAY?t=1910">video</a>)</font></p>
 				</section>
 
 				<section data-state="adrian">
@@ -505,17 +504,17 @@ $ curl https://api.github.com/repos/hbz/swib18-workshop | jq .license.name
 					<section data-state="adrian">
 						<h2>Example work</h2>
 						<a href="http://rdf-translator.appspot.com/convert/nt/nt/html/https%3A%2F%2Fraw.githubusercontent.com%2Fhbz%2Fswib18-workshop%2Fmaster%2Fdata%2Floc.nt"><img src="img/nt.png" style="border: none; box-shadow: none;" /></a>
-						<p><small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt</a></small></p>
+						<small>Source file: <a href="https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt">https://github.com/hbz/swib18-workshop/blob/master/data/loc.nt</a></small>
 					</section>
 
-					<section data-state="adrian">
+					<section data-state="fabian">
 						<h1>JSON-LD</h1>
 						<span class="fragment"><p>&quot;designed to be usable directly as JSON, with no knowledge of RDF&quot; &mdash; it's real JSON!</p></span>
 						<span class="fragment"><p>&quot;also designed to be usable as RDF&quot;</p></span>
 						<span class="fragment"><p><a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a></p></span>
 					</section>
 
-					<section data-state="adrian">
+					<section data-state="fabian">
 						<h1><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>5. </a>Design for JSON-LD, consistently</blockquote></h1>
 					</section>
 
@@ -814,7 +813,7 @@ $ cat loc-framed.json | jq &lt;???&gt;
 
 					<section data-state="adrian">
 						<h1>How do we get the context?</h1>
-						<span class="fragment"><p><a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">Here: context generated from ontologies</a></p></span>
+						<span class="fragment"><p><a href="https://github.com/hbz/swib18-workshop/issues/2#issuecomment-424710995">Here: context generated from ontologies</a>  with (much) manual post-processing</p></span>
 						<span class="fragment"><p>Alternatives: upfront design or generate from data</p></span>
 						<span class="fragment"><p>JSON-LD break-out session</p></span>
 					</section>
@@ -2343,7 +2342,7 @@ _exists_:geographicCoverage
 
 					<section data-state="fabian">
 						<h2>Exercise 24:<br/>Add annotations</h2>
-						<p>Based on your experience in the query exercise, pick a field and document it like in the sample annotation</p>
+						<p>Based on your experience in the query exercise, pick a field and document it like in one of the sample annotations</p>
 						<p>Markdown syntax is supported for links etc.</p>
 						<p>Use the `swib18-workshop` tag to make it searchable</p>
 						<p><a href="https://hypothes.is/search?q=tag:%22swib18-workshop%22">https://hypothes.is/search?q=tag:%22swib18-workshop%22</a></p>
