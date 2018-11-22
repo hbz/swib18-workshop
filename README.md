@@ -118,8 +118,6 @@ This will serve the local context at [http://localhost:3000/context.json](http:/
 
 As an alternative to the manual setup above, we provide a working environment for VirtualBox. VirtualBox is available for all OSes and allows to run a virtual computer in your own OS. The virtual machine provides every tool mentioned under "Local installation", set up as a Linux box.
 
-Note: we tested the disk image on several Linux flavors like Ubuntu and Debian and also on macOS. However, we experienced troubles with Linux Mint, so if you use Mint you could give it a try but may end in "kernel panic" when disk image starts the virtual machine. Better then to go with the manual setup.
-
 #### Installation of VirtualBox
 
 See: [https://www.VirtualBox.org/wiki/Downloads](https://www.VirtualBox.org/wiki/Downloads)
@@ -128,7 +126,7 @@ Start the box. If it doesn't come up with a GUI you may have to install the "vir
 
 #### Load the virtual machine into VirtualBox
 
-Download the 7z-archived virtual machine from [http://labs.lobid.org/download/](http://labs.lobid.org/download/). The size of the packed file is 2.4 GB, unpacked it's 7.5 GB (so make sure you have got around at least 10 GB free space). To decompress the archive you need the [7z archiver](https://www.7-zip.org/download.html).
+Download the 7z-archived (or zipped) virtual machine from [http://labs.lobid.org/download/](http://labs.lobid.org/download/). The size of the packed file is 2.4 GB (3 GB for the zip), unpacked it's 7.5 GB (so make sure you have got around at least 10 GB free space). To decompress the 7z-archived file you need the [7z archiver](https://www.7-zip.org/download.html).
 
 Installation on Debian-based Linux:
 
@@ -143,7 +141,7 @@ Decompressing takes about 5 minutes, depending on your hardware. To set it up in
 - Menu -> Machine -> Add...
 - Select the Swib_2018-Workshop_LOUD.vbox file
 
-When you are finished, a virtual machine should appear in the VirtualBox. Start the machine. A new window should appear with Ubuntu booting until you see the graphical login manager. If you got a "kernel panic" instead please try the local installation described above.
+When you are finished, a virtual machine should appear in the VirtualBox. Start the machine. A new window should appear with Ubuntu booting until you see the graphical login manager. If you get a "kernel panic" instead, try to [enable virtualization in your BIOS or EFI](https://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/).
 
 #### Configs of your virtual machine
 
