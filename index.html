@@ -1892,6 +1892,7 @@ $ chromium-browser search.html &amp;
 					<section data-state="fabian">
 						<h1>JQuery</h1>
 						<span class="fragment"><p>Provides API to simplify interaction with the browser DOM (document object model)</p></span>
+						<span class="fragment"><p>Dynamic content, user interaction, web service calls</p></span>
 					</section>
 
 					<section data-state="fabian">
@@ -1922,6 +1923,7 @@ $ chromium-browser search.html &amp;
 						<h1>AJAX</h1>
 						<span class="fragment"><p>"Asynchronous JavaScript And XML"</p></span>
 						<span class="fragment"><p>Asynchronous JavaScript And <strike>XML</strike> JSON</p></span>
+						<span class="fragment"><p>Call web services, do something when we get the result</p></span>
 						<span class="fragment"><p>Part of the browser: XMLHttpRequest</p></span>
 						<span class="fragment"><p>Also available in JQuery: $.ajax(options)</p></span>
 					</section>
@@ -1948,9 +1950,9 @@ $('#search').keyup(function() { // <-- insert after this
 					<section data-state="fabian">
 						<h2>Cross-Origin Resource Sharing (CORS)</h2>
 						<span class="fragment"><p>Error: not allowed by Access-Control-Allow-Origin</p></span>
-						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the API (Elasticsearch server)</p></span>
+						<span class="fragment"><p>Client (our HTML+JS) is in a different location than the web service API we are calling (Elasticsearch server)</p></span>
 						<span class="fragment"><p>API server needs to set header: Access-Control-Allow-Origin</p></span>
-						<span class="fragment"><p>In production: specify which domain can make requests <br/>(for development we'll set it to *)</p></span>
+						<span class="fragment"><p>Specify which domain can make requests, or set it to * to allow access from anywhere</p></span>
 					</section>
 
 					<section data-state="fabian">
@@ -2043,8 +2045,7 @@ $('#search').keyup(function() { // <-- insert after this
 						<h2>Exercise 18: Process hits</h2>
 						<pre><code class="javascript" data-trim>
 success: function(result) {
-	console.log(JSON.stringify(result));
-	// ^-- insert after this
+	console.log(JSON.stringify(result)); // add after this
 	$("#result").html('&lt;p/&gt;');
 	var hits = result.hits.hits;
 	for (i in hits) {
@@ -2068,7 +2069,7 @@ success: function(result) {
 							<col width="90%" />
 							<tbody>
 								<tr>
-									<td>Hits</td>
+									<td>Total hits</td>
 									<td>
 										<strike><pre><code class="javascript" data-trim>
 $("#result").html('&lt;p/&gt;');
@@ -2108,10 +2109,11 @@ $("#result").append('<hr/>' + link);
 					</section>
 
 					<section data-state="fabian">
-						<h2><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Documentation with working examples</blockquote></h2>
+						<h1>Documentation</h1>
 						<p><span class="fragment">Which field? How is it nested?</span></p>
 						<p><span class="fragment">Samples very useful as documentation</span></p>
 						<p><span class="fragment">Embed a live sample from the index in the search UI</span></p>
+						<span class="fragment"><blockquote><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf;</a> Documentation with working examples</blockquote></span>
 						<p><span class="fragment"><a href='http://blog.lobid.org/2017/04/26/api-documentation-2.html'>(Read more about how we document the lobid API)</a></span></p>
 					</section>
 
@@ -2189,8 +2191,8 @@ $("#result").append('<hr/>' + link);
 
 					<section data-state="fabian">
 						<h1>What you see is what you can query</h1>
-						<p><span class="fragment">Don't pre-define fixed query params for authors, subjects</span></p>
-						<p><span class="fragment">Instead define a specific syntax to query any field</span></p>
+						<p><span class="fragment">Don't pre-define fixed params for authors, subjects, etc.</span></p>
+						<p><span class="fragment">Instead define a general syntax to query any field</span></p>
 						<p><span class="fragment">New fields added to the data can immediately be queried</span></p>
 						<span class="fragment"><blockquote><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>4. </a>Define success, not failure</p></blockquote></span>
 					</section>
