@@ -21,7 +21,7 @@ Requirements: Laptop with [Elasticsearch 6.x](https://www.elastic.co/guide/en/el
 
 ## Location
 
-The LOUD workshop will take place on the premises of the [German Institute for Adult Education](https://www.die-bonn.de/default.aspx?lang=en) (Deutsches Institut für Erwachsenenbildung, short: DIE :-). The workshop room is on the ground floor and easy to find. You will have to show your passport at the gate. (This security measures apply because there are other federal authorities located on the premises.) Here is a map showing the walk from the registration desk at Friedrich-Ebert-Stiftung (green marker) to the gate (red marker):
+The LOUD workshop will take place on the premises of the [German Institute for Adult Education](https://www.die-bonn.de/default.aspx?lang=en) (Deutsches Institut für Erwachsenenbildung, short: DIE :-). The workshop room is on the ground floor and easy to find. You will have to show your passport at the gate. (This security measures apply because there are other federal authorities located on the premises.) Here is a map showing the five-minute walk from the registration desk at Friedrich-Ebert-Stiftung (green marker) to the gate (red marker):
 
 ![route from FES to DIE](/img/loud-workshop-route.png)
 
