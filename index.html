@@ -109,7 +109,7 @@
 					<table>
 						<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
 						<tr><td><b>Part I</b></td><td>Convert RDF data into usable JSON-LD</td><td>13:00-15:00</td></tr>
-						<tr><td><b>Part II</b></td><td>Index and query the data with Elasticsearch</td><td>15:00-16:00</td></tr>
+						<tr><td><b>Part II</b></td><td>Index and access the data with Elasticsearch</td><td>15:00-16:00</td></tr>
 						<tr><td><b>Part III</b></td><td>Use the data to build a web application</td><td>16:00-17:30</td></tr>
 						<tr><td><b>Part IV</b></td><td>Use the data in existing tools: Kibana, OpenRefine</td><td>17:30-18:45</td></tr>
 					</table>
@@ -1157,15 +1157,15 @@ $ cat loc-compact.json | jq .title.subtitle
 					<section data-state="fabian">
 						<p>Part I: Convert RDF data into usable JSON-LD</p>
 						<span class="fragment"><h1>Break</h1></span>
-						<span class="fragment">Part II: Index and query the data with Elasticsearch</span>
+						<span class="fragment">Part II: Index and access the data with Elasticsearch</span>
 					</section>
 
 					<section data-state="fabian">
-						<h2>Part II:<br><small>Index and query the data with Elasticsearch</small></h2>
+						<h2>Part II:<br><small>Index and access the data with Elasticsearch</small></h2>
 						<table>
 							<tr><th width="38%"/><th width="39%"/><th width="25%"/></tr>
 							<tr><td><b>Elasticsearch bulk indexing</b></td><td>Create bulk format with jq, index with curl</td><td>15:00-15:30</td></tr>
-							<tr><td><b>Query the Elasticsearch index</b></td><td>Elasticsearch URI search, query string syntax</td><td>15:30-16:00</td></tr>
+							<tr><td><b>Access the Elasticsearch index</b></td><td>Search queries, direct access by ID</td><td>15:30-16:00</td></tr>
 						</table>
 					</section>
 
@@ -1442,20 +1442,109 @@ $ curl localhost:9200/loc/work/_search | jq
 
 					<section data-state="fabian">
 						<p>Part IIb.</p>
-						<blockquote><h2>Query the Elasticsearch index</h2></blockquote>
-						<blockquote><h2>Elasticsearch URI search, query string syntax</h2></blockquote>
+						<blockquote><h2>Access the Elasticsearch index</h2></blockquote>
+						<blockquote><h2>Search queries, direct access by ID</h2></blockquote>
 					</section>
 
 					<section data-state="fabian">
 						<h1>Elasticsearch URI search</h1>
 						<span class="fragment"><p>Search query as part of the URI (very versatile: full text, fields, boolean operators, wildcards, etc.)</p></span>
 						<span class="fragment"><p>(Won't cover here: body search, even more advanced)</p></span>
-						<span class="fragment"><p>Search: /&lt;index&gt;/&lt;type&gt;/_search?q=&lt;query-string&gt;</p></span>
-						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
+						<span class="fragment"><p>HTTP GET .../&lt;index&gt;/&lt;type&gt;/_search?q=&lt;query-string&gt;</p></span>
+						<span class="fragment"><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch documentation</a></p></span>
 					</section>
 
 					<section data-state="fabian">
-						<h1>Direct doc access</h1>
+						<h2>Exercise 10a: Query syntax</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
+							<tbody>
+								<tr>
+									<td>Full text</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Field search</td>
+									<td>
+										<pre><code class="bash" data-trim>
+# &lt;field&gt;:&lt;term&gt;
+$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Boolean</td>
+									<td>
+										<pre><code class="bash" data-trim>
+# AND, OR
+$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Wildcards</td>
+									<td>
+										<pre><code class="bash" data-trim>
+# truncate with *
+$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
+					</section>
+
+					<section data-state="fabian">
+						<h2>Exercise 10b: Solutions</h2>
+						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+							<col width="15%" />
+							<col width="85%" />
+							<tbody>
+								<tr>
+									<td>Full text</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl localhost:9200/loc/work/_search?q=america | jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Field search</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl localhost:9200/loc/work/_search?q=label:letters | jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Boolean</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl localhost:9200/loc/work/_search?q=canada+OR+alaska | jq
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Wildcards</td>
+									<td>
+										<pre><code class="bash" data-trim>
+$ curl localhost:9200/loc/work/_search?q=ameri* | jq
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
+					</section>
+
+					<section data-state="fabian">
+						<h1>Direct access by ID</h1>
 						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
 						<span class="fragment"><p><i>http://example.com/loc/work/c000000007</i></p></span>
 						<span class="fragment"><p>But our index IDs are URIs</p></span>
@@ -1464,7 +1553,7 @@ $ curl localhost:9200/loc/work/_search | jq
 					</section>
 
 					<section data-state="fabian">
-						<h2>Exercise 10a: Re-index</h2>
+						<h2>Exercise 11a: Re-index</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
 							<col width="85%" />
@@ -1509,7 +1598,7 @@ $ curl -H "Content-Type: application/x-ndjson" \
 					</section>
 
 					<section data-state="fabian">
-						<h2>Exercise 10b: Query index</h2>
+						<h2>Exercise 11b: GET by ID</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
 							<col width="80%" />
@@ -1533,21 +1622,13 @@ $ curl \
 										</code></pre>
 									</td>
 								</tr>
-								<tr>
-									<td>Full text search</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl "localhost:9200/&lt;???&gt;/&lt;???&gt;/_search?q=&lt;???&gt;" | jq
-										</code></pre>
-									</td>
-								</tr>
 							</tbody>
 						</table>
 						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
 					</section>
 
 					<section data-state="fabian">
-						<h2>Exercise 10c: Solutions</h2>
+						<h2>Exercise 11c: Solutions</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="20%" />
 							<col width="80%" />
@@ -1570,27 +1651,19 @@ $ curl "localhost:9200/loc/work/c000000026/_source" \
 										</code></pre>
 									</td>
 								</tr>
-								<tr>
-									<td>Full text search</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl "localhost:9200/loc/work/_search?q=america" | jq
-										</code></pre>
-									</td>
-								</tr>
 							</tbody>
 						</table>
 						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
 					</section>
 
 					<section data-state="fabian">
-						<h1>Direct doc access</h1>
-						<span class="fragment"><p>Direct doc access: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
+						<h1>Direct access by ID</h1>
+						<span class="fragment"><p>Direct access by ID: /&lt;index&gt;/&lt;type&gt;/&lt;id&gt;</p></span>
 						<span class="fragment"><p><a href='http://localhost:9200/loc/work/c000000026'>http://localhost:9200/loc/work/c000000026</a></p></span>
 					</section>
 
 					<section data-state="fabian">
-						<h2>Exercise 10d: Remote JSON to N-Quads</h2>
+						<h2>Exercise 12a: Remote JSON to N-Quads</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="18%" />
 							<col width="82%" />
@@ -1632,14 +1705,14 @@ $ jsonld format -q http://localhost:9200/loc/work/c000000026/_source
 					</section>
 
 					<section data-state="fabian">
-						<h1>Remote Context</h1>
+						<h1>Add context</h1>
 						<span class="fragment"><p>Need to include for each document</p></span>
 						<span class="fragment"><p>Not embedded, but remote: add context URL</p></span>
 						<span class="fragment"><p>(Server needs to serve context as application/ld+json, with CORS header, we will cover CORS in part III)</p></span>
 					</section>
 
 					<section data-state="fabian">
-						<h2>Exercise 11a: Serve context</h2>
+						<h2>Exercise 12b: Serve context</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="30%" />
 							<col width="70%" />
@@ -1648,7 +1721,7 @@ $ jsonld format -q http://localhost:9200/loc/work/c000000026/_source
 									<td>Run server (new terminal)</td>
 									<td>
 										<pre><code class="bash" data-trim>
-$ cd .. ; npm start
+$ cd ~/git/swib18-workshop ; npm start
 										</code></pre>
 									</td>
 								</tr>
@@ -1666,7 +1739,7 @@ $ curl http://localhost:3000/context.json | jq
 					</section>
 
 					<section data-state="fabian">
-						<h2>Exercise 11b: Link to context</h2>
+						<h2>Exercise 12c: Link to context</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="10%" />
 							<col width="90%" />
@@ -1703,7 +1776,7 @@ $ cat loc-100-compact.json | jq -r \
 					</section>
 
 					<section data-state="fabian">
-						<h2>Exercise 11c: Reindex and use</h2>
+						<h2>Exercise 12d: Reindex and use</h2>
 						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 							<col width="15%" />
 							<col width="85%" />
@@ -1745,86 +1818,6 @@ $ jsonld format -q http://localhost:9200/loc/work/c000000026/_source
 					</section>
 
 					<section data-state="fabian">
-						<h1>Elasticsearch query string syntax</h1>
-						<span class="fragment"><p>Very versatile: full text, fields, boolean operators, wildcards</p></span>
-						<span class="fragment"><p>HTTP GET .../_search?q=&lt;query-string&gt;</p></span>
-						<span class="fragment"><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch documentation</a></p></span>
-					</section>
-
-					<section data-state="fabian">
-						<h2>Exercise 12a: Query syntax</h2>
-						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="15%" />
-							<col width="85%" />
-							<tbody>
-								<tr>
-									<td>Field search</td>
-									<td>
-										<pre><code class="bash" data-trim>
-# &lt;field&gt;:&lt;term&gt;
-$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Boolean</td>
-									<td>
-										<pre><code class="bash" data-trim>
-# AND, OR
-$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Wildcards</td>
-									<td>
-										<pre><code class="bash" data-trim>
-# truncate with *
-$ curl localhost:9200/loc/work/_search?q=&lt;???&gt; | jq
-										</code></pre>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p><font size="5">('&lt;???&gt;' <i>means you should insert your solution here</i>)</font></p>
-					</section>
-
-					<section data-state="fabian">
-						<h2>Exercise 12b: Solutions</h2>
-						<table style="border: 1px solid white; table-layout:fixed; width: 100%">
-							<col width="15%" />
-							<col width="85%" />
-							<tbody>
-								<tr>
-									<td>Field search</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl localhost:9200/loc/work/_search?q=label:letters | jq
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Boolean</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl localhost:9200/loc/work/_search?q=canada+OR+alaska | jq
-										</code></pre>
-									</td>
-								</tr>
-								<tr>
-									<td>Wildcards</td>
-									<td>
-										<pre><code class="bash" data-trim>
-$ curl localhost:9200/loc/work/_search?q=ameri* | jq
-										</code></pre>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<p><font size="5">('$' <i>means you should type this in your terminal application</i>)</font></p>
-					</section>
-
-					<section data-state="fabian">
 						<h1>Elasticsearch: so much more</h1>
 						<p><span class="fragment">Boosting, Analyzers, Aggregations, etc.</span></p>
 						<p><span class="fragment"><a href='https://www.elastic.co/guide/en/elasticsearch/guide/current/index.html'>Elasticsearch: The Definitive Guide (concepts)</a></span></p>
@@ -1832,7 +1825,7 @@ $ curl localhost:9200/loc/work/_search?q=ameri* | jq
 					</section>
 
 					<section data-state="fabian">
-						<p>Part II: Index and query the data with Elasticsearch</p>
+						<p>Part II: Index and access the data with Elasticsearch</p>
 						<span class="fragment"><h1>Break</h1></span>
 						<span class="fragment">Part III: Use the data to build a web application</span>
 					</section>
