@@ -27,10 +27,11 @@ The LOUD workshop will take place on the premises of the [German Institute for A
 
 ## Setup
 
-There are two options:
+There are three options:
 
 1. [Install all tools locally into your own operating system (OS)](#local-installation)
 2. [Install _VirtualBox_ and use the virtual machine we provide](#virtualbox)
+3. For the command-line exercises (part I and II): [Use docker](#docker) (thanks [@EnnoMeijers](https://github.com/EnnoMeijers))
 
 ### Local installation
 
@@ -156,3 +157,19 @@ The password for the user _I_ is "12345".
 *Note*: the keyboard-layout is preconfigured to German. If you want to change this: click on the blue-white icon in the top left corner under "machine", choose "settings" on the right bottom, select "Keyboard" on the left side. Click on the "Layout" tab, unclick the "Use system defaults", "Add" the keyboard layout you need, then push it to first position by selecting that layout and clicking on the arrows. Close the window, you are done.
 
 Normally it's possible to copy 'n' paste between your "normal" OS (aka "host") and the "guest" (the Ubuntu machine). While it's not a mandatory feature it may be handy. If that's not working and you feel you need it: you need to install the ["Guest Additions"](https://www.virtualbox.org/manual/ch03.html#settings-general-advanced).
+
+### Docker
+
+Install docker-compose:
+
+`apt install docker-compose`
+
+Start the container:
+
+`docker-compose up`
+
+In a new terminal, run a bash in the container:
+
+`docker exec -it swib18workshop_swibws_1 bash`
+
+Here you can run the command-line exercises from part I and II.
