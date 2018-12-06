@@ -2064,8 +2064,7 @@ success: function(result) {
 	console.log(JSON.stringify(result)); // add after this
 	$("#result").html('&lt;p/&gt;');
 	var hits = result.hits.hits;
-	for (i in hits) {
-		var hit = hits[i];
+	for (let hit of hits) {
 		var label = hit._source.label;
 		$("#result").append('&lt;hr/&gt;' + label);
 	}
