@@ -217,8 +217,7 @@
 							console.log(JSON.stringify(result));
 							$("#result").html(`<br/>Hits: ${result.hits.total} <hr/>`);
 							var hits = result.hits.hits;
-							for (i in hits) {
-								var hit = hits[i];
+							for (let hit of hits) {
 								var link = `<a href='http://localhost:9200/loc/work/${hit._id}/_source'>${hit._source.label}</a>`;
 								$("#result").append(link + '<hr/>');
 							}
