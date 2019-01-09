@@ -78,7 +78,7 @@
     "Topic":"http://id.loc.gov/ontologies/bibframe/Topic",
     "VariantTitle":"http://id.loc.gov/ontologies/bibframe/VariantTitle",
     "Work":"http://id.loc.gov/ontologies/bibframe/Work",
-    "Thing":"owl:Thing",
+    "Thing":"http://www.w3.org/2002/07/owl#Thing",
     "absorbed": {
       "@id": "http://id.loc.gov/ontologies/bibframe/absorbed",
       "@type": "@id",
