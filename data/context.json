@@ -1,496 +1,497 @@
 {
-  "@context":{
-    "id":"@id",
-    "type":"@type",
-    "AdminMetadata":"http://id.loc.gov/ontologies/bibframe/AdminMetadata",
-    "Agent":"http://id.loc.gov/ontologies/bibframe/Agent",
-    "AppliesTo":"http://id.loc.gov/ontologies/bflc/AppliesTo",
-    "Arrangement":"http://id.loc.gov/ontologies/bibframe/Arrangement",
-    "Audio":"http://id.loc.gov/ontologies/bibframe/Audio",
-    "BaseMaterial":"http://id.loc.gov/ontologies/bibframe/BaseMaterial",
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "AdminMetadata": "http://id.loc.gov/ontologies/bibframe/AdminMetadata",
+    "Agent": "http://id.loc.gov/ontologies/bibframe/Agent",
+    "AppliesTo": "http://id.loc.gov/ontologies/bflc/AppliesTo",
+    "Arrangement": "http://id.loc.gov/ontologies/bibframe/Arrangement",
+    "Audio": "http://id.loc.gov/ontologies/bibframe/Audio",
+    "BaseMaterial": "http://id.loc.gov/ontologies/bibframe/BaseMaterial",
     "Capture": "http://id.loc.gov/ontologies/bibframe/Capture",
-    "Cartographic":"http://id.loc.gov/ontologies/bibframe/Cartographic",
-    "Cartography":"http://id.loc.gov/ontologies/bibframe/Cartography",
-    "City":"http://www.loc.gov/mads/rdf/v1#City",
-    "Classification":"http://id.loc.gov/ontologies/bibframe/Classification",
-    "ClassificationDdc":"http://id.loc.gov/ontologies/bibframe/ClassificationDdc",
-    "ClassificationLcc":"http://id.loc.gov/ontologies/bibframe/ClassificationLcc",
-    "ClassificationNlm":"http://id.loc.gov/ontologies/bibframe/ClassificationNlm",
-    "ClassificationUdc":"http://id.loc.gov/ontologies/bibframe/ClassificationUdc",
-    "CollectiveTitle":"http://id.loc.gov/ontologies/bibframe/CollectiveTitle",
-    "ColorContent":"http://id.loc.gov/ontologies/bibframe/ColorContent",
-    "ComplexSubject":"http://www.loc.gov/mads/rdf/v1#ComplexSubject",
-    "ConferenceName":"http://www.loc.gov/mads/rdf/v1#ConferenceName",
-    "Content":"http://id.loc.gov/ontologies/bibframe/Content",
-    "Contribution":"http://id.loc.gov/ontologies/bibframe/Contribution",
-    "CorporateName":"http://www.loc.gov/mads/rdf/v1#CorporateName",
-    "Country":"http://www.loc.gov/mads/rdf/v1#Country",
+    "Cartographic": "http://id.loc.gov/ontologies/bibframe/Cartographic",
+    "Cartography": "http://id.loc.gov/ontologies/bibframe/Cartography",
+    "City": "http://www.loc.gov/mads/rdf/v1#City",
+    "Classification": "http://id.loc.gov/ontologies/bibframe/Classification",
+    "ClassificationDdc": "http://id.loc.gov/ontologies/bibframe/ClassificationDdc",
+    "ClassificationLcc": "http://id.loc.gov/ontologies/bibframe/ClassificationLcc",
+    "ClassificationNlm": "http://id.loc.gov/ontologies/bibframe/ClassificationNlm",
+    "ClassificationUdc": "http://id.loc.gov/ontologies/bibframe/ClassificationUdc",
+    "CollectiveTitle": "http://id.loc.gov/ontologies/bibframe/CollectiveTitle",
+    "ColorContent": "http://id.loc.gov/ontologies/bibframe/ColorContent",
+    "ComplexSubject": "http://www.loc.gov/mads/rdf/v1#ComplexSubject",
+    "ConferenceName": "http://www.loc.gov/mads/rdf/v1#ConferenceName",
+    "Content": "http://id.loc.gov/ontologies/bibframe/Content",
+    "Contribution": "http://id.loc.gov/ontologies/bibframe/Contribution",
+    "CorporateName": "http://www.loc.gov/mads/rdf/v1#CorporateName",
+    "Country": "http://www.loc.gov/mads/rdf/v1#Country",
     "CreatorCharacteristic": "http://id.loc.gov/ontologies/bflc/CreatorCharacteristic",
     "DemographicGroup": "http://id.loc.gov/ontologies/bflc/DemographicGroup",
-    "DescriptionAuthentication":"http://id.loc.gov/ontologies/bibframe/DescriptionAuthentication",
-    "DescriptionConventions":"http://id.loc.gov/ontologies/bibframe/DescriptionConventions",
-    "Dissertation":"http://id.loc.gov/ontologies/bibframe/Dissertation",
-    "EncodingLevel":"http://id.loc.gov/ontologies/bflc/EncodingLevel",
-    "Family":"http://id.loc.gov/ontologies/bibframe/Family",
-    "GenerationProcess":"http://id.loc.gov/ontologies/bibframe/GenerationProcess",
-    "GenreForm":"http://id.loc.gov/ontologies/bibframe/GenreForm",
-    "Geographic":"http://www.loc.gov/mads/rdf/v1#Geographic",
-    "GeographicCoverage":"http://id.loc.gov/ontologies/bibframe/GeographicCoverage",
-    "HierarchicalGeographic":"http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic",
-    "Identifier":"http://id.loc.gov/ontologies/bibframe/Identifier",
-    "IntendedAudience":"http://id.loc.gov/ontologies/bibframe/IntendedAudience",
-    "Issn":"http://id.loc.gov/ontologies/bibframe/Issn",
-    "IssnL":"http://id.loc.gov/ontologies/bibframe/IssnL",
-    "Jurisdiction":"http://id.loc.gov/ontologies/bibframe/Jurisdiction",
-    "Language":"http://id.loc.gov/ontologies/bibframe/Language",
-    "Local":"http://id.loc.gov/ontologies/bibframe/Local",
+    "DescriptionAuthentication": "http://id.loc.gov/ontologies/bibframe/DescriptionAuthentication",
+    "DescriptionConventions": "http://id.loc.gov/ontologies/bibframe/DescriptionConventions",
+    "Dissertation": "http://id.loc.gov/ontologies/bibframe/Dissertation",
+    "EncodingLevel": "http://id.loc.gov/ontologies/bflc/EncodingLevel",
+    "Family": "http://id.loc.gov/ontologies/bibframe/Family",
+    "GenerationProcess": "http://id.loc.gov/ontologies/bibframe/GenerationProcess",
+    "GenreForm": "http://id.loc.gov/ontologies/bibframe/GenreForm",
+    "Geographic": "http://www.loc.gov/mads/rdf/v1#Geographic",
+    "GeographicCoverage": "http://id.loc.gov/ontologies/bibframe/GeographicCoverage",
+    "HierarchicalGeographic": "http://www.loc.gov/mads/rdf/v1#HierarchicalGeographic",
+    "Identifier": "http://id.loc.gov/ontologies/bibframe/Identifier",
+    "IntendedAudience": "http://id.loc.gov/ontologies/bibframe/IntendedAudience",
+    "Issn": "http://id.loc.gov/ontologies/bibframe/Issn",
+    "IssnL": "http://id.loc.gov/ontologies/bibframe/IssnL",
+    "Jurisdiction": "http://id.loc.gov/ontologies/bibframe/Jurisdiction",
+    "Language": "http://id.loc.gov/ontologies/bibframe/Language",
+    "Local": "http://id.loc.gov/ontologies/bibframe/Local",
     "MADSGenreForm": "http://www.loc.gov/mads/rdf/v1#GenreForm",
     "MADSTemporal": "http://www.loc.gov/mads/rdf/v1#Temporal",
     "MADSTitle": "http://www.loc.gov/mads/rdf/v1#Title",
     "MADSTopic": "http://www.loc.gov/mads/rdf/v1#Topic",
-    "Meeting":"http://id.loc.gov/ontologies/bibframe/Meeting",
-    "MetadataLicensor":"http://id.loc.gov/ontologies/bflc/MetadataLicensor",
-    "MovingImage":"http://id.loc.gov/ontologies/bibframe/MovingImage",
-    "MusicFormat":"http://id.loc.gov/ontologies/bibframe/MusicFormat",
-    "MusicMedium":"http://id.loc.gov/ontologies/bibframe/MusicMedium",
-    "Name":"http://www.loc.gov/mads/rdf/v1#Name",
-    "NameTitle":"http://www.loc.gov/mads/rdf/v1#NameTitle",
-    "NotatedMusic":"http://id.loc.gov/ontologies/bibframe/NotatedMusic",
-    "Notation":"http://id.loc.gov/ontologies/bibframe/Notation",
-    "Note":"http://id.loc.gov/ontologies/bibframe/Note",
-    "Organization":"http://id.loc.gov/ontologies/bibframe/Organization",
-    "Person":"http://id.loc.gov/ontologies/bibframe/Person",
-    "Place":"http://id.loc.gov/ontologies/bibframe/Place",
-    "PrimaryContribution":"http://id.loc.gov/ontologies/bflc/PrimaryContribution",
+    "Meeting": "http://id.loc.gov/ontologies/bibframe/Meeting",
+    "MetadataLicensor": "http://id.loc.gov/ontologies/bflc/MetadataLicensor",
+    "MovingImage": "http://id.loc.gov/ontologies/bibframe/MovingImage",
+    "MusicFormat": "http://id.loc.gov/ontologies/bibframe/MusicFormat",
+    "MusicMedium": "http://id.loc.gov/ontologies/bibframe/MusicMedium",
+    "Name": "http://www.loc.gov/mads/rdf/v1#Name",
+    "NameTitle": "http://www.loc.gov/mads/rdf/v1#NameTitle",
+    "NotatedMusic": "http://id.loc.gov/ontologies/bibframe/NotatedMusic",
+    "Notation": "http://id.loc.gov/ontologies/bibframe/Notation",
+    "Note": "http://id.loc.gov/ontologies/bibframe/Note",
+    "Organization": "http://id.loc.gov/ontologies/bibframe/Organization",
+    "Person": "http://id.loc.gov/ontologies/bibframe/Person",
+    "Place": "http://id.loc.gov/ontologies/bibframe/Place",
+    "PrimaryContribution": "http://id.loc.gov/ontologies/bflc/PrimaryContribution",
     "Projection": "http://id.loc.gov/ontologies/bibframe/Projection",
-    "Relation":"http://id.loc.gov/ontologies/bflc/Relation",
-    "Relationship":"http://id.loc.gov/ontologies/bflc/Relationship",
-    "Role":"http://id.loc.gov/ontologies/bibframe/Role",
-    "Scale":"http://id.loc.gov/ontologies/bibframe/Scale",
-    "Source":"http://id.loc.gov/ontologies/bibframe/Source",
-    "Status":"http://id.loc.gov/ontologies/bibframe/Status",
-    "StillImage":"http://id.loc.gov/ontologies/bibframe/StillImage",
-    "Summary":"http://id.loc.gov/ontologies/bibframe/Summary",
-    "SupplementaryContent":"http://id.loc.gov/ontologies/bibframe/SupplementaryContent",
-    "Temporal":"http://id.loc.gov/ontologies/bibframe/Temporal",
-    "Text":"http://id.loc.gov/ontologies/bibframe/Text",
-    "Title":"http://id.loc.gov/ontologies/bibframe/Title",
-    "Topic":"http://id.loc.gov/ontologies/bibframe/Topic",
-    "VariantTitle":"http://id.loc.gov/ontologies/bibframe/VariantTitle",
-    "Work":"http://id.loc.gov/ontologies/bibframe/Work",
-    "Thing":"http://www.w3.org/2002/07/owl#Thing",
+    "Relation": "http://id.loc.gov/ontologies/bflc/Relation",
+    "Relationship": "http://id.loc.gov/ontologies/bflc/Relationship",
+    "Role": "http://id.loc.gov/ontologies/bibframe/Role",
+    "Scale": "http://id.loc.gov/ontologies/bibframe/Scale",
+    "Source": "http://id.loc.gov/ontologies/bibframe/Source",
+    "Status": "http://id.loc.gov/ontologies/bibframe/Status",
+    "StillImage": "http://id.loc.gov/ontologies/bibframe/StillImage",
+    "Summary": "http://id.loc.gov/ontologies/bibframe/Summary",
+    "SupplementaryContent": "http://id.loc.gov/ontologies/bibframe/SupplementaryContent",
+    "Temporal": "http://id.loc.gov/ontologies/bibframe/Temporal",
+    "Text": "http://id.loc.gov/ontologies/bibframe/Text",
+    "Title": "http://id.loc.gov/ontologies/bibframe/Title",
+    "Topic": "http://id.loc.gov/ontologies/bibframe/Topic",
+    "VariantTitle": "http://id.loc.gov/ontologies/bibframe/VariantTitle",
+    "Work": "http://id.loc.gov/ontologies/bibframe/Work",
+    "Thing": "http://www.w3.org/2002/07/owl#Thing",
     "absorbed": {
       "@id": "http://id.loc.gov/ontologies/bibframe/absorbed",
       "@type": "@id",
       "@container": "@set"
     },
-    "absorbedBy":{
-    	"@id":"http://id.loc.gov/ontologies/bibframe/absorbedBy",
-    	"@type":"@id",
-    	"@container":"@set"
-    },    "adminMetadata":"http://id.loc.gov/ontologies/bibframe/adminMetadata",
-    	"agent":"http://id.loc.gov/ontologies/bibframe/agent",
-    	"applicableInstitution":{
-    		"@id":"http://id.loc.gov/ontologies/bflc/applicableInstitution",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "appliesTo":{
-        "@id":"http://id.loc.gov/ontologies/bflc/appliesTo",
-        "@type":"@id",
-        "@container":"@set"
-      },
-    	"arrangement":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/arrangement",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "ascensionAndDeclination": "http://id.loc.gov/ontologies/bibframe/ascensionAndDeclination",
-      "assigner": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/assigner",
-        "@type": "@id",
-        "@container": "@set"
-      },
-    	"authoritativeLabel":"http://www.loc.gov/mads/rdf/v1#authoritativeLabel",
-    	"baseMaterial":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/baseMaterial",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "capture": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/capture",
-        "@type": "@id",
-        "@container": "@set"
-      },
-    	"cartographicAttributes":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/cartographicAttributes",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"changeDate": {
-    		"@id": "http://id.loc.gov/ontologies/bibframe/changeDate",
-    		"@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-    	},
-    	"componentList": {
-    			"@id": "http://www.loc.gov/mads/rdf/v1#componentList",
-    			"@container": "@list"
-    	},
-    	"creationDate": {
-    		"@id": "http://id.loc.gov/ontologies/bibframe/creationDate",
-    		"@type": "http://www.w3.org/2001/XMLSchema#date"
-    		},
-    	"classification":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/classification",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"classificationPortion":"http://id.loc.gov/ontologies/bibframe/classificationPortion",
-    	"code":"http://id.loc.gov/ontologies/bibframe/code",
-    	"coordinates":"http://id.loc.gov/ontologies/bibframe/coordinates",
-      "creatorCharacteristic": {
-        "@id": "http://id.loc.gov/ontologies/bflc/creatorCharacteristic",
-        "@type": "@id",
-        "@container": "@set"
-      },
-    	"colorContent":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/colorContent",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"content":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/content",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"continuedBy":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/continuedBy",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "continuedInPartBy": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/continuedInPartBy",
-        "@type": "@id",
-        "@container": "@set"
-      },
-    	"continues":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/continues",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"contribution":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/contribution",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "count":"http://id.loc.gov/ontologies/bibframe/count",
-    	"credits":"http://id.loc.gov/ontologies/bibframe/credits",
-      "dataSource": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/dataSource",
-        "@type": "@id",
-        "@container": "@set"
-      },
-      "date": "http://id.loc.gov/ontologies/bibframe/date",
-      "degree": "http://id.loc.gov/ontologies/bibframe/degree",
-      "demographicGroup": {
-        "@id": "http://id.loc.gov/ontologies/bflc/demographicGroup",
-        "@type": "@id",
-        "@container": "@set"
-      },
-      "descriptionAuthentication":{
-        "@id":"http://id.loc.gov/ontologies/bibframe/descriptionAuthentication",
-        "@type":"@id",
-        "@container":"@set"
-      },
-    	"descriptionConventions":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/descriptionConventions",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"descriptionLanguage":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/descriptionLanguage",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"descriptionModifier":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/descriptionModifier",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"dissertation":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/dissertation",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"duration":{
-        "@id": "http://id.loc.gov/ontologies/bibframe/duration",
-        "@type": "http://www.w3.org/2001/XMLSchema#duration"
-      },
-    	"edition":"http://id.loc.gov/ontologies/bibframe/edition",
-    	"encodingLevel":{
-    		"@id":"http://id.loc.gov/ontologies/bflc/encodingLevel",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "ensemble": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/ensemble",
-        "@type": "@id",
-        "@container": "@set"
-      },
-      "ensembleType": "http://id.loc.gov/ontologies/bibframe/ensembleType",
-      "equinox": "http://id.loc.gov/ontologies/bibframe/equinox",
-      "exclusionGRing": "http://id.loc.gov/ontologies/bibframe/exclusionGRing",
-    	"generationProcess":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/generationProcess",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"genreForm":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/genreForm",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"geographicCoverage":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/geographicCoverage",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "grantingInstitution": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/grantingInstitution",
-        "@type": "@id",
-        "@container": "@set"
-      },
-    	"hasInstance":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/hasInstance",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"hasPart":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/hasPart",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"hasSeries":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/hasSeries",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "hierarchicalLevel": "http://id.loc.gov/ontologies/bibframe/hierarchicalLevel",
-    	"identifiedBy":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/identifiedBy",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "instrument": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/instrument",
-        "@type": "@id",
-        "@container": "@set"
-      },
-      "instrumentalType":"http://id.loc.gov/ontologies/bibframe/instrumentalType",
-    	"intendedAudience":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/intendedAudience",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"isMemberofMADSScheme":"http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme",
-      "issuedWith":{
-        "@id":"http://id.loc.gov/ontologies/bibframe/issuedWith",
-        "@type":"@id",
-        "@container":"@set"
-      },
-    	"itemPortion":"http://id.loc.gov/ontologies/bibframe/itemPortion",
-    	"label":"http://www.w3.org/2000/01/rdf-schema#label",
-    	"language":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/language",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"legalDate":"http://id.loc.gov/ontologies/bibframe/legalDate",
-    	"mainTitle":"http://id.loc.gov/ontologies/bibframe/mainTitle",
-      "mergedToForm":{
-          "@id":"http://id.loc.gov/ontologies/bibframe/mergedToForm",
-          "@type":"@id",
-          "@container":"@set"
-      },
-      "mergerOf":{
-          "@id":"http://id.loc.gov/ontologies/bibframe/mergerOf",
-          "@type":"@id",
-          "@container":"@set"
-      },
-      "metadataLicensor":{
-        "@id":"http://id.loc.gov/ontologies/bflc/metadataLicensor",
-        "@type":"@id",
-        "@container":"@set"
-      },
-      "musicOpusNumber":"http://id.loc.gov/ontologies/bibframe/musicOpusNumber",
-    	"musicFormat":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/musicFormat",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"musicKey":"http://id.loc.gov/ontologies/bibframe/musicKey",
-    	"musicMedium":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/musicMedium",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "musicSerialNumber":"http://id.loc.gov/ontologies/bibframe/musicSerialNumber",
-      "musicThematicNumber":"http://id.loc.gov/ontologies/bibframe/musicThematicNumber",
-    	"name00MarcKey":"http://id.loc.gov/ontologies/bflc/name00MarcKey",
-    	"name00MatchKey":"http://id.loc.gov/ontologies/bflc/name00MatchKey",
-    	"name10MarcKey":"http://id.loc.gov/ontologies/bflc/name10MarcKey",
-    	"name10MatchKey":"http://id.loc.gov/ontologies/bflc/name10MatchKey",
-    	"name11MarcKey":"http://id.loc.gov/ontologies/bflc/name11MarcKey",
-    	"name11MatchKey":"http://id.loc.gov/ontologies/bflc/name11MatchKey",
-    	"natureOfContent":"http://id.loc.gov/ontologies/bibframe/natureOfContent",
-    	"notation":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/notation",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"note":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/note",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"noteType":"http://id.loc.gov/ontologies/bibframe/noteType",
-      "organization":"http://id.loc.gov/ontologies/bibframe/organization",
-    	"originDate":"http://id.loc.gov/ontologies/bibframe/originDate",
-      "otherEdition":{
-        "@id":"http://id.loc.gov/ontologies/bibframe/otherEdition",
-        "@type":"@id",
-        "@container":"@set"
-      },
-      "outerGRing": "http://id.loc.gov/ontologies/bibframe/outerGRing",
-    	"part":"http://id.loc.gov/ontologies/bibframe/part",
-    	"partName":"http://id.loc.gov/ontologies/bibframe/partName",
-    	"partNumber":"http://id.loc.gov/ontologies/bibframe/partNumber",
-    	"partOf":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/partOf",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "pattern": "http://id.loc.gov/ontologies/bibframe/pattern",
-    	"place":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/place",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "precededBy":{
-          "@id":"http://id.loc.gov/ontologies/bibframe/precededBy",
-          "@type":"@id",
-          "@container":"@set"
-      },
-    	"primaryContributorName00MatchKey":"http://id.loc.gov/ontologies/bflc/primaryContributorName00MatchKey",
-    	"primaryContributorName10MatchKey":"http://id.loc.gov/ontologies/bflc/primaryContributorName10MatchKey",
-    	"primaryContributorName11MatchKey":"http://id.loc.gov/ontologies/bflc/primaryContributorName11MatchKey",
-      "projection": {
-        "@id": "http://id.loc.gov/ontologies/bibframe/projection",
-        "@type": "@id",
-        "@container": "@set"
-      },
-    	"relatedTo":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/relatedTo",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"relation":{
-    		"@id":"http://id.loc.gov/ontologies/bflc/relation",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"relationship":{
-    		"@id":"http://id.loc.gov/ontologies/bflc/relationship",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"role":"http://id.loc.gov/ontologies/bibframe/role",
-    	"scale":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/scale",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "separatedFrom":{
-          "@id":"http://id.loc.gov/ontologies/bibframe/separatedFrom",
-          "@type":"@id",
-          "@container":"@set"
-      },
-    	"source":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/source",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "splitInto":{
-          "@id":"http://id.loc.gov/ontologies/bibframe/splitInto",
-          "@type":"@id",
-          "@container":"@set"
-      },
-    	"status":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/status",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"subject":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/subject",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"subtitle":"http://id.loc.gov/ontologies/bibframe/subtitle",
-      "succeededBy":{
-          "@id":"http://id.loc.gov/ontologies/bibframe/succeededBy",
-          "@type":"@id",
-          "@container":"@set"
-      },
-    	"summary":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/summary",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-      "supplement":{
-          "@id":"http://id.loc.gov/ontologies/bibframe/supplement",
-          "@type":"@id",
-          "@container":"@set"
-      },
-    	"supplementaryContent":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/supplementaryContent",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"supplementTo":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/supplementTo",
-    		"@type":"@id"
-    	},
-    	"temporalCoverage":"http://id.loc.gov/ontologies/bibframe/temporalCoverage",
-    	"title":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/title",
-    		"@type":"@id"
-    	},
-    	"title00MarcKey":"http://id.loc.gov/ontologies/bflc/title00MarcKey",
-    	"title00MatchKey":"http://id.loc.gov/ontologies/bflc/title00MatchKey",
-    	"title10MarcKey":"http://id.loc.gov/ontologies/bflc/title10MarcKey",
-    	"title10MatchKey":"http://id.loc.gov/ontologies/bflc/title10MatchKey",
-    	"title11MarcKey":"http://id.loc.gov/ontologies/bflc/title11MarcKey",
-    	"title11MatchKey":"http://id.loc.gov/ontologies/bflc/title11MatchKey",
-    	"title30MarcKey":"http://id.loc.gov/ontologies/bflc/title30MarcKey",
-    	"title30MatchKey":"http://id.loc.gov/ontologies/bflc/title30MatchKey",
-    	"title40MarcKey":"http://id.loc.gov/ontologies/bflc/title40MarcKey",
-    	"title40MatchKey":"http://id.loc.gov/ontologies/bflc/title40MatchKey",
-    	"titleSortKey":"http://id.loc.gov/ontologies/bflc/titleSortKey",
-    	"translation":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/translation",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"translationOf":{
-    		"@id":"http://id.loc.gov/ontologies/bibframe/translationOf",
-    		"@type":"@id",
-    		"@container":"@set"
-    	},
-    	"version":"http://id.loc.gov/ontologies/bibframe/version",
-      "voice":{
-        "@id":"http://id.loc.gov/ontologies/bibframe/voice",
-        "@type":"@id",
-        "@container":"@set"
-      },
-      "voiceType":"http://id.loc.gov/ontologies/bibframe/voiceType"
+    "absorbedBy": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/absorbedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "adminMetadata": "http://id.loc.gov/ontologies/bibframe/adminMetadata",
+    "agent": "http://id.loc.gov/ontologies/bibframe/agent",
+    "applicableInstitution": {
+      "@id": "http://id.loc.gov/ontologies/bflc/applicableInstitution",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "appliesTo": {
+      "@id": "http://id.loc.gov/ontologies/bflc/appliesTo",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "arrangement": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/arrangement",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "ascensionAndDeclination": "http://id.loc.gov/ontologies/bibframe/ascensionAndDeclination",
+    "assigner": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/assigner",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "authoritativeLabel": "http://www.loc.gov/mads/rdf/v1#authoritativeLabel",
+    "baseMaterial": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/baseMaterial",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "capture": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/capture",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "cartographicAttributes": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/cartographicAttributes",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "changeDate": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/changeDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "componentList": {
+      "@id": "http://www.loc.gov/mads/rdf/v1#componentList",
+      "@container": "@list"
+    },
+    "creationDate": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/creationDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "classification": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/classification",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "classificationPortion": "http://id.loc.gov/ontologies/bibframe/classificationPortion",
+    "code": "http://id.loc.gov/ontologies/bibframe/code",
+    "coordinates": "http://id.loc.gov/ontologies/bibframe/coordinates",
+    "creatorCharacteristic": {
+      "@id": "http://id.loc.gov/ontologies/bflc/creatorCharacteristic",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "colorContent": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/colorContent",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "content": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/content",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "continuedBy": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/continuedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "continuedInPartBy": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/continuedInPartBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "continues": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/continues",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "contribution": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/contribution",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "count": "http://id.loc.gov/ontologies/bibframe/count",
+    "credits": "http://id.loc.gov/ontologies/bibframe/credits",
+    "dataSource": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/dataSource",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "date": "http://id.loc.gov/ontologies/bibframe/date",
+    "degree": "http://id.loc.gov/ontologies/bibframe/degree",
+    "demographicGroup": {
+      "@id": "http://id.loc.gov/ontologies/bflc/demographicGroup",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "descriptionAuthentication": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/descriptionAuthentication",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "descriptionConventions": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/descriptionConventions",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "descriptionLanguage": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/descriptionLanguage",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "descriptionModifier": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/descriptionModifier",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "dissertation": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/dissertation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "duration": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/duration",
+      "@type": "http://www.w3.org/2001/XMLSchema#duration"
+    },
+    "edition": "http://id.loc.gov/ontologies/bibframe/edition",
+    "encodingLevel": {
+      "@id": "http://id.loc.gov/ontologies/bflc/encodingLevel",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "ensemble": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/ensemble",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "ensembleType": "http://id.loc.gov/ontologies/bibframe/ensembleType",
+    "equinox": "http://id.loc.gov/ontologies/bibframe/equinox",
+    "exclusionGRing": "http://id.loc.gov/ontologies/bibframe/exclusionGRing",
+    "generationProcess": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/generationProcess",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "genreForm": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/genreForm",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "geographicCoverage": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/geographicCoverage",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "grantingInstitution": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/grantingInstitution",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasInstance": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/hasInstance",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasPart": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/hasPart",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasSeries": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/hasSeries",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hierarchicalLevel": "http://id.loc.gov/ontologies/bibframe/hierarchicalLevel",
+    "identifiedBy": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/identifiedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "instrument": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/instrument",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "instrumentalType": "http://id.loc.gov/ontologies/bibframe/instrumentalType",
+    "intendedAudience": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/intendedAudience",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "isMemberofMADSScheme": "http://www.loc.gov/mads/rdf/v1#isMemberOfMADSScheme",
+    "issuedWith": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/issuedWith",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "itemPortion": "http://id.loc.gov/ontologies/bibframe/itemPortion",
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "language": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/language",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "legalDate": "http://id.loc.gov/ontologies/bibframe/legalDate",
+    "mainTitle": "http://id.loc.gov/ontologies/bibframe/mainTitle",
+    "mergedToForm": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/mergedToForm",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "mergerOf": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/mergerOf",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "metadataLicensor": {
+      "@id": "http://id.loc.gov/ontologies/bflc/metadataLicensor",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "musicOpusNumber": "http://id.loc.gov/ontologies/bibframe/musicOpusNumber",
+    "musicFormat": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/musicFormat",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "musicKey": "http://id.loc.gov/ontologies/bibframe/musicKey",
+    "musicMedium": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/musicMedium",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "musicSerialNumber": "http://id.loc.gov/ontologies/bibframe/musicSerialNumber",
+    "musicThematicNumber": "http://id.loc.gov/ontologies/bibframe/musicThematicNumber",
+    "name00MarcKey": "http://id.loc.gov/ontologies/bflc/name00MarcKey",
+    "name00MatchKey": "http://id.loc.gov/ontologies/bflc/name00MatchKey",
+    "name10MarcKey": "http://id.loc.gov/ontologies/bflc/name10MarcKey",
+    "name10MatchKey": "http://id.loc.gov/ontologies/bflc/name10MatchKey",
+    "name11MarcKey": "http://id.loc.gov/ontologies/bflc/name11MarcKey",
+    "name11MatchKey": "http://id.loc.gov/ontologies/bflc/name11MatchKey",
+    "natureOfContent": "http://id.loc.gov/ontologies/bibframe/natureOfContent",
+    "notation": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/notation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "note": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/note",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "noteType": "http://id.loc.gov/ontologies/bibframe/noteType",
+    "organization": "http://id.loc.gov/ontologies/bibframe/organization",
+    "originDate": "http://id.loc.gov/ontologies/bibframe/originDate",
+    "otherEdition": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/otherEdition",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "outerGRing": "http://id.loc.gov/ontologies/bibframe/outerGRing",
+    "part": "http://id.loc.gov/ontologies/bibframe/part",
+    "partName": "http://id.loc.gov/ontologies/bibframe/partName",
+    "partNumber": "http://id.loc.gov/ontologies/bibframe/partNumber",
+    "partOf": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/partOf",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "pattern": "http://id.loc.gov/ontologies/bibframe/pattern",
+    "place": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/place",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "precededBy": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/precededBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "primaryContributorName00MatchKey": "http://id.loc.gov/ontologies/bflc/primaryContributorName00MatchKey",
+    "primaryContributorName10MatchKey": "http://id.loc.gov/ontologies/bflc/primaryContributorName10MatchKey",
+    "primaryContributorName11MatchKey": "http://id.loc.gov/ontologies/bflc/primaryContributorName11MatchKey",
+    "projection": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/projection",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "relatedTo": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/relatedTo",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "relation": {
+      "@id": "http://id.loc.gov/ontologies/bflc/relation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "relationship": {
+      "@id": "http://id.loc.gov/ontologies/bflc/relationship",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "role": "http://id.loc.gov/ontologies/bibframe/role",
+    "scale": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/scale",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "separatedFrom": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/separatedFrom",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "source": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/source",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "splitInto": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/splitInto",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "status": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/status",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "subject": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/subject",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "subtitle": "http://id.loc.gov/ontologies/bibframe/subtitle",
+    "succeededBy": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/succeededBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "summary": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/summary",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "supplement": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/supplement",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "supplementaryContent": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/supplementaryContent",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "supplementTo": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/supplementTo",
+      "@type": "@id"
+    },
+    "temporalCoverage": "http://id.loc.gov/ontologies/bibframe/temporalCoverage",
+    "title": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/title",
+      "@type": "@id"
+    },
+    "title00MarcKey": "http://id.loc.gov/ontologies/bflc/title00MarcKey",
+    "title00MatchKey": "http://id.loc.gov/ontologies/bflc/title00MatchKey",
+    "title10MarcKey": "http://id.loc.gov/ontologies/bflc/title10MarcKey",
+    "title10MatchKey": "http://id.loc.gov/ontologies/bflc/title10MatchKey",
+    "title11MarcKey": "http://id.loc.gov/ontologies/bflc/title11MarcKey",
+    "title11MatchKey": "http://id.loc.gov/ontologies/bflc/title11MatchKey",
+    "title30MarcKey": "http://id.loc.gov/ontologies/bflc/title30MarcKey",
+    "title30MatchKey": "http://id.loc.gov/ontologies/bflc/title30MatchKey",
+    "title40MarcKey": "http://id.loc.gov/ontologies/bflc/title40MarcKey",
+    "title40MatchKey": "http://id.loc.gov/ontologies/bflc/title40MatchKey",
+    "titleSortKey": "http://id.loc.gov/ontologies/bflc/titleSortKey",
+    "translation": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/translation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "translationOf": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/translationOf",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "version": "http://id.loc.gov/ontologies/bibframe/version",
+    "voice": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/voice",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "voiceType": "http://id.loc.gov/ontologies/bibframe/voiceType"
   }
 }
